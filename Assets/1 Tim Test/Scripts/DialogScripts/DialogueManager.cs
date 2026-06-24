@@ -11,11 +11,23 @@ public class DialogueManager : MonoBehaviour
 
     public TMP_Text dialogueText;
 
+    public GameObject[] choicePanels;
+
     public TMP_Text[] choiceTexts;
 
     [Header("Camera")]
 
     public Camera playerCamera;
+
+    [Header("Player")]
+
+    public PlayerLock playerLock;
+
+    public GameObject player;
+
+    public MonoBehaviour playerMovement;
+
+    public MonoBehaviour mouseLook;
 
     private DialogueData currentDialogue;
 
@@ -32,6 +44,11 @@ public class DialogueManager : MonoBehaviour
     {
         if (!dialogueActive)
             return;
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                EndDialogue();
+            }
 
         for (int i = 0; i < choiceTexts.Length; i++)
         {
@@ -52,39 +69,65 @@ public class DialogueManager : MonoBehaviour
 
         dialogueActive = true;
 
+        if(playerMovement != null)
+        {
+            playerMovement.enabled = false;
+        }
+
+        if(mouseLook != null)
+        {
+            mouseLook.enabled = false;
+        }
+
         dialoguePanel.SetActive(true);
 
-        playerCamera.transform.position =
-            cameraPoint.position;
-
-        playerCamera.transform.rotation =
-            cameraPoint.rotation;
+        playerLock.LockPlayer(cameraPoint);
 
         ShowNode();
     }
 
     void ShowNode()
     {
+        Debug.Log("Anzahl Choices: " +
+        currentDialogue.nodes[currentNode].choices.Count);
+
         DialogueNode node =
-            currentDialogue.nodes[currentNode];
+        currentDialogue.nodes[currentNode];
 
         dialogueText.text =
-            node.dialogueText;
+        node.dialogueText;
 
         for (int i = 0; i < choiceTexts.Length; i++)
         {
             if (i < node.choices.Count)
             {
+                choicePanels[i].SetActive(true);
                 choiceTexts[i].gameObject.SetActive(true);
+
+                Debug.Log("Choice Text: " + node.choices[i].answerText);
 
                 choiceTexts[i].text =
                     (i + 1) + ". " +
                     node.choices[i].answerText;
+
+                Debug.Log("TMP Inhalt: " + choiceTexts[i].text);
             }
             else
             {
+                choicePanels[i].SetActive(false);
                 choiceTexts[i].gameObject.SetActive(false);
             }
+        }
+    
+
+
+        for(int i = 0; i < choiceTexts.Length; i++)
+        {
+            Debug.Log(
+                choiceTexts[i].name +
+                " aktiv: " +
+                choiceTexts[i].gameObject.activeSelf
+            );
         }
     }
 
@@ -114,6 +157,23 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueActive = false;
 
+        playerLock.UnlockPlayer();
+
         dialoguePanel.SetActive(false);
+
+        for(int i = 0; i < choicePanels.Length; i++)
+        {
+            choicePanels[i].SetActive(false);
+        }
+
+        if(playerMovement != null)
+        {
+            playerMovement.enabled = true;
+        }
+
+        if(mouseLook != null)
+        {
+            mouseLook.enabled = true;
+        }
     }
 }

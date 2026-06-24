@@ -1,2 +1,18 @@
 fileFormatVersion: 2
 guid: 4eb13e563528f6543a26d36cc95e02f1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - dialoguePanel: {instanceID: 0}
+  - dialogueText: {instanceID: 0}
+  - playerCamera: {instanceID: 0}
+  - playerLock: {instanceID: 0}
+  - player: {fileID: 1773623360729482, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
+  - playerMovement: {instanceID: 0}
+  - mouseLook: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

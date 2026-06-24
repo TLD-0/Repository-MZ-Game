@@ -154,7 +154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 347, y: 259.8}
+  m_AnchoredPosition: {x: 269.6, y: 259.8}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &157236538
@@ -398,7 +398,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 347, y: 364}
+  m_AnchoredPosition: {x: 269.59998, y: 364}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &410473519
@@ -543,7 +543,7 @@ Transform:
   m_GameObject: {fileID: 690142507}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.01, y: 2.41, z: -0.66}
+  m_LocalPosition: {x: -0.005, y: 3, z: -19.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -697,7 +697,7 @@ GameObject:
   - component: {fileID: 759667105}
   - component: {fileID: 759667106}
   - component: {fileID: 759667109}
-  - component: {fileID: 759667108}
+  - component: {fileID: 759667110}
   m_Layer: 0
   m_Name: NPC Kollegin
   m_TagString: Untagged
@@ -714,7 +714,7 @@ Transform:
   m_GameObject: {fileID: 759667104}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.01, y: 2.41, z: -2.66}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -780,52 +780,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &759667108
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 759667104}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 2}
-  m_EdgeRadius: 0
 --- !u!114 &759667109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -840,6 +794,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogue: {fileID: 11400000, guid: e5dfa7c955d61d946a5ca3740fc98047, type: 2}
   cameraPoint: {fileID: 690142508}
+--- !u!65 &759667110
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759667104}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &910637557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,7 +994,7 @@ Transform:
   m_GameObject: {fileID: 1185974134}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.36517, y: 423.8036, z: 552.1082}
+  m_LocalPosition: {x: 0, y: 0, z: 38.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1337,7 +1312,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 900, y: 200}
+  m_SizeDelta: {x: 900, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1524595595
 MonoBehaviour:
@@ -1513,10 +1488,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
   dialoguePanel: {fileID: 1524595593}
   dialogueText: {fileID: 401331526}
+  choicePanels:
+  - {fileID: 157236536}
+  - {fileID: 410473517}
   choiceTexts:
   - {fileID: 1423511305}
   - {fileID: 758539158}
   playerCamera: {fileID: 3375980308633649883}
+  playerLock: {fileID: 2334191348178967537}
+  player: {fileID: 1845523410478790732}
+  playerMovement: {fileID: 3389259385369826909}
+  mouseLook: {fileID: 0}
 --- !u!4 &1898214918
 Transform:
   m_ObjectHideFlags: 0
@@ -1526,7 +1508,7 @@ Transform:
   m_GameObject: {fileID: 1898214916}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 41.934204, y: 423.8036, z: 557.5457}
+  m_LocalPosition: {x: 41.934204, y: 424.2, z: 557.5457}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2670,6 +2652,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2334191348178967535}
   - component: {fileID: 2334191348178967536}
+  - component: {fileID: 2334191348178967537}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2744,7 +2727,7 @@ Transform:
   m_GameObject: {fileID: 1010970120110468631}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -87.524414, y: 423.80362, z: 577.5136}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3068,7 +3051,7 @@ Transform:
   m_GameObject: {fileID: 1845523410478790732}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.82985, y: 443.8036, z: 533.47687}
+  m_LocalPosition: {x: 0, y: 25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3087,7 +3070,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397a1b02974b8ea4eae5e96429a7117f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
-  interactDistance: 3
+  interactDistance: 10
+--- !u!114 &2334191348178967537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845523410478790732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b550c5298cbb3cc47802733d30f28cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLock
 --- !u!33 &2349986915232770899
 MeshFilter:
   m_ObjectHideFlags: 0

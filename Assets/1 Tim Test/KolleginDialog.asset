@@ -18,13 +18,13 @@ MonoBehaviour:
     - answerText: Test Choice 1.1
       nextNode: 0
     - answerText: Test Choice 1.2
-      nextNode: 0
+      nextNode: 1
   - dialogueText: Test Dialog 2
     choices:
     - answerText: Test Choice 2.1
-      nextNode: 0
+      nextNode: 2
     - answerText: Test Choice 2.2
-      nextNode: 0
+      nextNode: 3
   - dialogueText: Test Dialog 3
     choices:
     - answerText: Test Choice 3.1
