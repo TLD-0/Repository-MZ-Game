@@ -27,8 +27,8 @@ public class PlayerLock : MonoBehaviour
 
     public void LockPlayer(Transform targetPoint)
     {
-        //Debug.Log("LockPlayer wurde aufgerufen");
-        //Debug.Log(targetPoint.position);
+        Debug.Log("LockPlayer wurde aufgerufen");
+        Debug.Log(targetPoint.position);
 
         locked = true;
 
