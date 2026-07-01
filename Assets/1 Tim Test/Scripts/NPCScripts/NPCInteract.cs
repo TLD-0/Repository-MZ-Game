@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class NPCInteraction : MonoBehaviour
 {
+    public Camera playerCamera;
+
     public float interactDistance = 3f;
 
     private NPCDialogue currentNPC;
@@ -18,11 +20,17 @@ public class NPCInteraction : MonoBehaviour
 
     void CheckNPC()
     {
+        if (Camera.main == null)
+        {
+            Debug.LogError("Main Camera is NULL!");
+            return;
+        }
+
         currentNPC = null;
 
         Ray ray = new Ray(
-            Camera.main.transform.position,
-            Camera.main.transform.forward);
+            playerCamera.transform.position,
+            playerCamera.transform.forward);
 
         RaycastHit hit;
 
