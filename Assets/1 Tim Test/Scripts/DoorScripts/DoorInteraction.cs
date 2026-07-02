@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class DoorInteraction : MonoBehaviour
 {
-    public float interactDistance = 10f;
+    [Header("References")]
+    public Camera playerCamera;
     public GameObject interactText;
+
+    [Header("Settings")]
+    public float interactDistance = 3f;
 
     private Door currentDoor;
 
@@ -21,60 +25,54 @@ public class DoorInteraction : MonoBehaviour
     {
         currentDoor = null;
 
+        if (playerCamera == null)
+        {
+            Debug.LogError("DoorInteraction: Player Camera wurde nicht zugewiesen.");
+            return;
+        }
+
         Ray ray = new Ray(
-            Camera.main.transform.position,
-            Camera.main.transform.forward);
+            playerCamera.transform.position,
+            playerCamera.transform.forward);
 
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, interactDistance))
         {
-            Debug.Log("Getroffen: " + hit.collider.name);
-
             Door door = hit.collider.GetComponent<Door>();
 
             if (door != null)
             {
-                Debug.Log("Tür erkannt: " + door.name);
-
                 currentDoor = door;
 
                 if (interactText != null)
-                {
                     interactText.SetActive(true);
-                }
 
                 return;
             }
         }
 
         if (interactText != null)
-        {
             interactText.SetActive(false);
-        }
     }
 
     void Interact()
     {
-        Debug.Log("E gedrückt");
+        if (currentDoor == null)
+            return;
 
-        if (currentDoor != null)
+        if (currentDoor.destination == null)
         {
-            Debug.Log("Teleportiere");
-
-            CharacterController cc = GetComponent<CharacterController>();
-
-            if (cc != null)
-            {
-                cc.enabled = false;
-            }
-
-            transform.position = currentDoor.destination.position;
-
-            if (cc != null)
-            {
-                cc.enabled = true;
-            }
+            Debug.LogError(
+                "Diese Tür hat kein Destination-Objekt: " +
+                currentDoor.name);
+            return;
         }
+
+        transform.position = currentDoor.destination.position;
+        transform.rotation = currentDoor.destination.rotation;
+
+        if (interactText != null)
+            interactText.SetActive(false);
     }
 }
