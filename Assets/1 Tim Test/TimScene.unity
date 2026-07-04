@@ -368,6 +368,7 @@ MonoBehaviour:
   startDialogue: {fileID: 0}
   activeDialogue: {fileID: 0}
   completedDialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
   questID: 0
 --- !u!114 &91423463
@@ -383,6 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
 --- !u!65 &91423464
 BoxCollider:
@@ -1421,7 +1423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 510243636}
   m_Layer: 0
-  m_Name: CameraPointTestBase
+  m_Name: PlayerPointTestBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1435,13 +1437,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510243635}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 872155510}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &525823050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,6 +1738,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 759667105}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &697048806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 697048807}
+  m_Layer: 0
+  m_Name: TestQuestObjectDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &697048807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697048806}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1070766532}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &712534176
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,6 +2049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogue: {fileID: 11400000, guid: e5dfa7c955d61d946a5ca3740fc98047, type: 2}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 690142508}
 --- !u!65 &759667110
 BoxCollider:
@@ -2053,6 +2087,7 @@ MonoBehaviour:
   startDialogue: {fileID: 0}
   activeDialogue: {fileID: 0}
   completedDialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
   questID: 0
 --- !u!114 &759667112
@@ -2207,6 +2242,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &794644893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 794644894}
+  m_Layer: 0
+  m_Name: CameraPointTestBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &794644894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794644893}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 872155510}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &805131309
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,6 +2340,7 @@ MonoBehaviour:
   startDialogue: {fileID: 0}
   activeDialogue: {fileID: 0}
   completedDialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
   questID: 0
 --- !u!114 &805131313
@@ -2289,6 +2356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
 --- !u!65 &805131314
 BoxCollider:
@@ -2412,6 +2480,7 @@ MonoBehaviour:
   startDialogue: {fileID: 0}
   activeDialogue: {fileID: 0}
   completedDialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
   questID: 0
 --- !u!114 &860564717
@@ -2427,6 +2496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
 --- !u!65 &860564718
 BoxCollider:
@@ -2484,6 +2554,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 510243636}
+  - {fileID: 794644894}
   - {fileID: 772104781}
   - {fileID: 283811234}
   m_Father: {fileID: 1185974135}
@@ -2513,10 +2584,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3063de367173d544f9f6d06eec715c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCQuestDialogue
-  startDialogue: {fileID: 0}
-  activeDialogue: {fileID: 0}
-  completedDialogue: {fileID: 0}
-  cameraPoint: {fileID: 0}
+  startDialogue: {fileID: 11400000, guid: e2cebc53ded401c4c91c57d365ebdc61, type: 2}
+  activeDialogue: {fileID: 11400000, guid: 05024bc80bac04c4eb561db70b629fda, type: 2}
+  completedDialogue: {fileID: 11400000, guid: c4da7ca5d456b7d49bccd9fa8d5d8611, type: 2}
+  playerPoint: {fileID: 0}
+  cameraPoint: {fileID: 510243636}
   questID: 0
 --- !u!114 &872155513
 MonoBehaviour:
@@ -2530,8 +2602,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54680d152c11444d901accad4768d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
-  dialogue: {fileID: 11400000, guid: e5dfa7c955d61d946a5ca3740fc98047, type: 2}
-  cameraPoint: {fileID: 510243636}
+  dialogue: {fileID: 11400000, guid: e2cebc53ded401c4c91c57d365ebdc61, type: 2}
+  playerPoint: {fileID: 510243636}
+  cameraPoint: {fileID: 794644894}
 --- !u!65 &872155514
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2637,6 +2710,7 @@ MonoBehaviour:
   startDialogue: {fileID: 0}
   activeDialogue: {fileID: 0}
   completedDialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
   questID: 0
 --- !u!114 &904512695
@@ -2652,6 +2726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
 --- !u!65 &904512696
 BoxCollider:
@@ -3104,7 +3179,7 @@ GameObject:
   - component: {fileID: 1070766536}
   - component: {fileID: 1070766535}
   - component: {fileID: 1070766534}
-  - component: {fileID: 1070766533}
+  - component: {fileID: 1070766538}
   m_Layer: 0
   m_Name: TestQuestObject
   m_TagString: Untagged
@@ -3124,22 +3199,10 @@ Transform:
   m_LocalPosition: {x: 6.78, y: 0.77, z: 36.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 697048807}
   m_Father: {fileID: 157901388}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1070766533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1070766531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc8826224e4516141945d733f19d1b8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QuestCompleteTrigger
-  questID: 0
 --- !u!65 &1070766534
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3155,7 +3218,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3241,6 +3304,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070766531}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1070766538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070766531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee053e3f5d682b449e2fb3be8167653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
+  questID: 0
+  destination: {fileID: 697048807}
 --- !u!1 &1185974134
 GameObject:
   m_ObjectHideFlags: 0
@@ -3625,6 +3702,7 @@ MonoBehaviour:
   startDialogue: {fileID: 0}
   activeDialogue: {fileID: 0}
   completedDialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
   questID: 0
 --- !u!114 &1379229757
@@ -3640,6 +3718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
 --- !u!65 &1379229758
 BoxCollider:
@@ -3883,6 +3962,7 @@ MonoBehaviour:
   startDialogue: {fileID: 0}
   activeDialogue: {fileID: 0}
   completedDialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
   questID: 0
 --- !u!114 &1485854770
@@ -3898,6 +3978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
 --- !u!65 &1485854771
 BoxCollider:
@@ -3937,6 +4018,143 @@ MonoBehaviour:
   player: {fileID: 3359559372231027817}
   startFadeDistance: 15
   endFadeDistance: 5
+--- !u!1 &1491662557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1491662560}
+  - component: {fileID: 1491662559}
+  - component: {fileID: 1491662558}
+  m_Layer: 5
+  m_Name: Object Interact Text
+  m_TagString: Door
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1491662558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491662557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Press E to interact
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 20
+  m_fontSizeBase: 20
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: -35.37346}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1491662559
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491662557}
+  m_CullTransparentMesh: 1
+--- !u!224 &1491662560
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491662557}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1764117148}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -68}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1524595593
 GameObject:
   m_ObjectHideFlags: 0
@@ -4080,6 +4298,7 @@ MonoBehaviour:
   startDialogue: {fileID: 0}
   activeDialogue: {fileID: 0}
   completedDialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
   questID: 0
 --- !u!114 &1548376323
@@ -4095,6 +4314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
 --- !u!65 &1548376324
 BoxCollider:
@@ -4354,6 +4574,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1225620090}
+  - {fileID: 1491662560}
   - {fileID: 1524595594}
   - {fileID: 157236537}
   - {fileID: 410473518}
@@ -4522,6 +4743,7 @@ MonoBehaviour:
   startDialogue: {fileID: 0}
   activeDialogue: {fileID: 0}
   completedDialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
   questID: 0
 --- !u!114 &1824111382
@@ -4537,6 +4759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogue: {fileID: 0}
+  playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
 --- !u!65 &1824111383
 BoxCollider:
@@ -4614,10 +4837,10 @@ MonoBehaviour:
   - {fileID: 1423511305}
   - {fileID: 758539158}
   playerCamera: {fileID: 3375980308633649883}
-  playerLock: {fileID: 2334191348178967537}
-  player: {fileID: 1845523410478790732}
+  playerLock: {fileID: 3420262980671994326}
+  player: {fileID: 3357208019475347393}
   playerMovement: {fileID: 3389259385369826909}
-  mouseLook: {fileID: 0}
+  mouseLook: {fileID: 3388438992632810775}
 --- !u!4 &1898214918
 Transform:
   m_ObjectHideFlags: 0
@@ -6074,8 +6297,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2334191348178967535}
-  - component: {fileID: 2334191348178967536}
-  - component: {fileID: 2334191348178967537}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6481,32 +6702,6 @@ Transform:
   - {fileID: 3359559372231027817}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2334191348178967536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845523410478790732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 397a1b02974b8ea4eae5e96429a7117f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
-  playerCamera: {fileID: 3375980308633649883}
-  interactDistance: 10
---- !u!114 &2334191348178967537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845523410478790732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b550c5298cbb3cc47802733d30f28cab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerLock
 --- !u!33 &2349986915232770899
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7346,7 +7541,10 @@ GameObject:
   - component: {fileID: 3389259385369826909}
   - component: {fileID: 3388880403165369253}
   - component: {fileID: 3388616264462192527}
+  - component: {fileID: 3420262980671994327}
+  - component: {fileID: 3420262980671994326}
   - component: {fileID: 3420262980671994324}
+  - component: {fileID: 3420262980671994325}
   m_Layer: 0
   m_Name: First Person Controller
   m_TagString: Player
@@ -7669,6 +7867,49 @@ MonoBehaviour:
   playerCamera: {fileID: 3375980308633649883}
   interactText: {fileID: 1225620089}
   interactDistance: 3
+--- !u!114 &3420262980671994325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3357208019475347393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ff80f3818d14e45b7c4e203ec346d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerQuestObjectInteraction
+  playerCamera: {fileID: 3375980308633649883}
+  interactText: {fileID: 1491662557}
+  interactDistance: 3
+--- !u!114 &3420262980671994326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3357208019475347393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b550c5298cbb3cc47802733d30f28cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLock
+  movementScript: {fileID: 3389259385369826909}
+  lookScript: {fileID: 3388438992632810775}
+--- !u!114 &3420262980671994327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3357208019475347393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397a1b02974b8ea4eae5e96429a7117f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
+  playerCamera: {fileID: 3375980308633649883}
+  interactDistance: 10
 --- !u!4 &3422688040132332830
 Transform:
   m_ObjectHideFlags: 0

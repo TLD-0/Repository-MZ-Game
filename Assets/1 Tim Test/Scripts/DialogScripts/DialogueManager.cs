@@ -40,6 +40,7 @@ public class DialogueManager : MonoBehaviour
         Instance = this;
     }
 
+/*
     private void Update()
     {
         if (!dialogueActive)
@@ -58,66 +59,114 @@ public class DialogueManager : MonoBehaviour
             }
         }
     }
+*/
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("ESC erkannt. dialogueActive = " + dialogueActive);
+
+            if (dialogueActive)
+            {
+                EndDialogue();
+                return;
+            }
+        }
+
+        if (!dialogueActive)
+            return;
+
+        for (int i = 0; i < choiceTexts.Length; i++)
+        {
+            if (Input.GetKeyDown((KeyCode)((int)KeyCode.Alpha1 + i)))
+            {
+                SelectChoice(i);
+            }
+        }
+    }
 
     public void StartDialogue(
         DialogueData dialogue,
+        Transform playerPoint,
         Transform cameraPoint)
     {
         currentDialogue = dialogue;
+
+        if (dialogue == null || dialogue.nodes == null || dialogue.nodes.Count == 0)
+        {
+            Debug.LogError("DialogueManager: Dieser NPC hat keine gültigen Dialogue Nodes.");
+            return;
+        }
 
         currentNode = 0;
 
         dialogueActive = true;
 
-        if(playerMovement != null)
-        {
-            playerMovement.enabled = false;
-        }
-
-        if(mouseLook != null)
-        {
-            mouseLook.enabled = false;
-        }
-
         dialoguePanel.SetActive(true);
 
-        playerLock.LockPlayer(cameraPoint);
+        if (playerLock != null)
+        {
+            playerLock.LockPlayer(playerPoint, cameraPoint);
+        }
+        else
+        {
+            Debug.LogError("DialogueManager: PlayerLock ist nicht zugewiesen.");
+            return;
+        }
 
         ShowNode();
     }
 
     void ShowNode()
     {
-        Debug.Log("Anzahl Choices: " +
-        currentDialogue.nodes[currentNode].choices.Count);
-
-        DialogueNode node =
-        currentDialogue.nodes[currentNode];
-
-        dialogueText.text =
-        node.dialogueText;
-
-        for (int i = 0; i < choiceTexts.Length; i++)
+        if (currentDialogue == null)
         {
-            if (i < node.choices.Count)
-            {
-                choicePanels[i].SetActive(true);
-                choiceTexts[i].gameObject.SetActive(true);
-
-                Debug.Log("Choice Text: " + node.choices[i].answerText);
-
-                choiceTexts[i].text =
-                    (i + 1) + ". " +
-                    node.choices[i].answerText;
-
-                Debug.Log("TMP Inhalt: " + choiceTexts[i].text);
-            }
-            else
-            {
-                choicePanels[i].SetActive(false);
-                choiceTexts[i].gameObject.SetActive(false);
-            }
+            Debug.LogError("DialogueManager: currentDialogue ist null.");
+            return;
         }
+
+        if (currentNode < 0 || currentNode >= currentDialogue.nodes.Count)
+        {
+            Debug.LogError("DialogueManager: Ungültiger Node: " + currentNode);
+            return;
+        }
+
+        DialogueNode node = currentDialogue.nodes[currentNode];
+
+        if (dialogueText == null)
+        {
+            Debug.LogError("DialogueManager: Dialogue Text ist nicht zugewiesen.");
+            return;
+        }
+
+        dialogueText.text = node.dialogueText;
+
+        Debug.Log("Dialogtext wird geschrieben auf: " +
+            dialogueText.gameObject.name +
+            " | Inhalt: " + dialogueText.text);
+
+            for (int i = 0; i < choiceTexts.Length; i++)
+            {
+                if (i < node.choices.Count)
+                {
+                    choicePanels[i].SetActive(true);
+                    choiceTexts[i].gameObject.SetActive(true);
+
+                    Debug.Log("Choice Text: " + node.choices[i].answerText);
+
+                    choiceTexts[i].text =
+                        (i + 1) + ". " +
+                        node.choices[i].answerText;
+
+                    Debug.Log("TMP Inhalt: " + choiceTexts[i].text);
+                }
+                else
+                {
+                    choicePanels[i].SetActive(false);
+                    choiceTexts[i].gameObject.SetActive(false);
+                }
+            }
     
 
 
@@ -157,23 +206,43 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueActive = false;
 
-        playerLock.UnlockPlayer();
+        Debug.Log("EndDialogue wurde aufgerufen");
 
-        dialoguePanel.SetActive(false);
-
-        for(int i = 0; i < choicePanels.Length; i++)
+        if (playerLock != null)
         {
-            choicePanels[i].SetActive(false);
+            playerLock.UnlockPlayer();
+        }
+        else
+        {
+            Debug.LogError("DialogueManager: Player Lock ist nicht zugewiesen.");
         }
 
-        if(playerMovement != null)
+        if (dialoguePanel != null)
         {
-            playerMovement.enabled = true;
+            dialoguePanel.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("DialogueManager: Dialogue Panel ist nicht zugewiesen.");
         }
 
-        if(mouseLook != null)
+        for (int i = 0; i < choicePanels.Length; i++)
         {
-            mouseLook.enabled = true;
+            if (choicePanels[i] != null)
+            {
+                choicePanels[i].SetActive(false);
+            }
+            else
+            {
+                Debug.LogError(
+                    "DialogueManager: Choice Panel Element " + i +
+                    " ist nicht zugewiesen.");
+            }
+        }
+
+        if (playerLock != null)
+        {
+            playerLock.UnlockPlayer();
         }
     }
 }

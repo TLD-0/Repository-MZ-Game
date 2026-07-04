@@ -2,43 +2,48 @@ using UnityEngine;
 
 public class NPCQuestDialogue : MonoBehaviour
 {
-    public DialogueData startDialogue;
-    public DialogueData activeDialogue;
-    public DialogueData completedDialogue;
+public DialogueData startDialogue;
+public DialogueData activeDialogue;
+public DialogueData completedDialogue;
 
-    public Transform cameraPoint;
+[Header("Dialog Positionen")]
+public Transform playerPoint;
+public Transform cameraPoint;
 
-    public int questID;
+public int questID;
 
-    public void StartNPCDialogue()
+public void StartNPCDialogue()
     {
         QuestStatus status = GetQuestStatus();
 
-        if(status == QuestStatus.NotStarted)
+        if (status == QuestStatus.NotStarted)
         {
             DialogueManager.Instance.StartDialogue(
                 startDialogue,
+                playerPoint,
                 cameraPoint);
 
             SetQuestActive();
         }
-        else if(status == QuestStatus.Active)
+        else if (status == QuestStatus.Active)
         {
             DialogueManager.Instance.StartDialogue(
                 activeDialogue,
+                playerPoint,
                 cameraPoint);
         }
-        else if(status == QuestStatus.Completed)
+        else if (status == QuestStatus.Completed)
         {
             DialogueManager.Instance.StartDialogue(
                 completedDialogue,
+                playerPoint,
                 cameraPoint);
         }
     }
 
     QuestStatus GetQuestStatus()
     {
-        switch(questID)
+        switch (questID)
         {
             case 1:
                 return QuestManager.Instance.quest1;
@@ -58,26 +63,22 @@ public class NPCQuestDialogue : MonoBehaviour
 
     void SetQuestActive()
     {
-        switch(questID)
+        switch (questID)
         {
             case 1:
-                QuestManager.Instance.quest1 =
-                    QuestStatus.Active;
+                QuestManager.Instance.quest1 = QuestStatus.Active;
                 break;
 
             case 2:
-                QuestManager.Instance.quest2 =
-                    QuestStatus.Active;
+                QuestManager.Instance.quest2 = QuestStatus.Active;
                 break;
 
             case 3:
-                QuestManager.Instance.quest3 =
-                    QuestStatus.Active;
+                QuestManager.Instance.quest3 = QuestStatus.Active;
                 break;
 
             case 4:
-                QuestManager.Instance.quest4 =
-                    QuestStatus.Active;
+                QuestManager.Instance.quest4 = QuestStatus.Active;
                 break;
         }
     }
