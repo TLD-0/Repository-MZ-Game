@@ -16,16 +16,21 @@ public class QuestInteractObject : MonoBehaviour
             return;
         }
 
-        // Objekt an seinen neuen Ort bewegen
-        transform.position = destination.position;
-        transform.rotation = destination.rotation;
-
-        // Quest abschließen
         if (QuestManager.Instance == null)
         {
             Debug.LogError("QuestManager wurde nicht gefunden.");
             return;
         }
+
+        if (!IsQuestActive())
+        {
+            Debug.Log("Quest " + questID + " ist noch nicht aktiv.");
+            return;
+        }
+
+        // Objekt an seinen neuen Ort bewegen
+        transform.position = destination.position;
+        transform.rotation = destination.rotation;
 
         switch (questID)
         {
@@ -51,5 +56,17 @@ public class QuestInteractObject : MonoBehaviour
         }
 
         Debug.Log("Quest " + questID + " abgeschlossen.");
+    }
+    private bool IsQuestActive()
+    {
+        switch (questID)
+        {
+            case 1: return QuestManager.Instance.quest1 == QuestStatus.Active;
+            case 2: return QuestManager.Instance.quest2 == QuestStatus.Active;
+            case 3: return QuestManager.Instance.quest3 == QuestStatus.Active;
+            case 4: return QuestManager.Instance.quest4 == QuestStatus.Active;
+        }
+
+        return false;
     }
 }

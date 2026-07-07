@@ -11,6 +11,9 @@ public class QuestCompleteTrigger : MonoBehaviour
         if(!other.CompareTag("Player"))
             return;
 
+        if (!IsQuestActive())
+        return;
+
             Debug.Log("Quest " + questID + " abgeschlossen");
 
         switch(questID)
@@ -49,5 +52,21 @@ public class QuestCompleteTrigger : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    private bool IsQuestActive()
+    {
+        if (QuestManager.Instance == null)
+            return false;
+
+        switch (questID)
+        {
+            case 1: return QuestManager.Instance.quest1 == QuestStatus.Active;
+            case 2: return QuestManager.Instance.quest2 == QuestStatus.Active;
+            case 3: return QuestManager.Instance.quest3 == QuestStatus.Active;
+            case 4: return QuestManager.Instance.quest4 == QuestStatus.Active;
+        }
+
+        return false;
     }
 }

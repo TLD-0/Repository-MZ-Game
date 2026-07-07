@@ -17,23 +17,39 @@ MonoBehaviour:
     choices:
     - answerText: Test Choice 1.1 BACK
       nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
     - answerText: Test Choice 1.2
       nextNode: 1
+      startsQuest: 0
+      questIDToStart: 0
   - dialogueText: Start Test Dialog 2
     choices:
     - answerText: ' Test Dialog 2.1 BACK'
       nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
     - answerText: Test Choice 2.2
       nextNode: 2
+      startsQuest: 0
+      questIDToStart: 0
   - dialogueText: Start Test Dialog 3
     choices:
     - answerText: Test Choice 3.1 BACK
       nextNode: 1
-    - answerText: Test Choice 3.2
+      startsQuest: 0
+      questIDToStart: 0
+    - answerText: Test Choice 3.2 QUEST 0 START
       nextNode: 3
-  - dialogueText: Start Test Dialog 4
+      startsQuest: 1
+      questIDToStart: 1
+  - dialogueText: Start Test Dialog 4 QUEST 0 STARTED
     choices:
     - answerText: Test Choice 4.1 BACK
       nextNode: 2
+      startsQuest: 0
+      questIDToStart: 0
     - answerText: Test Choice 4.2
       nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0

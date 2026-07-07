@@ -182,14 +182,26 @@ public class DialogueManager : MonoBehaviour
 
     void SelectChoice(int index)
     {
-        DialogueNode node =
-            currentDialogue.nodes[currentNode];
+        DialogueNode node = currentDialogue.nodes[currentNode];
 
-        if (index >= node.choices.Count)
+        if (index < 0 || index >= node.choices.Count)
             return;
 
-        int nextNode =
-            node.choices[index].nextNode;
+        DialogueChoice choice = node.choices[index];
+
+            Debug.Log(
+            "Choice gewählt: " + choice.answerText +
+            " | startsQuest: " + choice.startsQuest +
+            " | questID: " + choice.questIDToStart
+            );
+
+        // Quest nur bei dieser konkreten Antwort starten.
+        if (choice.startsQuest)
+        {
+            StartQuest(choice.questIDToStart);
+        }
+
+        int nextNode = choice.nextNode;
 
         if (nextNode == -1)
         {
@@ -198,9 +210,48 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentNode = nextNode;
-
         ShowNode();
     }
+
+    private void StartQuest(int questID)
+    {
+        if (QuestManager.Instance == null)
+        {
+        Debug.LogError("DialogueManager: QuestManager wurde nicht gefunden.");
+        return;
+        }
+
+        switch (questID)
+        {
+            case 1:
+                QuestManager.Instance.quest1 = QuestStatus.Active;
+                break;
+
+            case 2:
+                QuestManager.Instance.quest2 = QuestStatus.Active;
+                break;
+
+            case 3:
+                QuestManager.Instance.quest3 = QuestStatus.Active;
+                break;
+
+            case 4:
+                QuestManager.Instance.quest4 = QuestStatus.Active;
+                break;
+
+            default:
+                Debug.LogError("DialogueManager: Ungültige Quest-ID: " + questID);
+                return;
+        }
+
+        Debug.Log(
+            "Quest " + questID + " Status nach Start: " +
+            GetQuestStatusForDebug(questID)
+        );
+
+        Debug.Log("Quest " + questID + " wurde gestartet.");
+    }
+
 
     public void EndDialogue()
     {
@@ -208,14 +259,16 @@ public class DialogueManager : MonoBehaviour
 
         Debug.Log("EndDialogue wurde aufgerufen");
 
+/*
         if (playerLock != null)
         {
             playerLock.UnlockPlayer();
-        }
+        } 
         else
         {
             Debug.LogError("DialogueManager: Player Lock ist nicht zugewiesen.");
         }
+*/
 
         if (dialoguePanel != null)
         {
@@ -244,5 +297,19 @@ public class DialogueManager : MonoBehaviour
         {
             playerLock.UnlockPlayer();
         }
+    }
+
+    //Hilfsmethode für Debug
+    private QuestStatus GetQuestStatusForDebug(int questID)
+    {
+        switch (questID)
+        {
+            case 1: return QuestManager.Instance.quest1;
+            case 2: return QuestManager.Instance.quest2;
+            case 3: return QuestManager.Instance.quest3;
+            case 4: return QuestManager.Instance.quest4;
+        }
+
+        return QuestStatus.NotStarted;
     }
 }
