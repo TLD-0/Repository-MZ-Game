@@ -14,4 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: Complete Test Dialog 1
-    choices: []
+    choices:
+    - answerText: Test Choice 1.1 BACK
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+    - answerText: Test Choice 1.2
+      nextNode: 1
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+  - dialogueText: Complete Test Dialog 2
+    choices:
+    - answerText: Test Choice 2.1 BACK
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0

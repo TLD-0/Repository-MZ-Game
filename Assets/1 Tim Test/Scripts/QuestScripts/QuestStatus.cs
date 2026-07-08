@@ -2,5 +2,6 @@ public enum QuestStatus
 {
     NotStarted,
     Active,
-    Completed
+    Completed,
+    Skipped
 }

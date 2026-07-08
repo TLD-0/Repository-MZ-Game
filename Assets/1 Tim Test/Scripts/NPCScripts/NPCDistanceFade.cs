@@ -20,7 +20,6 @@ public class NPCDistanceFade : MonoBehaviour
 
         // t = 0 (weit weg) -> Shadow sichtbar
         // t = 1 (nah) -> Real sichtbar
-
         SetAlpha(shadowSprite, 1f - t);
         SetAlpha(realSprite, t);
     }

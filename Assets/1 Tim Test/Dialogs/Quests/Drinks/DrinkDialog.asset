@@ -10,12 +10,44 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1999e3f6545a4d4292f6f691740f2b0, type: 3}
-  m_Name: TestStartDialog
+  m_Name: DrinkDialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
-  - dialogueText: Start Test Dialog 1
+  - dialogueText: "Welche untere Schicht m\xF6chtest du?"
     choices:
-    - answerText: Test Choice 1.1 BACK
+    - answerText: A
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 1
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: B
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 1
+      sequenceValue: 1
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: C
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 1
+      sequenceValue: 2
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Welche mittlere Schicht m\xF6chtest du?"
+    choices:
+    - answerText: A
       nextNode: 0
       startsQuest: 0
       questIDToStart: 0
@@ -25,19 +57,7 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
-    - answerText: Test Choice 1.2
-      nextNode: 1
-      startsQuest: 0
-      questIDToStart: 0
-      skipsQuest: 0
-      questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
-  - dialogueText: Start Test Dialog 2
-    choices:
-    - answerText: ' Test Dialog 2.1 BACK'
+    - answerText: B
       nextNode: 0
       startsQuest: 0
       questIDToStart: 0
@@ -47,61 +67,7 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
-    - answerText: Test Choice 2.2
-      nextNode: 2
-      startsQuest: 0
-      questIDToStart: 0
-      skipsQuest: 0
-      questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
-  - dialogueText: Start Test Dialog 3
-    choices:
-    - answerText: Test Choice 3.1 BACK
-      nextNode: 1
-      startsQuest: 0
-      questIDToStart: 0
-      skipsQuest: 0
-      questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
-    - answerText: Test Choice 3.2 QUEST 1 START
-      nextNode: 3
-      startsQuest: 1
-      questIDToStart: 1
-      skipsQuest: 0
-      questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
-    - answerText: Test Choice 3.3 QUEST 3 START
-      nextNode: 4
-      startsQuest: 1
-      questIDToStart: 3
-      skipsQuest: 1
-      questIDToSkip: 2
-      addsSequenceValue: 0
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
-  - dialogueText: Start Test Dialog 4 QUEST 1 STARTED
-    choices:
-    - answerText: Test Choice 4.1 BACK
-      nextNode: 2
-      startsQuest: 0
-      questIDToStart: 0
-      skipsQuest: 0
-      questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
-    - answerText: Test Choice 4.2
+    - answerText: C
       nextNode: 0
       startsQuest: 0
       questIDToStart: 0
@@ -111,10 +77,10 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
-  - dialogueText: Start Test Dialog 5 QUEST 3 STARTED
+  - dialogueText: "Welche obere Schicht m\xF6chtest du?"
     choices:
-    - answerText: Test Choice 5.1 BACK
-      nextNode: 2
+    - answerText: A
+      nextNode: 0
       startsQuest: 0
       questIDToStart: 0
       skipsQuest: 0
@@ -123,7 +89,17 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
-    - answerText: Test Choice 5.2
+    - answerText: B
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: C
       nextNode: 0
       startsQuest: 0
       questIDToStart: 0
