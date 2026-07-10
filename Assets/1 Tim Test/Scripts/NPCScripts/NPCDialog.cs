@@ -6,12 +6,14 @@ public class NPCDialogue : MonoBehaviour
 
     public Transform playerPoint;
     public Transform cameraPoint;
+    public NPCEmotionController emotionController;
 
     public void StartNPCDialogue()
     {
         DialogueManager.Instance.StartDialogue(
             dialogue,
             playerPoint,
-            cameraPoint);
+            cameraPoint,
+            emotionController);
     }
 }

@@ -9,6 +9,7 @@ public DialogueData drinkDialogue;
 [Header("Dialog Positionen")]
 public Transform playerPoint;
 public Transform cameraPoint;
+public NPCEmotionController emotionController;
 
 public void StartDrinkTest()
 {
@@ -38,8 +39,7 @@ public void StartDrinkTest()
     DialogueManager.Instance.StartDialogue(
         drinkDialogue,
         playerPoint,
-        cameraPoint);
-}
-
-
+        cameraPoint,
+        emotionController);
+    }
 }

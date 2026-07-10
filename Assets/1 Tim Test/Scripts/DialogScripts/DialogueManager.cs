@@ -17,6 +17,8 @@ public class DialogueManager : MonoBehaviour
     private int currentNode;
     private bool dialogueActive;
 
+    private NPCEmotionController currentEmotionController;
+
     private void Awake()
     {
         Instance = this;
@@ -46,9 +48,10 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void StartDialogue(
-        DialogueData dialogue,
-        Transform playerPoint,
-        Transform cameraPoint)
+    DialogueData dialogue,
+    Transform playerPoint,
+    Transform cameraPoint,
+    NPCEmotionController emotionController)
     {
         if (dialogue == null ||
             dialogue.nodes == null ||
@@ -67,6 +70,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentDialogue = dialogue;
+        currentEmotionController = emotionController;
         currentNode = 0;
         dialogueActive = true;
 
@@ -92,6 +96,11 @@ public class DialogueManager : MonoBehaviour
         }
 
         DialogueNode node = currentDialogue.nodes[currentNode];
+
+        if (currentEmotionController != null)
+        {
+            currentEmotionController.SetEmotion(node.npcEmotion);
+        }
 
         dialogueText.text = node.dialogueText;
 
@@ -257,6 +266,14 @@ public class DialogueManager : MonoBehaviour
         }
 
         if (playerLock != null)
+        {
             playerLock.UnlockPlayer();
+        }
+
+        if (currentEmotionController != null)
+        {
+            currentEmotionController.SetEmotion(NPCEmotion.Neutral);
+        }
+        currentEmotionController = null;
     }
 }

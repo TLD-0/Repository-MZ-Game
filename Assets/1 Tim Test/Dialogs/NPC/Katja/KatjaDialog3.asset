@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1999e3f6545a4d4292f6f691740f2b0, type: 3}
+  m_Name: KatjaDialog3
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  nodes:
+  - dialogueText: "???: Hallo, Unternehmen BaPader. Was\r\nkann ich f\xFCr Sie tun?"
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Maya: Hallo, Katja aus meiner Abteilung hat
+
+      mich gebeten
+      sie anzurufen.'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Unternehmen: Ah ja, ich erinnere mich, wir\r\nbrauchten nochmal
+      Ihre Hilfe. Wir haben in\r\nunserem System fehlerhafte Daten von\r\nIhnen gefunden.
+      Genau. Also, wir haben\r\nmehrere Unstimmigkeiten festgestellt. Zum\r\neinen
+      stimmen die hinterlegten IBAN-Daten\r\nnicht mit den Kontoinformationen \xFCberein,\r\ndie
+      uns f\xFCr die Lastschriftmandate\r\nvorliegen. Das hat bei zwei Buchungen
+      zu\r\nR\xFCcklastschriften gef\xFChrt. Au\xDFerdem\r\nhaben wir gemerkt, dass
+      in Ihrer\r\nUmsatzsteuer-ID ein Zahlendreher drin ist,\r\nwas bedeutet, dass
+      die letzten drei\r\nAusgangsrechnungen formal ung\xFCltig sind\r\nund wir die
+      noch mal neu ausstellen\r\nm\xFCssten. Dazu kommt, dass Ihre\r\nhinterlegte
+      Steuerklassifizierung nicht mit\r\ndem \xFCbereinstimmt, was uns Ihr\r\nSteuerberater
+      damals mitgeteilt hat \u2013 da\r\nw\xE4re zu kl\xE4ren, ob sich da was ge\xE4ndert\r\nhat.
+      Und dann noch eine Kleinigkeit: Die\r\nAnschrift, die wir im System haben,
+      weicht\r\nvon der auf Ihren letzten Dokumenten ab,\r\nwas bei einer eventuellen
+      Betriebspr\xFCfung\r\nproblematisch werden k\xF6nnte."
+    choices: []

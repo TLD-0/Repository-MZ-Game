@@ -34,6 +34,9 @@ public class DialogueNode
     [TextArea(3, 10)]
     public string dialogueText;
 
+    [Header("NPC Emotion")]
+    public NPCEmotion npcEmotion = NPCEmotion.Neutral;
+
     public List<DialogueChoice> choices =
         new List<DialogueChoice>();
 }

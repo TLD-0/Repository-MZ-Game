@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 91423461}
   - component: {fileID: 91423465}
   m_Layer: 0
-  m_Name: NPC FreundinCafe
+  m_Name: NPC Tina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -397,6 +397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCQuestDialogue
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
   quests: []
 --- !u!114 &91423463
 MonoBehaviour:
@@ -413,6 +414,7 @@ MonoBehaviour:
   dialogue: {fileID: 0}
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
 --- !u!65 &91423464
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1059,6 +1061,7 @@ GameObject:
   m_Component:
   - component: {fileID: 283811234}
   - component: {fileID: 283811235}
+  - component: {fileID: 283811236}
   m_Layer: 0
   m_Name: RealSprite
   m_TagString: Untagged
@@ -1140,6 +1143,24 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &283811236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283811233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67443c3e6d310d14fa8810610b9ded20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCEmotionController
+  spriteRenderer: {fileID: 0}
+  neutralSprite: {fileID: 0}
+  happySprite: {fileID: 0}
+  sadSprite: {fileID: 0}
+  angrySprite: {fileID: 0}
+  surprisedSprite: {fileID: 0}
 --- !u!1 &301449623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,7 +1627,7 @@ GameObject:
   m_Component:
   - component: {fileID: 356561690}
   m_Layer: 0
-  m_Name: NPCGrannyObject
+  m_Name: NPCOmaObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1852,7 +1873,7 @@ GameObject:
   m_Component:
   - component: {fileID: 421276601}
   m_Layer: 0
-  m_Name: NPCFCafeObject
+  m_Name: NPCTinaObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2026,7 +2047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 537922488}
   m_Layer: 0
-  m_Name: NPCKolleginObject
+  m_Name: NPCKatjaObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2287,7 +2308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 607341661}
   m_Layer: 0
-  m_Name: CameraPointFCafe
+  m_Name: CameraPointTina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2318,7 +2339,7 @@ GameObject:
   m_Component:
   - component: {fileID: 621265103}
   m_Layer: 0
-  m_Name: CameraPointFBank
+  m_Name: CameraPointTheo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2349,7 +2370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 662552923}
   m_Layer: 0
-  m_Name: CameraPointFClub2
+  m_Name: CameraPointNick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2413,7 +2434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 690142508}
   m_Layer: 0
-  m_Name: CameraPointKollegin
+  m_Name: CameraPointKatja
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2718,7 +2739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 755665072}
   m_Layer: 0
-  m_Name: NPCFBankObject
+  m_Name: NPCTheoObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2893,7 +2914,7 @@ GameObject:
   - component: {fileID: 759667112}
   - component: {fileID: 759667113}
   m_Layer: 0
-  m_Name: NPC Kollegin
+  m_Name: NPC Katja
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2931,6 +2952,7 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: e5dfa7c955d61d946a5ca3740fc98047, type: 2}
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 690142508}
+  emotionController: {fileID: 0}
 --- !u!65 &759667110
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2966,6 +2988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCQuestDialogue
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
   quests: []
 --- !u!114 &759667112
 MonoBehaviour:
@@ -3352,6 +3375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCQuestDialogue
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
   quests: []
 --- !u!114 &805131313
 MonoBehaviour:
@@ -3368,6 +3392,7 @@ MonoBehaviour:
   dialogue: {fileID: 0}
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
 --- !u!65 &805131314
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3519,6 +3544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCQuestDialogue
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
   quests: []
 --- !u!114 &860564717
 MonoBehaviour:
@@ -3535,6 +3561,7 @@ MonoBehaviour:
   dialogue: {fileID: 0}
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
 --- !u!65 &860564718
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3620,6 +3647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCQuestDialogue
   playerPoint: {fileID: 510243636}
   cameraPoint: {fileID: 794644894}
+  emotionController: {fileID: 283811236}
   quests:
   - questID: 1
     startDialogue: {fileID: 11400000, guid: e2cebc53ded401c4c91c57d365ebdc61, type: 2}
@@ -3720,7 +3748,7 @@ GameObject:
   - component: {fileID: 904512693}
   - component: {fileID: 904512697}
   m_Layer: 0
-  m_Name: NPC Granny
+  m_Name: NPC Oma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3770,6 +3798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCQuestDialogue
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
   quests: []
 --- !u!114 &904512695
 MonoBehaviour:
@@ -3786,6 +3815,7 @@ MonoBehaviour:
   dialogue: {fileID: 0}
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
 --- !u!65 &904512696
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4234,7 +4264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1057019563}
   m_Layer: 0
-  m_Name: NPCFClub2Object
+  m_Name: NPCNickObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4749,7 +4779,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1190031734}
   m_Layer: 0
-  m_Name: NPCFClub1Object
+  m_Name: NPCSophyObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4959,6 +4989,7 @@ MonoBehaviour:
   drinkDialogue: {fileID: 0}
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
 --- !u!65 &1241590810
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5191,7 +5222,7 @@ GameObject:
   - component: {fileID: 1379229755}
   - component: {fileID: 1379229759}
   m_Layer: 0
-  m_Name: NPC FreundinClub2
+  m_Name: NPC FreundinNick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5241,6 +5272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCQuestDialogue
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
   quests: []
 --- !u!114 &1379229757
 MonoBehaviour:
@@ -5257,6 +5289,7 @@ MonoBehaviour:
   dialogue: {fileID: 0}
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
 --- !u!65 &1379229758
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5531,6 +5564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCQuestDialogue
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
   quests: []
 --- !u!114 &1485854770
 MonoBehaviour:
@@ -5547,6 +5581,7 @@ MonoBehaviour:
   dialogue: {fileID: 0}
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
 --- !u!65 &1485854771
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5813,7 +5848,7 @@ GameObject:
   - component: {fileID: 1548376321}
   - component: {fileID: 1548376325}
   m_Layer: 0
-  m_Name: NPC FreundinBank
+  m_Name: NPC Theo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5863,6 +5898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCQuestDialogue
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
   quests: []
 --- !u!114 &1548376323
 MonoBehaviour:
@@ -5879,6 +5915,7 @@ MonoBehaviour:
   dialogue: {fileID: 0}
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
 --- !u!65 &1548376324
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6021,7 +6058,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1660846018}
   m_Layer: 0
-  m_Name: CameraPointGranny
+  m_Name: CameraPointOma
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6334,7 +6371,7 @@ GameObject:
   - component: {fileID: 1824111380}
   - component: {fileID: 1824111384}
   m_Layer: 0
-  m_Name: NPC FreundinClub1
+  m_Name: NPC Sophy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6384,6 +6421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCQuestDialogue
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
   quests: []
 --- !u!114 &1824111382
 MonoBehaviour:
@@ -6400,6 +6438,7 @@ MonoBehaviour:
   dialogue: {fileID: 0}
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
 --- !u!65 &1824111383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6815,7 +6854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2112929333}
   m_Layer: 0
-  m_Name: CameraPointFClub1
+  m_Name: CameraPointSophy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6886,6 +6925,7 @@ MonoBehaviour:
   phoneDialogue: {fileID: 0}
   playerPoint: {fileID: 0}
   cameraPoint: {fileID: 0}
+  emotionController: {fileID: 0}
 --- !u!65 &2141005940
 BoxCollider:
   m_ObjectHideFlags: 0

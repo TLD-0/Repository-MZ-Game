@@ -19,6 +19,8 @@ public class NPCQuestDialogue : MonoBehaviour
     public Transform playerPoint;
     public Transform cameraPoint;
 
+    [Header("Emotionen")] 
+    public NPCEmotionController emotionController;
 
     [Header("Quests dieses NPCs")]
     public List<NPCQuestEntry> quests = new List<NPCQuestEntry>();
@@ -40,21 +42,24 @@ public class NPCQuestDialogue : MonoBehaviour
             DialogueManager.Instance.StartDialogue(
                 entry.startDialogue,
                 playerPoint,
-                cameraPoint);
+                cameraPoint,
+                emotionController);
         }
         else if (status == QuestStatus.Active)
         {
             DialogueManager.Instance.StartDialogue(
                 entry.activeDialogue,
                 playerPoint,
-                cameraPoint);
+                cameraPoint,
+                emotionController);
         }
         else if (status == QuestStatus.Completed)
         {
             DialogueManager.Instance.StartDialogue(
                 entry.completedDialogue,
                 playerPoint,
-                cameraPoint);
+                cameraPoint,
+                emotionController);
         }
     }
 

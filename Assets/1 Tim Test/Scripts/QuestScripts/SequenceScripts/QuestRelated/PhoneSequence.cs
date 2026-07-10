@@ -9,6 +9,7 @@ public DialogueData phoneDialogue;
 [Header("Dialog Positionen")]
 public Transform playerPoint;
 public Transform cameraPoint;
+public NPCEmotionController emotionController;
 
 public void StartPhoneTest()
 {
@@ -38,8 +39,7 @@ public void StartPhoneTest()
     DialogueManager.Instance.StartDialogue(
         phoneDialogue,
         playerPoint,
-        cameraPoint);
-}
-
-
+        cameraPoint,
+        emotionController);
+    }
 }

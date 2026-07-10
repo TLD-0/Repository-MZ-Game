@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1999e3f6545a4d4292f6f691740f2b0, type: 3}
+  m_Name: KatjaDialog2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  nodes:
+  - dialogueText: 'Katja: Ich hab einen Anruf aus dem
+
+      Krankenhaus bekommen.'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Katja: Meinem Opa geht''s
+
+      nicht gut, sein Zustand ist
+
+      kritisch.'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Katja: Ich muss schnell weg, aber
+
+      eigentlich muss ich das
+      hier erst fertig
+
+      machen.'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Katja: W\xFCrdest du das f\xFCr\r\nmich \xFCbernehmen?"
+    choices:
+    - answerText: (+) Ja klar, mach dir keinen Kopf.
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: (-) Ich bin leider schon verplant.
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Maya: Ja sicher, dein Opa geht vor. Mach dir keinen Kopf., ich
+      hoffe ihm geht's bald wieder besser.\u201D"
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Katja: Danke, ich bin dir echt was schuldig.'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Katja: K\xF6nntest du noch die Abteilung\r\nanrufen? Nummer steht
+      an meinem PC!"
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Maya: Wo ist ihre Nummer?'
+    choices:
+    - answerText: ESC um Dialog zu beenden.
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Maya: Sorry, ich hab schon was vor, ich muss
+
+      selber gleich
+      los. '
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Katja: Okay, du hast sicher deine Gr\xFCnde."
+    choices:
+    - answerText: ESC um Dialog zu beenden.
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}

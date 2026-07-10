@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1999e3f6545a4d4292f6f691740f2b0, type: 3}
+  m_Name: NickDialog3
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  nodes:
+  - dialogueText: "Maya: Leute, ich w\xFCrde so langsam-"
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Tina & Theo: Du willst schon gehen? Bleib doch noch ein bisschen,
+      wir haben
+
+      doch gerade so viel Spass!'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Sophy: Ja, du willst doch jetzt nicht etwa schon los!'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Nick: Komm schon. Alle bleiben doch noch hier! Wenigsten noch
+      ne Stunde.'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Maya: Naja...'
+    choices:
+    - answerText: "(+) Ich w\xFCrde lieber nach Hause gehen."
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: "(-) Ja gut, f\xFCr euch bleibe ich noch ein bisschen."
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Maya: Tut mir echt leid, aber ich bin schon m\xFCde und mir ist
+      ein bisschen schwindelig.\u201D"
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Maya: Ich will lieber nach Hause. Aber ich hatte sehr viel Spa\xDF
+      mit euch."
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Alle Freunde: Okay, wenn''s dir lieber ist! Erhol dich gut.'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Maya: Na gut, wenn ihr unbedingt wollt...'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}

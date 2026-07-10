@@ -1,0 +1,372 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1999e3f6545a4d4292f6f691740f2b0, type: 3}
+  m_Name: TheoDialog1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  nodes:
+  - dialogueText: 'Maya: Theo? Was machst du denn hier?'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Theo: ...?'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Theo: Oh Maya, du bist es...'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Maya: Ich bin gerade auf em Weg zu den anderen, wir wollten uns
+      doch alle im Club treffen.'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Maya: Kommst du nicht mit?'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Theo: Hast du vielleicht kurz ne'' Minute? Kann ich dir was anvertrauen?'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Theo: Es geht um meine Familie...'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Maya: Was ist denn los?'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Theo: Naja...'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Theo: Ich hab das Gef\xFChl, mein Studium erf\xFCllt mich nicht.
+      Irgendwie pass ich da nicht rein."
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Maya: Echt? Aber du bist doch schon 5 Semester drin.'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Theo: Ja, ich wei\xDF..."
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Theo: Aber meine Familie z\xE4hlt auf mich, mein Vater redet schon\r\ndar\xFCber,
+      wie ich das Familienunternehmen \xFCbernehmen soll..."
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Theo: Ich will sie einfach nicht entt\xE4uschen."
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Theo: Was soll ich denn blo\xDF machen..."
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Maya (zu sich selbst): Ich dachte eigentlich immer er w\xE4re
+      gl\xFCcklich in dem was er tut.."
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Maya (zu sich selbst): Armer Theo.. das ist eine echt schwierige
+      Situation.'
+    choices:
+    - answerText: (+) Folge deinem Herzen.
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: (-) Du bist doch schon fast fertig!
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Maya: Mach das, was dich erf\xFCllt- es bringt nichts den Rest
+      deines Lebens etwas zu machen, wo du ungl\xFCcklich bei bist."
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Maya: Probier dich aus! Man lebt nur einmal!'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Theo: Meinst du wirklich? Aber was werden denn die anderen denken?'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Maya: Es ist wichtig, was du willst, nicht was die anderen denken.'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Maya: Es ist deine Zukunft und deine n\xE4chsten 60 Jahre die
+      du dort verbringen musst."
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Maya: Und jetzt lass uns gehen, die anderen warten schon auf uns!'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Theo: Danke Maya! Das brauchte ich jetzt.'
+    choices:
+    - answerText: ESC
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Maya: Du bist doch schon so weit, beende doch zuerst dein Studium...
+      w\xE4re das nicht besser?"
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Maya: Und du m\xF6chtest auch keinen Konflikt mit deiner Familie.
+      Ihr steht euch ja so nah..."
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Theo: Ja... vielleicht hast du ja Recht... Das w\xE4re bestimmt\r\ndas
+      Logischste, was auch niemanden verletzt..."
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Theo: Wir sehen uns dann gleich im Club... ich brauch aber erst
+      ein bisschen Zeit f\xFCr mich"
+    choices:
+    - answerText: ESC
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}

@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1999e3f6545a4d4292f6f691740f2b0, type: 3}
+  m_Name: KatjaDialog1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  nodes:
+  - dialogueText: 'Katja: Ach, da bist du ja!'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Katja: Heute ist so viel zu tun, ich
+
+      komm gar nicht mehr
+      nach.'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Katja: Machmal frage ich mich\r\nob mir die Arbeit hier \xFCberhaupt\r\nnoch
+      Spass macht."
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Katja: Ach keine Ahnung, ich\r\nwei\xDF nicht.."
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Katja: Aber ich nerv dich jetzt nicht weiter, mach du ruhig deine
+      Arbeit.'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "(in Gedanken) Maya: Ach, ich hab vergessen, Katja Bescheid zu\r\nsagen,
+      dass ich heute fr\xFCher abhauen muss.\r\nHab ja noch Pl\xE4ne.\""
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: 'Katja: Kannst du gleich mal kommen, wenn du fertig bist?'
+    choices:
+    - answerText: Weiter
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "(in Gedanken) Maya: Ich sollte erst meinen Platz aufr\xE4umen,
+      bevor ich mit ihr rede."
+    choices:
+    - answerText: "R\xE4ume die Kaffeetasse weg."
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "(in Gedanken) Maya: Der Papierm\xFCll muss auch weg."
+    choices:
+    - answerText: ESC um Dialog zu beenden.
+      nextNode: 0
+      startsQuest: 0
+      questIDToStart: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
