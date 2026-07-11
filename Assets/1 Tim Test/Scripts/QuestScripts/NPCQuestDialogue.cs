@@ -110,6 +110,39 @@ public class NPCQuestDialogue : MonoBehaviour
             case 4:
                 return QuestManager.Instance.quest4;
 
+            case 5:
+                return QuestManager.Instance.quest5;
+
+            case 6:
+                return QuestManager.Instance.quest6;
+
+            case 7:
+                return QuestManager.Instance.quest7;
+
+            case 8:
+                return QuestManager.Instance.quest8;
+
+            case 9:
+                return QuestManager.Instance.quest9;
+
+            case 10:
+                return QuestManager.Instance.quest10;
+
+            case 11:
+                return QuestManager.Instance.quest11;
+
+            case 12:
+                return QuestManager.Instance.quest12;
+
+            case 13:
+                return QuestManager.Instance.quest13;
+
+            case 14:
+                return QuestManager.Instance.quest14;
+
+            case 15:
+                return QuestManager.Instance.quest15;
+                
             default:
                 Debug.LogError(
                     "NPCQuestDialogue: Ungültige Quest-ID: " +

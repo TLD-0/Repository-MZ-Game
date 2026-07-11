@@ -51,6 +51,40 @@ public class SequenceQuestChecker : MonoBehaviour
             case 4:
                 QuestManager.Instance.quest4 = QuestStatus.Completed;
                 break;
+            case 5:
+                QuestManager.Instance.quest4 = QuestStatus.Completed;
+                break;
+            case 6:
+                QuestManager.Instance.quest4 = QuestStatus.Completed;
+                break;
+            case 7:
+                QuestManager.Instance.quest4 = QuestStatus.Completed;
+                break;
+            case 8:
+                QuestManager.Instance.quest4 = QuestStatus.Completed;
+                break;
+            case 9:
+                QuestManager.Instance.quest4 = QuestStatus.Completed;
+                break;
+            case 10:
+                QuestManager.Instance.quest4 = QuestStatus.Completed;
+                break;
+            case 11:
+                QuestManager.Instance.quest4 = QuestStatus.Completed;
+                break;
+            case 12:
+                QuestManager.Instance.quest4 = QuestStatus.Completed;
+                break;
+            case 13:
+                QuestManager.Instance.quest4 = QuestStatus.Completed;
+                break;
+            case 14:
+                QuestManager.Instance.quest4 = QuestStatus.Completed;
+                break;
+            case 15:
+                QuestManager.Instance.quest4 = QuestStatus.Completed;
+                break;
+
             default:
                 Debug.LogError("SequenceQuestChecker: Ungültige Quest-ID: " + questID);
                 break;

@@ -11,6 +11,10 @@ public class DialogueManager : MonoBehaviour
     public GameObject[] choicePanels;
     public TMP_Text[] choiceTexts;
 
+    [Header("Choices")]
+    public Transform choiceContainer;
+    public GameObject choicePrefab;
+
     [Header("Player")]
     public PlayerLock playerLock;
     private DialogueData currentDialogue;
@@ -81,6 +85,30 @@ public class DialogueManager : MonoBehaviour
         ShowNode();
     }
 
+    void ClearChoices()
+    {
+        foreach (Transform child in choiceContainer)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    void CreateChoices(DialogueNode node)
+    {
+        for (int i = 0; i < node.choices.Count; i++)
+        {
+            GameObject choice =
+                Instantiate(choicePrefab, choiceContainer);
+
+            DialogueChoiceUI ui =
+                choice.GetComponent<DialogueChoiceUI>();
+
+            ui.SetText(
+                (i + 1) + ". " +
+                node.choices[i].answerText);
+        }
+    }
+
     private void ShowNode()
     {
         if (currentDialogue == null)
@@ -99,11 +127,20 @@ public class DialogueManager : MonoBehaviour
 
         if (currentEmotionController != null)
         {
-            currentEmotionController.SetEmotion(node.npcEmotion);
+            foreach (NPCEmotionChange change in node.emotionChanges)
+            {
+                if(change.targetNPC != null)
+                {
+                    change.targetNPC.SetEmotion(change.emotion);
+                }
+            }
         }
 
         dialogueText.text = node.dialogueText;
 
+        ClearChoices();
+        CreateChoices(node);
+/*
         for (int i = 0; i < choiceTexts.Length; i++)
         {
             bool hasChoice = i < node.choices.Count;
@@ -123,6 +160,7 @@ public class DialogueManager : MonoBehaviour
                 }
             }
         }
+*/
     }
 
     private void SelectChoice(int index)
@@ -159,9 +197,9 @@ public class DialogueManager : MonoBehaviour
         }
 
         // Entscheidung führt Quest-Aktionen direkt aus.
-        if (choice.startsQuest)
+        foreach(QuestStart quest in choice.questsToStart)
         {
-            StartQuest(choice.questIDToStart);
+            StartQuest(quest.questID);
         }
 
         if (choice.skipsQuest)
@@ -206,6 +244,50 @@ public class DialogueManager : MonoBehaviour
                 QuestManager.Instance.quest4 = QuestStatus.Active;
                 break;
 
+            case 5:
+                QuestManager.Instance.quest4 = QuestStatus.Active;
+                break;
+                
+            case 6:
+                QuestManager.Instance.quest4 = QuestStatus.Active;
+                break;
+                
+            case 7:
+                QuestManager.Instance.quest4 = QuestStatus.Active;
+                break;
+                
+            case 8:
+                QuestManager.Instance.quest4 = QuestStatus.Active;
+                break;
+                
+            case 9:
+                QuestManager.Instance.quest4 = QuestStatus.Active;
+                break;
+                
+            case 10:
+                QuestManager.Instance.quest4 = QuestStatus.Active;
+                break;
+                
+            case 11:
+                QuestManager.Instance.quest4 = QuestStatus.Active;
+                break;
+                
+            case 12:
+                QuestManager.Instance.quest4 = QuestStatus.Active;
+                break;
+                
+            case 13:
+                QuestManager.Instance.quest4 = QuestStatus.Active;
+                break;
+                
+            case 14:
+                QuestManager.Instance.quest4 = QuestStatus.Active;
+                break;
+                
+            case 15:
+                QuestManager.Instance.quest4 = QuestStatus.Active;
+                break;
+
             default:
                 Debug.LogError(
                     "DialogueManager: Ungültige Quest-ID: " +
@@ -242,6 +324,50 @@ public class DialogueManager : MonoBehaviour
                 QuestManager.Instance.quest4 = QuestStatus.Skipped;
                 break;
 
+            case 5:
+                QuestManager.Instance.quest5 = QuestStatus.Skipped;
+                break;
+
+            case 6:
+                QuestManager.Instance.quest6 = QuestStatus.Skipped;
+                break;
+
+            case 7:
+                QuestManager.Instance.quest7 = QuestStatus.Skipped;
+                break;
+
+            case 8:
+                QuestManager.Instance.quest8 = QuestStatus.Skipped;
+                break;
+
+            case 9:
+                QuestManager.Instance.quest9 = QuestStatus.Skipped;
+                break;
+
+            case 10:
+                QuestManager.Instance.quest10 = QuestStatus.Skipped;
+                break;
+
+            case 11:
+                QuestManager.Instance.quest11 = QuestStatus.Skipped;
+                break;
+
+            case 12:
+                QuestManager.Instance.quest12 = QuestStatus.Skipped;
+                break;
+
+            case 13:
+                QuestManager.Instance.quest13 = QuestStatus.Skipped;
+                break;
+
+            case 14:
+                QuestManager.Instance.quest14 = QuestStatus.Skipped;
+                break;
+
+            case 15:
+                QuestManager.Instance.quest15 = QuestStatus.Skipped;
+                break;
+
             default:
                 Debug.LogError(
                     "DialogueManager: Ungültige Quest-ID zum Überspringen: " +
@@ -258,13 +384,14 @@ public class DialogueManager : MonoBehaviour
 
         if (dialoguePanel != null)
             dialoguePanel.SetActive(false);
-
+            ClearChoices();
+/*
         for (int i = 0; i < choicePanels.Length; i++)
         {
             if (choicePanels[i] != null)
                 choicePanels[i].SetActive(false);
         }
-
+*/
         if (playerLock != null)
         {
             playerLock.UnlockPlayer();
