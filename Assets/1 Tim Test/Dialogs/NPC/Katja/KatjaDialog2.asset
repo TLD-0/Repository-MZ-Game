@@ -16,11 +16,11 @@ MonoBehaviour:
   - dialogueText: 'Katja: Ich hab einen Anruf aus dem
 
       Krankenhaus bekommen.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -32,11 +32,11 @@ MonoBehaviour:
       nicht gut, sein Zustand ist
 
       kritisch.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -49,11 +49,11 @@ MonoBehaviour:
       hier erst fertig
 
       machen.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -61,11 +61,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Katja: W\xFCrdest du das f\xFCr\r\nmich \xFCbernehmen?"
+    emotionChanges: []
     choices:
     - answerText: (+) Ja klar, mach dir keinen Kopf.
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -74,8 +74,7 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
     - answerText: (-) Ich bin leider schon verplant.
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -84,11 +83,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Ja sicher, dein Opa geht vor. Mach dir keinen Kopf., ich
       hoffe ihm geht's bald wieder besser.\u201D"
+    emotionChanges: []
     choices:
     - answerText: Weiter
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -96,11 +95,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Katja: Danke, ich bin dir echt was schuldig.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -109,11 +108,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Katja: K\xF6nntest du noch die Abteilung\r\nanrufen? Nummer steht
       an meinem PC!"
+    emotionChanges: []
     choices:
     - answerText: Weiter
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -121,11 +120,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Wo ist ihre Nummer?'
+    emotionChanges: []
     choices:
     - answerText: ESC um Dialog zu beenden.
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -136,11 +135,11 @@ MonoBehaviour:
 
       selber gleich
       los. '
+    emotionChanges: []
     choices:
     - answerText: Weiter
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -148,11 +147,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Katja: Okay, du hast sicher deine Gr\xFCnde."
+    emotionChanges: []
     choices:
     - answerText: ESC um Dialog zu beenden.
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0

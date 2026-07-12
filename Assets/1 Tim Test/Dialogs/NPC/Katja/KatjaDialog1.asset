@@ -96,7 +96,9 @@ MonoBehaviour:
     choices:
     - answerText: Weiter
       nextNode: 7
-      questsToStart: []
+      questsToStart:
+      - questID: 1
+      - questID: 2
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -107,20 +109,8 @@ MonoBehaviour:
       bevor ich mit ihr rede."
     emotionChanges: []
     choices:
-    - answerText: "R\xE4ume die Kaffeetasse weg."
-      nextNode: 8
-      questsToStart: []
-      skipsQuest: 0
-      questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
-  - dialogueText: "(in Gedanken) Maya: Der Papierm\xFCll muss auch weg."
-    emotionChanges: []
-    choices:
-    - answerText: ESC um Dialog zu beenden.
-      nextNode: 8
+    - answerText: "Dr\xFCcke ESC. R\xE4ume die Kaffeetasse weg."
+      nextNode: 7
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0

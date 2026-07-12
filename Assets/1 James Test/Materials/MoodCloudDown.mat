@@ -46,7 +46,7 @@ Material:
     - _Emission_Strength: 0.01
     - _Fresnal_Opacity: 1
     - _Fresnel_Power: 1
-    - _MoodValue: 10
+    - _MoodValue: 11
     - _NegativeNoiseheight: 30
     - _NegativeNoisespeed: 50
     - _Noise_Edge_1: -1
