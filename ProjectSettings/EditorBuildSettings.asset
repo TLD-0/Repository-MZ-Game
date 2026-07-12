@@ -4,6 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/1 James Test/Main Menu stuff/Main Menu.unity
+    guid: cbe3b1a734d38264fb82cf894ec1131d
+  - enabled: 1
+    path: Assets/1 James Test/Map Test.unity
+    guid: fe07300593e624d4fbb8c2e4d809a265
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
