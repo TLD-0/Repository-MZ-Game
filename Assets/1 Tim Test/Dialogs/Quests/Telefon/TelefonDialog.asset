@@ -14,11 +14,104 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: "Welche Nummer m\xF6chtest du als erstes eingeben?"
+    emotionChanges: []
+    choices:
+    - answerText: 1
+      nextNode: 1
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 1
+      sequenceChecker: {fileID: 0}
+    - answerText: 2
+      nextNode: 1
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 3
+      nextNode: 1
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 1
+      sequenceValue: 1
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 4
+      nextNode: 1
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 5
+      nextNode: 1
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 6
+      nextNode: 1
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 7
+      nextNode: 1
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 8
+      nextNode: 1
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 9
+      nextNode: 1
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 0
+      nextNode: 1
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Welche Nummer m\xF6chtest du als zweites eingeben?"
+    emotionChanges: []
     choices:
     - answerText: 1
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -27,8 +120,7 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
     - answerText: 2
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -37,18 +129,16 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
     - answerText: 3
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
+      addsSequenceValue: 1
+      sequenceValue: 1
       checksSequence: 0
       sequenceChecker: {fileID: 0}
     - answerText: 4
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -57,8 +147,7 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
     - answerText: 5
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -67,8 +156,7 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
     - answerText: 6
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -77,8 +165,7 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
     - answerText: 7
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -87,8 +174,7 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
     - answerText: 8
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -97,8 +183,7 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
     - answerText: 9
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -107,8 +192,286 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
     - answerText: 0
       nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Welche Nummer m\xF6chtest du als drittes eingeben?"
+    emotionChanges: []
+    choices:
+    - answerText: 1
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 1
+      sequenceChecker: {fileID: 0}
+    - answerText: 2
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 3
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 1
+      sequenceValue: 1
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 4
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 5
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 6
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 7
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 8
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 9
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 0
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Welche Nummer m\xF6chtest du als viertes eingeben?"
+    emotionChanges: []
+    choices:
+    - answerText: 1
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 1
+      sequenceChecker: {fileID: 0}
+    - answerText: 2
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 3
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 1
+      sequenceValue: 1
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 4
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 5
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 6
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 7
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 8
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 9
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 0
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+  - dialogueText: "Welche Nummer m\xF6chtest du als f\xFCnftes eingeben?"
+    emotionChanges: []
+    choices:
+    - answerText: 1
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 1
+      sequenceChecker: {fileID: 0}
+    - answerText: 2
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 3
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 1
+      sequenceValue: 1
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 4
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 5
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 6
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 7
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 8
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 9
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+    - answerText: 0
+      nextNode: 0
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0

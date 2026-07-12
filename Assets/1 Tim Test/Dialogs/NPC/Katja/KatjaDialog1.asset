@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: 'Katja: Ach, da bist du ja!'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -29,11 +29,11 @@ MonoBehaviour:
 
       komm gar nicht mehr
       nach.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 2
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -42,11 +42,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Katja: Machmal frage ich mich\r\nob mir die Arbeit hier \xFCberhaupt\r\nnoch
       Spass macht."
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 3
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -54,11 +54,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Katja: Ach keine Ahnung, ich\r\nwei\xDF nicht.."
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 4
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -67,11 +67,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Katja: Aber ich nerv dich jetzt nicht weiter, mach du ruhig deine
       Arbeit.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 5
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -80,11 +80,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "(in Gedanken) Maya: Ach, ich hab vergessen, Katja Bescheid zu\r\nsagen,
       dass ich heute fr\xFCher abhauen muss.\r\nHab ja noch Pl\xE4ne.\""
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 6
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -92,11 +92,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Katja: Kannst du gleich mal kommen, wenn du fertig bist?'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 7
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -105,11 +105,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "(in Gedanken) Maya: Ich sollte erst meinen Platz aufr\xE4umen,
       bevor ich mit ihr rede."
+    emotionChanges: []
     choices:
     - answerText: "R\xE4ume die Kaffeetasse weg."
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 8
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -117,11 +117,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "(in Gedanken) Maya: Der Papierm\xFCll muss auch weg."
+    emotionChanges: []
     choices:
     - answerText: ESC um Dialog zu beenden.
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 8
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
