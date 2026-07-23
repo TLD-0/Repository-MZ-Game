@@ -122,8 +122,8 @@ MonoBehaviour:
   - dialogueText: 'Maya: Wo ist ihre Nummer?'
     emotionChanges: []
     choices:
-    - answerText: ESC um Dialog zu beenden.
-      nextNode: 7
+    - answerText: Dialog beenden.
+      nextNode: -1
       questsToStart:
       - questID: 0
       skipsQuest: 0
@@ -150,8 +150,8 @@ MonoBehaviour:
   - dialogueText: "Katja: Okay, du hast sicher deine Gr\xFCnde."
     emotionChanges: []
     choices:
-    - answerText: ESC um Dialog zu beenden.
-      nextNode: 9
+    - answerText: Dialog beenden.
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0

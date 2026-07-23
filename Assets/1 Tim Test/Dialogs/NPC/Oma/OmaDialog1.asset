@@ -162,8 +162,8 @@ MonoBehaviour:
   - dialogueText: 'Maya: Dann mach ich erst die Sachen fertig bevor ich mich hinlege...'
     emotionChanges: []
     choices:
-    - answerText: ESC um Dialog zu beenden.
-      nextNode: 9
+    - answerText: Dialog beenden.
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0

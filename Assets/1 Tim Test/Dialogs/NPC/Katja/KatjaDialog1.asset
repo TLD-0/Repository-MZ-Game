@@ -109,8 +109,8 @@ MonoBehaviour:
       bevor ich mit ihr rede."
     emotionChanges: []
     choices:
-    - answerText: "Dr\xFCcke ESC. R\xE4ume die Kaffeetasse weg."
-      nextNode: 7
+    - answerText: "R\xE4ume die Kaffeetasse weg."
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0

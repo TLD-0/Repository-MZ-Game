@@ -308,8 +308,8 @@ MonoBehaviour:
   - dialogueText: 'Theo: Danke Maya! Das brauchte ich jetzt.'
     emotionChanges: []
     choices:
-    - answerText: ESC um Dialog zu beenden.
-      nextNode: 22
+    - answerText: Dialog beenden.
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
@@ -360,8 +360,8 @@ MonoBehaviour:
       ein bisschen Zeit f\xFCr mich"
     emotionChanges: []
     choices:
-    - answerText: ESC um Dialog zu beenden.
-      nextNode: 26
+    - answerText: Dialog beenden.
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0

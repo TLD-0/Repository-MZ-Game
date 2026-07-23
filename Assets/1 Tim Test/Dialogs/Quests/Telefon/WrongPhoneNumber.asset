@@ -16,8 +16,8 @@ MonoBehaviour:
   - dialogueText: Hmmm... Das war nicht ganz richtig?
     emotionChanges: []
     choices:
-    - answerText: ESC um Dialog zu beenden.
-      nextNode: 0
+    - answerText: Ich sollte es nochmal versuchen.
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0

@@ -97,15 +97,6 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
-    - answerText: 0
-      nextNode: 1
-      questsToStart: []
-      skipsQuest: 0
-      questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
   - dialogueText: "Welche Nummer m\xF6chtest du als zweites eingeben?"
     emotionChanges: []
     choices:
@@ -182,15 +173,6 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
     - answerText: 9
-      nextNode: 2
-      questsToStart: []
-      skipsQuest: 0
-      questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
-    - answerText: 0
       nextNode: 2
       questsToStart: []
       skipsQuest: 0
@@ -283,15 +265,6 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
-    - answerText: 0
-      nextNode: 3
-      questsToStart: []
-      skipsQuest: 0
-      questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
   - dialogueText: "Welche Nummer m\xF6chtest du als viertes eingeben?"
     emotionChanges: []
     choices:
@@ -376,15 +349,6 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
-    - answerText: 0
-      nextNode: 4
-      questsToStart: []
-      skipsQuest: 0
-      questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
   - dialogueText: "Welche Nummer m\xF6chtest du als f\xFCnftes eingeben?"
     emotionChanges: []
     choices:
@@ -461,15 +425,6 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
     - answerText: 9
-      nextNode: -1
-      questsToStart: []
-      skipsQuest: 0
-      questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
-    - answerText: 0
       nextNode: -1
       questsToStart: []
       skipsQuest: 0

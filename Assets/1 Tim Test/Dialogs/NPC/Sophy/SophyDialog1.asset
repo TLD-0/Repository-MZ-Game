@@ -259,8 +259,8 @@ MonoBehaviour:
       auf mich z\xE4hlen. Ich bin da,\r\nwenn du mich brauchst."
     emotionChanges: []
     choices:
-    - answerText: ESC um Dialog zu beenden.
-      nextNode: 19
+    - answerText: Dialog beenden.
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
@@ -284,8 +284,8 @@ MonoBehaviour:
   - dialogueText: "Maya: Ich muss jetzt los, wir reden sp\xE4ter\r\nnochmal, ja?"
     emotionChanges: []
     choices:
-    - answerText: ESC um Dialog zu beenden.
-      nextNode: 21
+    - answerText: Dialog beenden.
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0

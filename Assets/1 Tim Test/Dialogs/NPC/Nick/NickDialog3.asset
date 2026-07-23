@@ -115,8 +115,8 @@ MonoBehaviour:
   - dialogueText: 'Alle Freunde: Okay, wenn''s dir lieber ist! Erhol dich gut.'
     emotionChanges: []
     choices:
-    - answerText: ESC um Dialog zu beenden.
-      nextNode: 7
+    - answerText: Dialog beenden.
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
@@ -127,8 +127,8 @@ MonoBehaviour:
   - dialogueText: 'Maya: Na gut, wenn ihr unbedingt wollt...'
     emotionChanges: []
     choices:
-    - answerText: Weiter
-      nextNode: 8
+    - answerText: Dialog beenden.
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0

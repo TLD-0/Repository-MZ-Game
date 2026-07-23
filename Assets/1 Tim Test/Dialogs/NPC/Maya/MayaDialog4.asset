@@ -16,8 +16,8 @@ MonoBehaviour:
   - dialogueText: 'Maya: Das hat jetzt echt gut getan'
     emotionChanges: []
     choices:
-    - answerText: ESC um Dialog zu beenden.
-      nextNode: 0
+    - answerText: Dialog beenden.
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0

@@ -65,8 +65,8 @@ MonoBehaviour:
   - dialogueText: 'Sophy: Wir warten hier auf dich.'
     emotionChanges: []
     choices:
-    - answerText: ESC um Dialog zu beenden.
-      nextNode: 4
+    - answerText: Dialog beenden.
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0

@@ -42,8 +42,8 @@ MonoBehaviour:
   - dialogueText: "Maya: Ein Kaffee w\xFCrde mir sicher richtig gut tun!\""
     emotionChanges: []
     choices:
-    - answerText: "ESC dr\xFCcken um Dialog zu beenden"
-      nextNode: 2
+    - answerText: Dialog beenden
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0

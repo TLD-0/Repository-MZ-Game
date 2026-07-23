@@ -149,8 +149,8 @@ MonoBehaviour:
   - dialogueText: "Tina: Wir sehen uns ja eh sp\xE4ter alle zusammen\r\nim Club!"
     emotionChanges: []
     choices:
-    - answerText: ESC zum Dialog beenden.
-      nextNode: 10
+    - answerText: Dialog beenden.
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
@@ -161,8 +161,8 @@ MonoBehaviour:
   - dialogueText: 'Maya: Ja, komm gerne mit...'
     emotionChanges: []
     choices:
-    - answerText: ESC zum Dialog beenden.
-      nextNode: 11
+    - answerText: Dialog beenden.
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0

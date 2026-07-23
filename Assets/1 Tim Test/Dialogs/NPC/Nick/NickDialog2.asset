@@ -28,8 +28,8 @@ MonoBehaviour:
   - dialogueText: 'Nick: Auf geht''s!'
     emotionChanges: []
     choices:
-    - answerText: 'ESC um Dialog zu beenden '
-      nextNode: 1
+    - answerText: 'Dialog beenden '
+      nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
