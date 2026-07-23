@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: 'Telefon: *Klingeln*'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -27,11 +27,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya:  Ich brauche jetzt bisschen Zeit\r\nf\xFCr mich, das war
       ein echt langer Tag."
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 2
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -39,11 +39,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya:  Sorry, Sophy.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 3
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -51,11 +51,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Telefon: *Klingeln*'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 4
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -63,11 +63,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: ...'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 5
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -75,11 +75,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Telefon: *Klingeln*'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 6
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -87,11 +87,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Hallo?'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 7
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -99,11 +99,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Sophy: Hey, ich wei\xDF ich hab dich die letzten Tage schon genervt..."
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 8
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -111,11 +111,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Sophy: Aber ich vermisse Mark einfach so.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 9
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -123,11 +123,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Schon wieder? Der hat''s doch gar nicht verdient.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 10
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -136,11 +136,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Ihr seid jetzt schon einen Monat getrennt, oder nicht? Und
       das ist jetzt schon der.... 78. Anruf diese Woche.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 11
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -148,11 +148,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Sophy: Ja, ich wei\xDF, aber..."
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 12
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -161,11 +161,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Der Mistkerl hat dich nur schlecht gemacht und vor deinen
       Freunden blo\xDFgestellt - sogar vor mir."
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 13
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -174,11 +174,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Du hast ihn immer unterst\xFCtzt, obwohl er nie auf deiner
       Seite war."
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 14
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -186,11 +186,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Sophy: Aber wenn wir alleine waren, da war er ganz anders zu mir..'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 15
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -198,11 +198,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Sophy: Ich bin mir sicher, er hat es eigentlich gar nicht so gemeint.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 16
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -210,11 +210,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Sophy: Vielleicht hat er sich inzwischen ge\xE4ndert.."
+    emotionChanges: []
     choices:
     - answerText: "(+) Ich bin f\xFCr dich da."
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 17
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -222,9 +222,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
     - answerText: "(-) Du musst \xFCber ihn hinwegkommen."
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 20
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -232,11 +231,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Ich wei\xDF, es f\xE4llt dir schwer. Es ist auch nicht fair."
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 18
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -245,11 +244,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Aber bitte vergiss nicht, wie er dich behandelt hat. Im
       Nachhinein erinnert man sich immer nur an die guten Sachen...'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 19
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -258,24 +257,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Ich muss jetzt los, aber du wei\xDFt du\r\nkannst immer
       auf mich z\xE4hlen. Ich bin da,\r\nwenn du mich brauchst."
+    emotionChanges: []
     choices:
     - answerText: ESC um Dialog zu beenden.
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
-      skipsQuest: 0
-      questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
-  - dialogueText: "Maya: Ich muss jetzt los, aber du wei\xDFt du\r\nkannst immer
-      auf mich z\xE4hlen. Ich bin da,\r\nwenn du mich brauchst."
-    choices:
-    - answerText: ESC um Dialog zu beenden.
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 19
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -284,11 +270,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Es ist jetzt schon \xFCber einen Monat her, langsam musst
       du die Hoffnung aufgeben. Er wird sich nicht \xE4ndern."
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 21
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -296,11 +282,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Ich muss jetzt los, wir reden sp\xE4ter\r\nnochmal, ja?"
+    emotionChanges: []
     choices:
     - answerText: ESC um Dialog zu beenden.
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 21
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0

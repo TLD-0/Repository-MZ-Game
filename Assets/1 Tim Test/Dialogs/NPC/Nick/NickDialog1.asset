@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: 'Maya (zu sich selbst): Die anderen sollten auch schon hier sein.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -26,11 +26,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Tina & Nick: Hey Maya, da bist du ja!'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 2
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -38,11 +38,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Hi!'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 3
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -51,11 +51,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Sophy: Wir haben uns schon gefragt, wo du bleibst. Hol dir doch
       was zu trinken.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 4
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -63,11 +63,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Sophy: Wir warten hier auf dich.'
+    emotionChanges: []
     choices:
-    - answerText: Gehe zur Bar.
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+    - answerText: ESC um Dialog zu beenden.
+      nextNode: 4
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0

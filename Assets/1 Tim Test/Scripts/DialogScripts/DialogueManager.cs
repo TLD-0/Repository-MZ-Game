@@ -245,47 +245,47 @@ public class DialogueManager : MonoBehaviour
                 break;
 
             case 5:
-                QuestManager.Instance.quest4 = QuestStatus.Active;
+                QuestManager.Instance.quest5 = QuestStatus.Active;
                 break;
                 
             case 6:
-                QuestManager.Instance.quest4 = QuestStatus.Active;
+                QuestManager.Instance.quest6 = QuestStatus.Active;
                 break;
                 
             case 7:
-                QuestManager.Instance.quest4 = QuestStatus.Active;
+                QuestManager.Instance.quest7 = QuestStatus.Active;
                 break;
                 
             case 8:
-                QuestManager.Instance.quest4 = QuestStatus.Active;
+                QuestManager.Instance.quest8 = QuestStatus.Active;
                 break;
                 
             case 9:
-                QuestManager.Instance.quest4 = QuestStatus.Active;
+                QuestManager.Instance.quest9 = QuestStatus.Active;
                 break;
                 
             case 10:
-                QuestManager.Instance.quest4 = QuestStatus.Active;
+                QuestManager.Instance.quest10 = QuestStatus.Active;
                 break;
                 
             case 11:
-                QuestManager.Instance.quest4 = QuestStatus.Active;
+                QuestManager.Instance.quest11 = QuestStatus.Active;
                 break;
                 
             case 12:
-                QuestManager.Instance.quest4 = QuestStatus.Active;
+                QuestManager.Instance.quest12 = QuestStatus.Active;
                 break;
                 
             case 13:
-                QuestManager.Instance.quest4 = QuestStatus.Active;
+                QuestManager.Instance.quest13 = QuestStatus.Active;
                 break;
                 
             case 14:
-                QuestManager.Instance.quest4 = QuestStatus.Active;
+                QuestManager.Instance.quest14 = QuestStatus.Active;
                 break;
                 
             case 15:
-                QuestManager.Instance.quest4 = QuestStatus.Active;
+                QuestManager.Instance.quest15 = QuestStatus.Active;
                 break;
 
             default:

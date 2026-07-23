@@ -15,11 +15,11 @@ MonoBehaviour:
   nodes:
   - dialogueText: 'Maya: Oh man, ich hoffe trotzdem es geht ihr gut.. aber es ist
       sicher schwer..'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -28,11 +28,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Jetzt muss ich erstmal runter kommen, ich brauch einfach
       mal ein bisschen me-time...'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 2
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -40,11 +40,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Ein Kaffee w\xFCrde mir sicher richtig gut tun!\""
+    emotionChanges: []
     choices:
     - answerText: "ESC dr\xFCcken um Dialog zu beenden"
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 2
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0

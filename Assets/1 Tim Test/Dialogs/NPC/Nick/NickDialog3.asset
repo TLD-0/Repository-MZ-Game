@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: "Maya: Leute, ich w\xFCrde so langsam-"
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -29,11 +29,11 @@ MonoBehaviour:
       wir haben
 
       doch gerade so viel Spass!'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 2
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -41,11 +41,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Sophy: Ja, du willst doch jetzt nicht etwa schon los!'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 3
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -54,11 +54,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Nick: Komm schon. Alle bleiben doch noch hier! Wenigsten noch
       ne Stunde.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 4
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -66,11 +66,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Naja...'
+    emotionChanges: []
     choices:
     - answerText: "(+) Ich w\xFCrde lieber nach Hause gehen."
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 5
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -78,9 +78,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
     - answerText: "(-) Ja gut, f\xFCr euch bleibe ich noch ein bisschen."
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 8
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -89,11 +88,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Tut mir echt leid, aber ich bin schon m\xFCde und mir ist
       ein bisschen schwindelig.\u201D"
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 6
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -102,11 +101,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Ich will lieber nach Hause. Aber ich hatte sehr viel Spa\xDF
       mit euch."
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 7
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -114,11 +113,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Alle Freunde: Okay, wenn''s dir lieber ist! Erhol dich gut.'
+    emotionChanges: []
     choices:
-    - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+    - answerText: ESC um Dialog zu beenden.
+      nextNode: 7
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -126,11 +125,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Na gut, wenn ihr unbedingt wollt...'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 8
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0

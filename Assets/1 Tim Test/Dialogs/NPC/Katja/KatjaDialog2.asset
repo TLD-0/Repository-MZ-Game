@@ -35,7 +35,7 @@ MonoBehaviour:
     emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
+      nextNode: 2
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
     emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
+      nextNode: 3
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
     emotionChanges: []
     choices:
     - answerText: (+) Ja klar, mach dir keinen Kopf.
-      nextNode: 0
+      nextNode: 4
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
     - answerText: (-) Ich bin leider schon verplant.
-      nextNode: 0
+      nextNode: 8
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
@@ -86,7 +86,7 @@ MonoBehaviour:
     emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
+      nextNode: 5
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
     emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
+      nextNode: 6
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
     emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
+      nextNode: 7
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
@@ -123,8 +123,9 @@ MonoBehaviour:
     emotionChanges: []
     choices:
     - answerText: ESC um Dialog zu beenden.
-      nextNode: 0
-      questsToStart: []
+      nextNode: 7
+      questsToStart:
+      - questID: 0
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -138,7 +139,7 @@ MonoBehaviour:
     emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
+      nextNode: 9
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
@@ -150,7 +151,7 @@ MonoBehaviour:
     emotionChanges: []
     choices:
     - answerText: ESC um Dialog zu beenden.
-      nextNode: 0
+      nextNode: 9
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0

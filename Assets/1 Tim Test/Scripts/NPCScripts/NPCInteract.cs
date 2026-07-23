@@ -9,6 +9,9 @@ public class NPCInteraction : MonoBehaviour
     private NPCQuestDialogue currentQuestNPC;
     private QuestInteractObject currentQuestObject;
 
+    private PhoneSequenceQuest currentPhoneQuest;
+    private DrinkSequenceTest currentDrinkQuest;
+
     void Update()
         {
             CheckInteractable();
@@ -23,7 +26,9 @@ public class NPCInteraction : MonoBehaviour
         {
             currentNPC = null;
             currentQuestNPC = null;
-            currentQuestObject = null;
+
+            currentPhoneQuest = null;
+            currentDrinkQuest = null;
 
             if (playerCamera == null)
             {
@@ -52,8 +57,15 @@ public class NPCInteraction : MonoBehaviour
             if (currentNPC != null)
                 return;
 
-            currentQuestObject =
-                hit.collider.GetComponentInParent<QuestInteractObject>();
+            currentPhoneQuest =
+                hit.collider.GetComponentInParent<PhoneSequenceQuest>();
+
+            if (currentPhoneQuest != null)
+                return;
+
+            currentDrinkQuest =
+                hit.collider.GetComponentInParent<DrinkSequenceTest>();
+
     }
 
     void Interact()
@@ -70,9 +82,15 @@ public class NPCInteraction : MonoBehaviour
             return;
         }
 
-        if (currentQuestObject != null)
+        if (currentPhoneQuest != null)
         {
-            currentQuestObject.Interact();
+            currentPhoneQuest.StartPhoneQuest();
+            return;
         }
+
+        if (currentDrinkQuest != null)
+        {
+            currentDrinkQuest.StartDrinkTest();
+        } 
     }
 }

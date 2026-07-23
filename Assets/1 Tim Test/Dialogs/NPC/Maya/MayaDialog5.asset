@@ -18,13 +18,12 @@ MonoBehaviour:
       so
       viele Kunden, die was von einem wollen, aber naja
 
-      ne, was will man
-      machen!'
+      ne, was will man machen!'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -32,11 +31,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Mhm.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 2
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -45,11 +44,11 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Tina: Und dann kam heute morgen auch wieder\r\nmeine Nachberin
       vorbei und du glaubst ja gar nicht,\r\nwas die mir wieder erz\xE4hlt hat!"
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 3
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -57,11 +56,11 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Mhm...'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 4
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -73,11 +72,11 @@ MonoBehaviour:
       weil ihr schon wieder\r\njemand den Reifen durchgebissen hat.. Also ich w\xFCrd\r\nja
       mal tippen, dass war der Nachbarshund.. aber mir\r\nglaubt ja keiner, der ist
       ja immer so lieb zu allen a..."
+    emotionChanges: []
     choices:
-    - answerText: ESC
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+    - answerText: ESC um Dialog zu beenden.
+      nextNode: 4
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0

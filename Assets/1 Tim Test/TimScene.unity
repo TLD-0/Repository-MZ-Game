@@ -174,14 +174,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48757358}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.635, y: -0.00002, z: 56.278}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 814012913}
   - {fileID: 1264517700}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 157901388}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &157901387
 GameObject:
@@ -212,12 +212,86 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1070766532}
-  - {fileID: 317838794}
-  - {fileID: 1168528491}
-  - {fileID: 1317466318}
+  - {fileID: 48757359}
   - {fileID: 2141005938}
   - {fileID: 1241590808}
+  - {fileID: 600125195}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &239541529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 239541530}
+  m_Layer: 0
+  m_Name: CameraPointDrink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &239541530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239541529}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 2.16, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 970299399}
+  m_Father: {fileID: 1241590808}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1 &303115494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 303115496}
+  - component: {fileID: 303115495}
+  m_Layer: 0
+  m_Name: SequenceChoiceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &303115495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303115494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e148cb42ce125354b8d7d1d0d533d9bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SequenceChoiceManager
+--- !u!4 &303115496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303115494}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.49911, y: -0.00002, z: 34.2638}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &317838793
@@ -250,12 +324,12 @@ Transform:
   m_GameObject: {fileID: 317838793}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.24, y: 0.77, z: 36.37}
+  m_LocalPosition: {x: 13.75326, y: 0.77002, z: -1.3172913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 844869202}
-  m_Father: {fileID: 157901388}
+  m_Father: {fileID: 600125195}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &317838795
 MonoBehaviour:
@@ -625,6 +699,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2040178875}
   m_SourcePrefab: {fileID: 100100000, guid: 43fae0d0a5c9afe4e8b3514794998346, type: 3}
+--- !u!1 &492125190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 492125191}
+  m_Layer: 0
+  m_Name: PlayerPointPhone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &492125191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492125190}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 817249928}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &525823050
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +814,41 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1333792201599968536, guid: ced388dd24f5c0b4a9730e806556b0fd, type: 3}
   m_PrefabInstance: {fileID: 8262760494608278026}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &600125194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 600125195}
+  m_Layer: 0
+  m_Name: TestObjects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &600125195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600125194}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.51326, y: -0.00002, z: 37.68729}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1070766532}
+  - {fileID: 317838794}
+  - {fileID: 1168528491}
+  - {fileID: 1317466318}
+  m_Father: {fileID: 157901388}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &697048806
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,6 +947,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 48757359}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &817249927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 817249928}
+  m_Layer: 0
+  m_Name: CameraPointPhone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &817249928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817249927}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 2.24, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 492125191}
+  m_Father: {fileID: 2141005938}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &844869201
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,6 +1015,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2747408493612411902, guid: ae7f41440d3a20e449b2e55be9d36287, type: 3}
   m_PrefabInstance: {fileID: 7076377588482951807}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &970299398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 970299399}
+  m_Layer: 0
+  m_Name: PlayerPointDrink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &970299399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970299398}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 239541530}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1032672199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,12 +1208,12 @@ Transform:
   m_GameObject: {fileID: 1070766531}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.78, y: 0.77, z: 36.37}
+  m_LocalPosition: {x: 12.293261, y: 0.77002, z: -1.3172913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 697048807}
-  m_Father: {fileID: 157901388}
+  m_Father: {fileID: 600125195}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1070766534
 BoxCollider:
@@ -1197,12 +1400,12 @@ Transform:
   m_GameObject: {fileID: 1168528490}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.76, y: 0.77, z: 36.37}
+  m_LocalPosition: {x: 15.27326, y: 0.77002, z: -1.3172913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 42628255}
-  m_Father: {fileID: 157901388}
+  m_Father: {fileID: 600125195}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1168528492
 MonoBehaviour:
@@ -1513,7 +1716,9 @@ GameObject:
   - component: {fileID: 1241590812}
   - component: {fileID: 1241590811}
   - component: {fileID: 1241590810}
-  - component: {fileID: 1241590809}
+  - component: {fileID: 1241590816}
+  - component: {fileID: 1241590815}
+  - component: {fileID: 1241590814}
   m_Layer: 0
   m_Name: DrinkTest
   m_TagString: Untagged
@@ -1533,25 +1738,10 @@ Transform:
   m_LocalPosition: {x: -16.15, y: 1.44, z: 26.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 239541530}
   m_Father: {fileID: 157901388}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1241590809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241590807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f233c9146a1e66e468bdbbf21882c17d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DrinkSequenceTest
-  drinkDialogue: {fileID: 0}
-  playerPoint: {fileID: 0}
-  cameraPoint: {fileID: 0}
-  emotionController: {fileID: 0}
 --- !u!65 &1241590810
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1630,6 +1820,130 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241590807}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1241590814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241590807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ecbc91c934bafc49b4ba36265529fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SequenceQuestChecker
+  questID: 1
+  correctSequence: 00000000
+--- !u!114 &1241590815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241590807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f233c9146a1e66e468bdbbf21882c17d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DrinkSequenceTest
+  drinkDialogue: {fileID: 11400000, guid: a7ad60c80a89bda4d9acde69235a6b92, type: 2}
+  playerPoint: {fileID: 970299399}
+  cameraPoint: {fileID: 239541530}
+  emotionController: {fileID: 0}
+  drinkRecipes:
+  - sequence: AAA
+    drinkObject: {fileID: 0}
+    pointA: {fileID: 0}
+    pointB: {fileID: 0}
+    onDrinkCreated:
+      m_PersistentCalls:
+        m_Calls: []
+  - sequence: AAB
+    drinkObject: {fileID: 0}
+    pointA: {fileID: 0}
+    pointB: {fileID: 0}
+    onDrinkCreated:
+      m_PersistentCalls:
+        m_Calls: []
+  - sequence: AAC
+    drinkObject: {fileID: 0}
+    pointA: {fileID: 0}
+    pointB: {fileID: 0}
+    onDrinkCreated:
+      m_PersistentCalls:
+        m_Calls: []
+  - sequence: ABA
+    drinkObject: {fileID: 0}
+    pointA: {fileID: 0}
+    pointB: {fileID: 0}
+    onDrinkCreated:
+      m_PersistentCalls:
+        m_Calls: []
+  - sequence: ABB
+    drinkObject: {fileID: 0}
+    pointA: {fileID: 0}
+    pointB: {fileID: 0}
+    onDrinkCreated:
+      m_PersistentCalls:
+        m_Calls: []
+  - sequence: ABC
+    drinkObject: {fileID: 0}
+    pointA: {fileID: 0}
+    pointB: {fileID: 0}
+    onDrinkCreated:
+      m_PersistentCalls:
+        m_Calls: []
+  - sequence: BAA
+    drinkObject: {fileID: 0}
+    pointA: {fileID: 0}
+    pointB: {fileID: 0}
+    onDrinkCreated:
+      m_PersistentCalls:
+        m_Calls: []
+  - sequence: BAB
+    drinkObject: {fileID: 0}
+    pointA: {fileID: 0}
+    pointB: {fileID: 0}
+    onDrinkCreated:
+      m_PersistentCalls:
+        m_Calls: []
+  - sequence: BAC
+    drinkObject: {fileID: 0}
+    pointA: {fileID: 0}
+    pointB: {fileID: 0}
+    onDrinkCreated:
+      m_PersistentCalls:
+        m_Calls: []
+  - sequence: BBA
+    drinkObject: {fileID: 0}
+    pointA: {fileID: 0}
+    pointB: {fileID: 0}
+    onDrinkCreated:
+      m_PersistentCalls:
+        m_Calls: []
+  - sequence: BBB
+    drinkObject: {fileID: 0}
+    pointA: {fileID: 0}
+    pointB: {fileID: 0}
+    onDrinkCreated:
+      m_PersistentCalls:
+        m_Calls: []
+  resetDrinksOnStart: 1
+  questChecker: {fileID: 0}
+--- !u!114 &1241590816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241590807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397a1b02974b8ea4eae5e96429a7117f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
+  playerCamera: {fileID: 1423829931}
+  interactDistance: 3
 --- !u!1 &1264517699
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,12 +2005,12 @@ Transform:
   m_GameObject: {fileID: 1317466317}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.41, y: 0.77, z: 36.37}
+  m_LocalPosition: {x: 16.92326, y: 0.77002, z: -1.3172913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 787000600}
-  m_Father: {fileID: 157901388}
+  m_Father: {fileID: 600125195}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1317466319
 MonoBehaviour:
@@ -2479,7 +2793,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 322.5, y: 286}
+  m_AnchoredPosition: {x: 177, y: 344}
   m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1985859302
@@ -2568,7 +2882,9 @@ GameObject:
   - component: {fileID: 2141005942}
   - component: {fileID: 2141005941}
   - component: {fileID: 2141005940}
+  - component: {fileID: 2141005943}
   - component: {fileID: 2141005939}
+  - component: {fileID: 2141005944}
   m_Layer: 0
   m_Name: PhoneTest
   m_TagString: Untagged
@@ -2585,10 +2901,11 @@ Transform:
   m_GameObject: {fileID: 2141005937}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.4, y: 1.44, z: 30.18}
+  m_LocalPosition: {x: -16.43, y: 1.44, z: 30.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 817249928}
   m_Father: {fileID: 157901388}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2141005939
@@ -2603,10 +2920,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4f6f602ae92ca4596deb34ffc8f761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PhoneSequenceTest
-  phoneDialogue: {fileID: 0}
-  playerPoint: {fileID: 0}
-  cameraPoint: {fileID: 0}
+  correctPhoneNumber: 12345
+  checkAutomatically: 1
+  resetAfterWrongNumber: 1
+  phoneInputDialogue: {fileID: 11400000, guid: 5c365117cdd298c49a7fbe6a1092249c, type: 2}
+  correctNumberDialogue: {fileID: 11400000, guid: 39194a5b14ea5bf4aafb1f7fce71077b, type: 2}
+  wrongNumberDialogue: {fileID: 11400000, guid: bc6b9f39516ab6748a63425a4be0767d, type: 2}
+  playerPoint: {fileID: 492125191}
+  cameraPoint: {fileID: 817249928}
   emotionController: {fileID: 0}
+  questChecker: {fileID: 2141005944}
+  onCorrectNumber:
+    m_PersistentCalls:
+      m_Calls: []
+  onWrongNumber:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &2141005940
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2685,6 +3014,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141005937}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2141005943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141005937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397a1b02974b8ea4eae5e96429a7117f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
+  playerCamera: {fileID: 1423829931}
+  interactDistance: 3
+--- !u!114 &2141005944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141005937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ecbc91c934bafc49b4ba36265529fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SequenceQuestChecker
+  questID: 11
+  correctSequence: 0100000002000000030000000400000005000000
 --- !u!1 &5990841200478514
 GameObject:
   m_ObjectHideFlags: 0
@@ -8228,4 +8585,4 @@ SceneRoots:
   - {fileID: 1767112806}
   - {fileID: 1446359738}
   - {fileID: 456808808}
-  - {fileID: 48757359}
+  - {fileID: 303115496}

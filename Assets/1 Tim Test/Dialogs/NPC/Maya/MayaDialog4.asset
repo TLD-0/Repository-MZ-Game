@@ -14,4 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: 'Maya: Das hat jetzt echt gut getan'
-    choices: []
+    emotionChanges: []
+    choices:
+    - answerText: ESC um Dialog zu beenden.
+      nextNode: 0
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}

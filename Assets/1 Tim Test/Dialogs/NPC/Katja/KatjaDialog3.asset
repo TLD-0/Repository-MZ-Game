@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: "???: Hallo, Unternehmen BaPader. Was\r\nkann ich f\xFCr Sie tun?"
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -29,11 +29,11 @@ MonoBehaviour:
 
       mich gebeten
       sie anzurufen.'
+    emotionChanges: []
     choices:
     - answerText: Weiter
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 2
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -54,4 +54,14 @@ MonoBehaviour:
       Und dann noch eine Kleinigkeit: Die\r\nAnschrift, die wir im System haben,
       weicht\r\nvon der auf Ihren letzten Dokumenten ab,\r\nwas bei einer eventuellen
       Betriebspr\xFCfung\r\nproblematisch werden k\xF6nnte."
-    choices: []
+    emotionChanges: []
+    choices:
+    - answerText: ESC um Dialog zu beenden.
+      nextNode: 2
+      questsToStart: []
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
