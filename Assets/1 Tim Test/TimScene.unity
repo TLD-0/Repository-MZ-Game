@@ -462,6 +462,7 @@ GameObject:
   - component: {fileID: 401331525}
   - component: {fileID: 401331527}
   - component: {fileID: 401331526}
+  - component: {fileID: 401331528}
   m_Layer: 5
   m_Name: DialogText
   m_TagString: Untagged
@@ -502,7 +503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -542,8 +543,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_characterHorizontalScale: 1
@@ -574,7 +575,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -22.948608, y: -17.034622, z: -27.460693, w: 36.14081}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -588,6 +589,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401331524}
   m_CullTransparentMesh: 1
+--- !u!114 &401331528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401331524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 006b1145d3c083545ae565aae55b13be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTextScroller
+  dialogueText: {fileID: 401331526}
+  viewport: {fileID: 1524595594}
+  leftPadding: 25
+  rightPadding: 25
+  topPadding: 12
+  bottomPadding: 12
+  scrollSpeed: 25
+  startDelay: 1.5
+  endDelay: 1
+  scrollBackToStart: 1
 --- !u!4 &421276601 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2722836866544171681, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
@@ -2427,6 +2450,7 @@ GameObject:
   - component: {fileID: 1524595594}
   - component: {fileID: 1524595596}
   - component: {fileID: 1524595595}
+  - component: {fileID: 1524595597}
   m_Layer: 5
   m_Name: Dialog Panel
   m_TagString: Untagged
@@ -2492,6 +2516,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524595593}
   m_CullTransparentMesh: 1
+--- !u!114 &1524595597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524595593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RectMask2D
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
 --- !u!1 &1638030956
 GameObject:
   m_ObjectHideFlags: 0
@@ -2741,6 +2779,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  dialogueTextScroller: {fileID: 0}
   choiceContainer: {fileID: 1985859300}
   choicePrefab: {fileID: 6518454131076287155, guid: d1efca24960b79e48870076b48d7fd51, type: 3}
   playerLock: {fileID: 3420262980671994326}
@@ -3247,6 +3286,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 3359559372231027817}
+    - target: {fileID: 7044904229477429928, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044904229477429928, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
+      propertyPath: m_Size.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7755448385315319705, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: target
       value: 
@@ -5303,7 +5350,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6492384465669115623, guid: 63a03d6aedcb95f48b76f688d553094c, type: 3}
+    - {fileID: 1965657967464447220, guid: 63a03d6aedcb95f48b76f688d553094c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7306,7 +7355,9 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 3359559372231027817}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1088266753071852465, guid: ae7f41440d3a20e449b2e55be9d36287, type: 3}
+    - {fileID: 3861850478550032665, guid: ae7f41440d3a20e449b2e55be9d36287, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -7864,6 +7915,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCNickObject
       objectReference: {fileID: 0}
+    - target: {fileID: 1449705819815807242, guid: 59c0123464e01c845b8b6c1ba6dab229, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449705819815807242, guid: 59c0123464e01c845b8b6c1ba6dab229, type: 3}
+      propertyPath: m_Size.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2096169075111125982, guid: 59c0123464e01c845b8b6c1ba6dab229, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7996,11 +8055,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2607682743237915056, guid: ced388dd24f5c0b4a9730e806556b0fd, type: 3}
       propertyPath: quests.Array.data[0].questID
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2607682743237915056, guid: ced388dd24f5c0b4a9730e806556b0fd, type: 3}
       propertyPath: quests.Array.data[1].questID
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2607682743237915056, guid: ced388dd24f5c0b4a9730e806556b0fd, type: 3}
       propertyPath: quests.Array.data[1].startDialogue

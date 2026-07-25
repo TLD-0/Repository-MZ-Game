@@ -11,6 +11,9 @@ public class DialogueManager : MonoBehaviour
     public GameObject[] choicePanels;
     public TMP_Text[] choiceTexts;
 
+    [SerializeField]
+    private DialogueTextScroller dialogueTextScroller;
+
     [Header("Choices")]
     public Transform choiceContainer;
     public GameObject choicePrefab;
@@ -26,6 +29,13 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+
+        if (dialogueTextScroller == null &&
+            dialogueText != null)
+        {
+            dialogueTextScroller =
+                dialogueText.GetComponent<DialogueTextScroller>();
+        }
     }
 
     private void Update()
@@ -136,7 +146,16 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        dialogueText.text = node.dialogueText;
+        if (dialogueTextScroller != null)
+        {
+            dialogueTextScroller.SetText(
+                node.dialogueText);
+        }
+        else
+        {
+            dialogueText.text =
+                node.dialogueText;
+        }
 
         ClearChoices();
         CreateChoices(node);
@@ -385,13 +404,13 @@ public class DialogueManager : MonoBehaviour
         if (dialoguePanel != null)
             dialoguePanel.SetActive(false);
             ClearChoices();
-/*
+
         for (int i = 0; i < choicePanels.Length; i++)
         {
             if (choicePanels[i] != null)
                 choicePanels[i].SetActive(false);
         }
-*/
+
         if (playerLock != null)
         {
             playerLock.UnlockPlayer();

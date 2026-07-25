@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -53,9 +54,25 @@ public class PhoneSequenceQuest : MonoBehaviour
 
     private bool phoneInputActive;
     private bool inputLocked;
+    private bool questCompleted;
+    private Coroutine resultDialogueRoutine;
+
+    private void Awake()
+    {
+        if (questChecker == null)
+        {
+            questChecker = GetComponent<SequenceQuestChecker>();
+        }
+    }
 
     public void StartPhoneQuest()
     {
+        if (questCompleted)
+        {
+            PlayDialogue(correctNumberDialogue);
+            return;
+        }
+
         if (phoneInputActive)
         {
             Debug.Log(
@@ -122,7 +139,7 @@ public class PhoneSequenceQuest : MonoBehaviour
         if (SequenceChoiceManager.Instance == null)
             return;
 
-        if (SequenceChoiceManager.Instance.GetCount() ==
+        if (SequenceChoiceManager.Instance.GetCount() >=
             correctPhoneNumber.Length)
         {
             CheckPhoneNumber();
@@ -219,6 +236,8 @@ public class PhoneSequenceQuest : MonoBehaviour
             SequenceChoiceManager.Instance.MatchesSequence(
                 correctSequence);
 
+        inputLocked = true;
+
         if (isCorrect)
         {
             HandleCorrectNumber();
@@ -231,26 +250,31 @@ public class PhoneSequenceQuest : MonoBehaviour
 
     private void HandleCorrectNumber()
     {
-        inputLocked = true;
         phoneInputActive = false;
+        questCompleted = true;
 
         Debug.Log(
             "Richtige Telefonnummer eingegeben: " +
             SequenceChoiceManager.Instance.GetSequenceText());
 
-        if (questChecker != null)
+        if (questChecker == null)
+        {
+            Debug.LogError(
+                "PhoneSequenceQuest: Quest Checker wurde nicht zugewiesen.");
+        }
+        else
         {
             questChecker.CheckSequence();
         }
 
         onCorrectNumber?.Invoke();
 
-        PlayDialogue(correctNumberDialogue);
+        StartResultDialogue(correctNumberDialogue);
     }
 
     private void HandleWrongNumber()
     {
-        inputLocked = true;
+        phoneInputActive = false;
 
         Debug.Log(
             "Falsche Telefonnummer eingegeben: " +
@@ -258,12 +282,37 @@ public class PhoneSequenceQuest : MonoBehaviour
 
         onWrongNumber?.Invoke();
 
-        PlayDialogue(wrongNumberDialogue);
-
         if (resetAfterWrongNumber)
         {
-            ResetPhoneInput();
+            enteredDigits.Clear();
         }
+
+        StartResultDialogue(wrongNumberDialogue);
+    }
+
+    private void StartResultDialogue(DialogueData dialogue)
+    {
+        if (resultDialogueRoutine != null)
+        {
+            StopCoroutine(resultDialogueRoutine);
+        }
+
+        resultDialogueRoutine =
+            StartCoroutine(PlayResultDialogueNextFrame(dialogue));
+    }
+
+    private IEnumerator PlayResultDialogueNextFrame(
+        DialogueData dialogue)
+    {
+        // Der Eingabedialog beendet sich in DialogueManager.SelectChoice()
+        // erst nach dem Speichern der letzten Zahl. Einen Frame warten, damit
+        // der Ergebnisdialog nicht sofort wieder geschlossen wird.
+        yield return null;
+
+        PlayDialogue(dialogue);
+
+        inputLocked = false;
+        resultDialogueRoutine = null;
     }
 
     /// <summary>
@@ -315,7 +364,9 @@ public class PhoneSequenceQuest : MonoBehaviour
     {
         enteredDigits.Clear();
 
-        phoneInputActive = true;
+        // Wichtig: Nach einem Fehlversuch muss die Eingabe inaktiv sein,
+        // damit StartPhoneQuest() beim nächsten Drücken von E wieder startet.
+        phoneInputActive = false;
         inputLocked = false;
 
         if (SequenceChoiceManager.Instance != null)
@@ -323,7 +374,7 @@ public class PhoneSequenceQuest : MonoBehaviour
             SequenceChoiceManager.Instance.StartSequence("Telefon");
         }
 
-        Debug.Log("Telefoneingabe wurde zurückgesetzt.");
+        Debug.Log("Telefoneingabe wurde für einen neuen Versuch zurückgesetzt.");
     }
 
     public string GetEnteredNumber()
