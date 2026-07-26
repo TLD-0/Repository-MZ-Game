@@ -8,55 +8,142 @@ public class DrinkSequenceTest : MonoBehaviour
     public class DrinkRecipe
     {
         [Header("Antwortkombination")]
-        [Tooltip("Genau drei Buchstaben: A, B oder C. Beispiel: AAB")]
-        public string sequence = "AAA";
+        [Tooltip(
+            "Zweistellige Kombination wie AA, AB oder BC. " +
+            "Wenn das Feld leer ist, wird der Name des Drink Objects verwendet."
+        )]
+        public string sequence = "AA";
 
         [Header("3D-Objekt")]
-        [Tooltip("Das Objekt, das nach der fertigen Kombination erscheinen soll.")]
+        [Tooltip(
+            "Das Objekt, das bei dieser Kombination ausgegeben wird. " +
+            "Das Objekt kann beispielsweise AA, AB oder BC heißen."
+        )]
         public Transform drinkObject;
 
-        [Tooltip("Ausgangsposition des Objekts.")]
+        [Tooltip(
+            "Position, zu der das Objekt beim Zurücksetzen bewegt wird."
+        )]
         public Transform pointA;
 
-        [Tooltip("Zielposition des Objekts.")]
+        [Tooltip(
+            "Optionaler eigener Zielpunkt. Wenn das Feld leer ist, " +
+            "wird der allgemeine Ausgabe-Punkt verwendet."
+        )]
         public Transform pointB;
 
         [Header("Optionales Event")]
-        [Tooltip("Wird ausgelöst, nachdem das Getränk teleportiert wurde.")]
+        [Tooltip(
+            "Wird ausgeführt, nachdem das Getränk ausgegeben wurde."
+        )]
         public UnityEvent onDrinkCreated;
     }
 
     [Header("Dialog")]
-    public DialogueData drinkDialogue;
+    [Tooltip(
+        "Dialog mit zwei Nodes. Jeder Node enthält die Antworten A, B und C."
+    )]
+    [SerializeField]
+    private DialogueData drinkDialogue;
 
-    [Header("Dialog-Positionen")]
-    public Transform playerPoint;
-    public Transform cameraPoint;
-    public NPCEmotionController emotionController;
+    [Header("Dialogpositionen")]
+    [SerializeField]
+    private Transform playerPoint;
+
+    [SerializeField]
+    private Transform cameraPoint;
+
+    [SerializeField]
+    private NPCEmotionController emotionController;
 
     [Header("Getränke und Kombinationen")]
     [SerializeField]
     private DrinkRecipe[] drinkRecipes;
 
+    [Header("Ausgabe")]
+    [Tooltip(
+        "Allgemeiner Zielpunkt für alle Getränke. " +
+        "Kann pro Rezept durch Point B überschrieben werden."
+    )]
+    [SerializeField]
+    private Transform defaultOutputPoint;
+
     [Header("Einstellungen")]
+    [Tooltip(
+        "Setzt alle Getränke beim Start der Interaktion zurück zu Point A."
+    )]
     [SerializeField]
     private bool resetDrinksOnStart = true;
 
     [Header("Optionaler Quest-Checker")]
     [Tooltip(
-        "Optional: Hier kann ein vorhandener SequenceQuestChecker " +
-        "eingetragen werden, falls nur eine bestimmte Kombination korrekt ist."
+        "Nur notwendig, wenn eine bestimmte Kombination " +
+        "eine Quest abschließen soll."
     )]
     [SerializeField]
     private SequenceQuestChecker questChecker;
 
-    private const int RequiredChoiceCount = 3;
+    private const int RequiredChoiceCount = 2;
 
     private bool sequenceRunning;
     private bool inputLocked;
 
+    private void Awake()
+    {
+        if (questChecker == null)
+        {
+            questChecker =
+                GetComponent<SequenceQuestChecker>();
+        }
+    }
+
+    private void Update()
+    {
+        if (!sequenceRunning || inputLocked)
+        {
+            return;
+        }
+
+        if (SequenceChoiceManager.Instance == null)
+        {
+            return;
+        }
+
+        int choiceCount =
+            SequenceChoiceManager.Instance.GetCount();
+
+        if (choiceCount == RequiredChoiceCount)
+        {
+            inputLocked = true;
+            ResolveDrinkSequence();
+            return;
+        }
+
+        if (choiceCount > RequiredChoiceCount)
+        {
+            inputLocked = true;
+            sequenceRunning = false;
+
+            Debug.LogError(
+                "DrinkSequenceTest: Es wurden mehr als zwei Werte gespeichert. " +
+                "Prüfe, ob die Dialogantworten einen Wert doppelt hinzufügen."
+            );
+        }
+    }
+
+    /// <summary>
+    /// Wird durch NPCInteraction aufgerufen,
+    /// wenn der Spieler das Questobjekt ansieht und E drückt.
+    /// </summary>
     public void StartDrinkTest()
     {
+        if (sequenceRunning)
+        {
+            Debug.Log(
+                "DrinkSequenceTest: Die Drink-Sequenz läuft bereits.");
+            return;
+        }
+
         if (SequenceChoiceManager.Instance == null)
         {
             Debug.LogError(
@@ -86,7 +173,8 @@ public class DrinkSequenceTest : MonoBehaviour
         sequenceRunning = true;
         inputLocked = false;
 
-        SequenceChoiceManager.Instance.StartSequence("Drink");
+        SequenceChoiceManager.Instance.StartSequence(
+            "Drink");
 
         DialogueManager.Instance.StartDialogue(
             drinkDialogue,
@@ -94,74 +182,21 @@ public class DrinkSequenceTest : MonoBehaviour
             cameraPoint,
             emotionController
         );
-    }
-
-    // Diese drei Methoden werden von den Dialogantworten aufgerufen.
-
-    public void ChooseA()
-    {
-        AddDrinkChoice(1);
-    }
-
-    public void ChooseB()
-    {
-        AddDrinkChoice(2);
-    }
-
-    public void ChooseC()
-    {
-        AddDrinkChoice(3);
-    }
-
-    private void AddDrinkChoice(int value)
-    {
-        if (!sequenceRunning)
-        {
-            Debug.LogWarning(
-                "DrinkSequenceTest: Es läuft derzeit keine Drink-Sequenz.");
-            return;
-        }
-
-        if (inputLocked)
-        {
-            Debug.LogWarning(
-                "DrinkSequenceTest: Die drei Antworten wurden bereits ausgewählt.");
-            return;
-        }
-
-        if (SequenceChoiceManager.Instance == null)
-        {
-            Debug.LogError(
-                "DrinkSequenceTest: SequenceChoiceManager fehlt.");
-            return;
-        }
-
-        SequenceChoiceManager.Instance.AddValue(value);
-
-        int currentCount =
-            SequenceChoiceManager.Instance.GetCount();
 
         Debug.Log(
-            "Drink-Auswahl " +
-            currentCount +
-            " von " +
-            RequiredChoiceCount +
-            " gespeichert."
-        );
-
-        if (currentCount == RequiredChoiceCount)
-        {
-            inputLocked = true;
-            ResolveDrinkSequence();
-        }
+            "DrinkSequenceTest: Drink-Dialog gestartet.");
     }
 
     private void ResolveDrinkSequence()
     {
-        string selectedSequence = GetCurrentSequenceAsLetters();
+        string selectedSequence =
+            GetCurrentSequenceAsLetters();
+
+        sequenceRunning = false;
 
         Debug.Log(
-            "Fertige Drink-Sequenz: " + selectedSequence);
+            "DrinkSequenceTest: Fertige Kombination: " +
+            selectedSequence);
 
         DrinkRecipe matchingRecipe =
             FindRecipe(selectedSequence);
@@ -171,40 +206,48 @@ public class DrinkSequenceTest : MonoBehaviour
             Debug.LogWarning(
                 "DrinkSequenceTest: Für die Kombination " +
                 selectedSequence +
-                " wurde kein Getränk eingetragen."
-            );
+                " wurde kein passendes Getränk gefunden.");
 
-            sequenceRunning = false;
             return;
         }
 
-        TeleportDrink(matchingRecipe);
+        bool wasTeleported =
+            TeleportDrink(matchingRecipe);
 
-        if (matchingRecipe.onDrinkCreated != null)
+        if (!wasTeleported)
         {
-            matchingRecipe.onDrinkCreated.Invoke();
+            return;
         }
 
-        // Optional: Überprüft, ob diese Kombination
-        // die richtige Quest-Kombination ist.
+        matchingRecipe.onDrinkCreated?.Invoke();
+
+        /*
+         * Optional:
+         * Der Checker prüft beispielsweise, ob AA die richtige
+         * Questkombination ist.
+         */
         if (questChecker != null)
         {
             questChecker.CheckSequence();
         }
-
-        sequenceRunning = false;
     }
 
-    private DrinkRecipe FindRecipe(string selectedSequence)
+    private DrinkRecipe FindRecipe(
+        string selectedSequence)
     {
-        if (drinkRecipes == null)
+        if (drinkRecipes == null ||
+            drinkRecipes.Length == 0)
         {
+            Debug.LogError(
+                "DrinkSequenceTest: Keine Drink Recipes eingetragen.");
+
             return null;
         }
 
         for (int i = 0; i < drinkRecipes.Length; i++)
         {
-            DrinkRecipe recipe = drinkRecipes[i];
+            DrinkRecipe recipe =
+                drinkRecipes[i];
 
             if (recipe == null)
             {
@@ -212,7 +255,7 @@ public class DrinkSequenceTest : MonoBehaviour
             }
 
             string recipeSequence =
-                NormalizeSequence(recipe.sequence);
+                GetRecipeSequence(recipe);
 
             if (recipeSequence == selectedSequence)
             {
@@ -223,38 +266,72 @@ public class DrinkSequenceTest : MonoBehaviour
         return null;
     }
 
-    private void TeleportDrink(DrinkRecipe recipe)
+    private string GetRecipeSequence(
+        DrinkRecipe recipe)
+    {
+        /*
+         * Falls Sequence leer ist, wird automatisch
+         * der Name des 3D-Objekts verwendet.
+         *
+         * Beispiel:
+         * Objektname "AB" ergibt Kombination AB.
+         */
+        if (string.IsNullOrWhiteSpace(recipe.sequence))
+        {
+            if (recipe.drinkObject == null)
+            {
+                return "";
+            }
+
+            return NormalizeSequence(
+                recipe.drinkObject.name);
+        }
+
+        return NormalizeSequence(
+            recipe.sequence);
+    }
+
+    private bool TeleportDrink(
+        DrinkRecipe recipe)
     {
         if (recipe.drinkObject == null)
         {
             Debug.LogError(
                 "DrinkSequenceTest: Bei Kombination " +
-                recipe.sequence +
-                " fehlt das 3D-Objekt."
-            );
-            return;
+                GetRecipeSequence(recipe) +
+                " fehlt das Drink Object.");
+
+            return false;
         }
 
-        if (recipe.pointB == null)
+        Transform targetPoint =
+            recipe.pointB != null
+                ? recipe.pointB
+                : defaultOutputPoint;
+
+        if (targetPoint == null)
         {
             Debug.LogError(
                 "DrinkSequenceTest: Bei Kombination " +
-                recipe.sequence +
-                " fehlt Punkt B."
-            );
-            return;
+                GetRecipeSequence(recipe) +
+                " fehlt ein Zielpunkt.");
+
+            return false;
         }
 
         recipe.drinkObject.SetPositionAndRotation(
-            recipe.pointB.position,
-            recipe.pointB.rotation
+            targetPoint.position,
+            targetPoint.rotation
         );
 
         Debug.Log(
-            "Getränk für " +
-            NormalizeSequence(recipe.sequence) +
-            " wurde zu Punkt B teleportiert."
-        );
+            "DrinkSequenceTest: Getränk " +
+            recipe.drinkObject.name +
+            " für Kombination " +
+            GetRecipeSequence(recipe) +
+            " wurde ausgegeben.");
+
+        return true;
     }
 
     public void ResetAllDrinkObjects()
@@ -266,7 +343,8 @@ public class DrinkSequenceTest : MonoBehaviour
 
         for (int i = 0; i < drinkRecipes.Length; i++)
         {
-            DrinkRecipe recipe = drinkRecipes[i];
+            DrinkRecipe recipe =
+                drinkRecipes[i];
 
             if (recipe == null ||
                 recipe.drinkObject == null ||
@@ -284,9 +362,17 @@ public class DrinkSequenceTest : MonoBehaviour
 
     private string GetCurrentSequenceAsLetters()
     {
+        if (SequenceChoiceManager.Instance == null)
+        {
+            return "";
+        }
+
         string result = "";
 
-        int count = SequenceChoiceManager.Instance.GetCount();
+        int count =
+            Mathf.Min(
+                SequenceChoiceManager.Instance.GetCount(),
+                RequiredChoiceCount);
 
         for (int i = 0; i < count; i++)
         {
@@ -316,7 +402,8 @@ public class DrinkSequenceTest : MonoBehaviour
         return result;
     }
 
-    private static string NormalizeSequence(string sequence)
+    private static string NormalizeSequence(
+        string sequence)
     {
         if (string.IsNullOrWhiteSpace(sequence))
         {

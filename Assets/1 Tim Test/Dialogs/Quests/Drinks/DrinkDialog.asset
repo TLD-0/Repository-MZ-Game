@@ -14,98 +14,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: "Welche untere Schicht m\xF6chtest du?"
+    emotionChanges: []
     choices:
     - answerText: A
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
-      skipsQuest: 0
-      questIDToSkip: 0
-      addsSequenceValue: 1
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
-    - answerText: B
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 1
       sequenceValue: 1
       checksSequence: 0
       sequenceChecker: {fileID: 0}
-    - answerText: C
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+    - answerText: B
+      nextNode: 1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 1
       sequenceValue: 2
       checksSequence: 0
       sequenceChecker: {fileID: 0}
-  - dialogueText: "Welche mittlere Schicht m\xF6chtest du?"
-    choices:
-    - answerText: A
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
-      skipsQuest: 0
-      questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
-    - answerText: B
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
-      skipsQuest: 0
-      questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
-      checksSequence: 0
-      sequenceChecker: {fileID: 0}
     - answerText: C
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: 1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
+      addsSequenceValue: 1
+      sequenceValue: 3
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Welche obere Schicht m\xF6chtest du?"
+    emotionChanges: []
     choices:
     - answerText: A
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: -1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
+      addsSequenceValue: 1
+      sequenceValue: 1
       checksSequence: 0
       sequenceChecker: {fileID: 0}
     - answerText: B
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: -1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
+      addsSequenceValue: 1
+      sequenceValue: 2
       checksSequence: 0
       sequenceChecker: {fileID: 0}
     - answerText: C
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: -1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
-      addsSequenceValue: 0
-      sequenceValue: 0
+      addsSequenceValue: 1
+      sequenceValue: 3
       checksSequence: 0
       sequenceChecker: {fileID: 0}
