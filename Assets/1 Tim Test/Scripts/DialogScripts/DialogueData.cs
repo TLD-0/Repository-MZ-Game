@@ -45,19 +45,28 @@ public class DialogueNode
     [TextArea(3, 10)]
     public string dialogueText;
 
-    [Header("NPC Emotion")]
-    public List<NPCEmotionChange> emotionChanges =
-    new List<NPCEmotionChange>();
+    [Header("Spieleremotion")]
+    [Tooltip(
+        "Wenn aktiviert, wechselt das Spielerportrait " +
+        "beim Anzeigen dieses Nodes die Emotion."
+    )]
+    public bool changePlayerEmotion;
 
+    public PlayerEmotion playerEmotion =
+        PlayerEmotion.Neutral;
+
+    [Header("NPC-Emotionen")]
+    public List<NPCEmotionChange> emotionChanges =
+        new List<NPCEmotionChange>();
+
+    [Header("Antwortmöglichkeiten")]
     public List<DialogueChoice> choices =
         new List<DialogueChoice>();
 }
-
 [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue System/Dialogue")]
 
 public class DialogueData : ScriptableObject
 {
-    public List<DialogueNode> nodes =
-    new List<DialogueNode>();
+    public List<DialogueNode> nodes = new List<DialogueNode>();
 }
 
