@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,37 +8,59 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance;
 
     [Header("UI")]
-    public GameObject dialoguePanel;
-    public TMP_Text dialogueText;
+    [SerializeField]
+    private GameObject dialoguePanel;
+
+    [SerializeField]
+    private TMP_Text dialogueText;
 
     [Tooltip(
         "Alte, feste Antwortfelder. Können leer bleiben, " +
-        "wenn nur Choice Container und Choice Prefab verwendet werden."
+        "wenn das dynamische Choice-System verwendet wird."
     )]
-    public GameObject[] choicePanels;
+    [SerializeField]
+    private GameObject[] choicePanels;
 
     [Tooltip(
-        "Alte, feste Antworttexte. Werden nicht mehr für " +
-        "die Tastatureingabe benötigt."
+        "Alte, feste Antworttexte. Werden für die dynamischen " +
+        "Antworten und die Tastatureingabe nicht mehr benötigt."
     )]
-    public TMP_Text[] choiceTexts;
+    [SerializeField]
+    private TMP_Text[] choiceTexts;
 
     [SerializeField]
     private DialogueTextScroller dialogueTextScroller;
 
     [Header("Dynamische Antworten")]
-    public Transform choiceContainer;
-    public GameObject choicePrefab;
+    [SerializeField]
+    private Transform choiceContainer;
+
+    [SerializeField]
+    private GameObject choicePrefab;
 
     [Header("Spieler")]
-    public PlayerLock playerLock;
+    [SerializeField]
+    private PlayerLock playerLock;
 
     [Header("Spielerportrait")]
     [SerializeField]
     private PlayerEmotionPortrait playerEmotionPortrait;
 
     private DialogueData currentDialogue;
+
+    /*
+     * Der NPC, mit dem der Dialog gestartet wurde.
+     * Er wird bei Target Mode = CurrentSpeaker verwendet.
+     */
     private NPCEmotionController currentEmotionController;
+
+    /*
+     * Speichert alle NPCs, deren Emotion innerhalb des
+     * aktuellen Dialogs verändert wurde.
+     */
+    private readonly HashSet<NPCEmotionController>
+        changedEmotionControllers =
+            new HashSet<NPCEmotionController>();
 
     private int currentNode = -1;
     private bool dialogueActive;
@@ -50,11 +73,13 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance != null &&
+            Instance != this)
         {
             Debug.LogWarning(
-                "DialogueManager: Es existiert bereits ein DialogueManager. " +
-                "Die zusätzliche Komponente wird entfernt.",
+                "DialogueManager: Es existiert bereits ein " +
+                "DialogueManager. Die zusätzliche Komponente " +
+                "wird entfernt.",
                 this);
 
             Destroy(this);
@@ -68,12 +93,6 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueTextScroller =
                 dialogueText.GetComponent<DialogueTextScroller>();
-        }
-
-        if (playerEmotionPortrait == null)
-        {
-            playerEmotionPortrait =
-                FindFirstObjectByType<PlayerEmotionPortrait>();
         }
 
         if (dialoguePanel != null)
@@ -110,7 +129,8 @@ public class DialogueManager : MonoBehaviour
 
     private void HandleKeyboardChoices()
     {
-        DialogueNode node = GetCurrentNode();
+        DialogueNode node =
+            GetCurrentNode();
 
         if (node == null ||
             node.choices == null ||
@@ -120,18 +140,18 @@ public class DialogueManager : MonoBehaviour
         }
 
         /*
-         * Tastatur:
+         * Antworten 1 bis 9:
+         * Tasten 1 bis 9
          *
-         * Antwort 1 bis 9 = Tasten 1 bis 9
-         * Antwort 10      = Taste 0
-         *
-         * Weitere Antworten können weiterhin mit
-         * der Maus angeklickt werden.
+         * Antwort 10:
+         * Taste 0
          */
         int keyboardChoiceCount =
             Mathf.Min(node.choices.Count, 10);
 
-        for (int i = 0; i < keyboardChoiceCount; i++)
+        for (int i = 0;
+             i < keyboardChoiceCount;
+             i++)
         {
             if (WasChoiceKeyPressed(i))
             {
@@ -141,14 +161,15 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private bool WasChoiceKeyPressed(int choiceIndex)
+    private bool WasChoiceKeyPressed(
+        int choiceIndex)
     {
-        if (choiceIndex < 0 || choiceIndex > 9)
+        if (choiceIndex < 0 ||
+            choiceIndex > 9)
         {
             return false;
         }
 
-        // Antwort 10 wird über 0 gewählt.
         if (choiceIndex == 9)
         {
             return
@@ -157,10 +178,14 @@ public class DialogueManager : MonoBehaviour
         }
 
         KeyCode alphaKey =
-            (KeyCode)((int)KeyCode.Alpha1 + choiceIndex);
+            (KeyCode)(
+                (int)KeyCode.Alpha1 +
+                choiceIndex);
 
         KeyCode keypadKey =
-            (KeyCode)((int)KeyCode.Keypad1 + choiceIndex);
+            (KeyCode)(
+                (int)KeyCode.Keypad1 +
+                choiceIndex);
 
         return
             Input.GetKeyDown(alphaKey) ||
@@ -182,19 +207,22 @@ public class DialogueManager : MonoBehaviour
         }
 
         /*
-         * Falls bereits ein Dialog läuft, wird dieser sauber
-         * geschlossen, bevor der neue Dialog startet.
+         * Ein laufender Dialog wird sauber beendet,
+         * bevor ein neuer gestartet wird.
          *
-         * Das ist unter anderem für die Ergebnisdialoge der
-         * Telefonquest wichtig.
+         * Das wird beispielsweise bei den Ergebnisdialogen
+         * der Telefonquest benötigt.
          */
         if (dialogueActive)
         {
             EndDialogue();
         }
 
+        changedEmotionControllers.Clear();
+
         currentDialogue = dialogue;
-        currentEmotionController = emotionController;
+        currentEmotionController =
+            emotionController;
 
         currentNode = 0;
         dialogueActive = true;
@@ -227,7 +255,8 @@ public class DialogueManager : MonoBehaviour
             dialogue.nodes.Count == 0)
         {
             Debug.LogError(
-                "DialogueManager: Kein gültiger Dialog zugewiesen.");
+                "DialogueManager: Kein gültiger " +
+                "Dialog zugewiesen.");
 
             return false;
         }
@@ -235,7 +264,8 @@ public class DialogueManager : MonoBehaviour
         if (dialoguePanel == null)
         {
             Debug.LogError(
-                "DialogueManager: Dialogue Panel wurde nicht zugewiesen.");
+                "DialogueManager: Dialogue Panel " +
+                "wurde nicht zugewiesen.");
 
             return false;
         }
@@ -244,8 +274,8 @@ public class DialogueManager : MonoBehaviour
             dialogueTextScroller == null)
         {
             Debug.LogError(
-                "DialogueManager: Weder Dialogue Text noch " +
-                "Dialogue Text Scroller wurde zugewiesen.");
+                "DialogueManager: Weder Dialogue Text " +
+                "noch Dialogue Text Scroller wurde zugewiesen.");
 
             return false;
         }
@@ -253,7 +283,8 @@ public class DialogueManager : MonoBehaviour
         if (choiceContainer == null)
         {
             Debug.LogError(
-                "DialogueManager: Choice Container wurde nicht zugewiesen.");
+                "DialogueManager: Choice Container " +
+                "wurde nicht zugewiesen.");
 
             return false;
         }
@@ -261,7 +292,8 @@ public class DialogueManager : MonoBehaviour
         if (choicePrefab == null)
         {
             Debug.LogError(
-                "DialogueManager: Choice Prefab wurde nicht zugewiesen.");
+                "DialogueManager: Choice Prefab " +
+                "wurde nicht zugewiesen.");
 
             return false;
         }
@@ -269,7 +301,8 @@ public class DialogueManager : MonoBehaviour
         if (playerLock == null)
         {
             Debug.LogError(
-                "DialogueManager: PlayerLock wurde nicht zugewiesen.");
+                "DialogueManager: PlayerLock " +
+                "wurde nicht zugewiesen.");
 
             return false;
         }
@@ -277,7 +310,8 @@ public class DialogueManager : MonoBehaviour
         if (playerPoint == null)
         {
             Debug.LogError(
-                "DialogueManager: Player Point wurde nicht zugewiesen.");
+                "DialogueManager: Player Point " +
+                "wurde nicht zugewiesen.");
 
             return false;
         }
@@ -285,7 +319,8 @@ public class DialogueManager : MonoBehaviour
         if (cameraPoint == null)
         {
             Debug.LogError(
-                "DialogueManager: Camera Point wurde nicht zugewiesen.");
+                "DialogueManager: Camera Point " +
+                "wurde nicht zugewiesen.");
 
             return false;
         }
@@ -295,12 +330,14 @@ public class DialogueManager : MonoBehaviour
 
     private void ShowNode()
     {
-        DialogueNode node = GetCurrentNode();
+        DialogueNode node =
+            GetCurrentNode();
 
         if (node == null)
         {
             Debug.LogError(
-                "DialogueManager: Der aktuelle Dialog-Node ist ungültig.");
+                "DialogueManager: Der aktuelle " +
+                "Dialog-Node ist ungültig.");
 
             EndDialogue();
             return;
@@ -325,17 +362,23 @@ public class DialogueManager : MonoBehaviour
         }
 
         if (currentNode < 0 ||
-            currentNode >= currentDialogue.nodes.Count)
+            currentNode >=
+            currentDialogue.nodes.Count)
         {
             return null;
         }
 
-        return currentDialogue.nodes[currentNode];
+        return
+            currentDialogue.nodes[currentNode];
     }
 
     private void ApplyPlayerEmotion(
         DialogueNode node)
     {
+        /*
+         * Ist Change Player Emotion deaktiviert,
+         * bleibt die vorherige Emotion erhalten.
+         */
         if (!node.changePlayerEmotion)
         {
             return;
@@ -346,7 +389,7 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning(
                 "DialogueManager: Der Node möchte die " +
                 "Spieleremotion ändern, aber es wurde kein " +
-                "PlayerEmotionPortrait gefunden.");
+                "PlayerEmotionPortrait zugewiesen.");
 
             return;
         }
@@ -358,12 +401,18 @@ public class DialogueManager : MonoBehaviour
     private void ApplyNPCEmotions(
         DialogueNode node)
     {
-        if (node.emotionChanges == null)
+        /*
+        * Kein Eintrag:
+        * Alle vorherigen NPC-Emotionen bleiben bestehen.
+        */
+        if (node.emotionChanges == null ||
+            node.emotionChanges.Count == 0)
         {
             return;
         }
 
-        foreach (NPCEmotionChange change in node.emotionChanges)
+        foreach (NPCEmotionChange change
+                in node.emotionChanges)
         {
             if (change == null)
             {
@@ -371,27 +420,90 @@ public class DialogueManager : MonoBehaviour
             }
 
             /*
-             * Falls im Dialog-Asset kein bestimmter NPC
-             * eingetragen wurde, wird automatisch der NPC
-             * verwendet, mit dem gerade gesprochen wird.
-             */
+            * Change Emotion nicht aktiviert:
+            * vorheriger Kopf bleibt bestehen.
+            */
+            if (!change.changeEmotion)
+            {
+                continue;
+            }
+
             NPCEmotionController targetController =
-                change.targetNPC != null
-                    ? change.targetNPC
-                    : currentEmotionController;
+                ResolveEmotionTarget(change);
 
             if (targetController == null)
             {
-                Debug.LogWarning(
-                    "DialogueManager: Für einen Emotion Change " +
-                    "wurde kein NPCEmotionController gefunden.");
+                continue;
+            }
+
+            /*
+            * Bewusste Rückkehr zum neutralen Kopf.
+            */
+            if (change.returnToNeutral)
+            {
+                targetController.ClearEmotion();
+
+                changedEmotionControllers.Add(
+                    targetController);
 
                 continue;
             }
 
-            targetController.SetEmotion(
-                change.emotion);
+            /*
+            * Kein Sprite eingetragen:
+            * vorherige Emotion bleibt bestehen.
+            */
+            if (change.emotionSprite == null)
+            {
+                continue;
+            }
+
+            bool emotionChanged =
+                targetController.SetEmotionSprite(
+                    change.emotionSprite);
+
+            if (emotionChanged)
+            {
+                changedEmotionControllers.Add(
+                    targetController);
+            }
         }
+    }
+
+    private NPCEmotionController ResolveEmotionTarget(
+    NPCEmotionChange change)
+    {
+        if (change.targetMode ==
+            NPCEmotionTargetMode.CurrentSpeaker)
+        {
+            return currentEmotionController;
+        }
+
+        if (change.targetNPCId == NPCId.None)
+        {
+            Debug.LogWarning(
+                "DialogueManager: Specific NPC wurde gewählt, " +
+                "aber keine NPC-ID eingetragen.");
+
+            return null;
+        }
+
+        bool found =
+            NPCEmotionController.TryGetController(
+                change.targetNPCId,
+                out NPCEmotionController targetController);
+
+        if (!found)
+        {
+            Debug.LogWarning(
+                "DialogueManager: Für NPC " +
+                change.targetNPCId +
+                " wurde kein aktiver NPCEmotionController gefunden.");
+
+            return null;
+        }
+
+        return targetController;
     }
 
     private void ShowDialogueText(
@@ -421,15 +533,17 @@ public class DialogueManager : MonoBehaviour
 
         /*
          * Destroy wird erst am Ende des Frames ausgeführt.
-         * Durch SetActive(false) verschwinden die alten
-         * Antworten sofort.
+         * SetActive(false) entfernt die alten Antworten sofort.
          */
-        for (int i = choiceContainer.childCount - 1;
+        for (int i =
+                 choiceContainer.childCount - 1;
              i >= 0;
              i--)
         {
             GameObject child =
-                choiceContainer.GetChild(i).gameObject;
+                choiceContainer
+                    .GetChild(i)
+                    .gameObject;
 
             child.SetActive(false);
             Destroy(child);
@@ -443,15 +557,31 @@ public class DialogueManager : MonoBehaviour
             node.choices.Count == 0)
         {
             Debug.LogWarning(
-                "DialogueManager: Der aktuelle Node besitzt " +
-                "keine Antworten. Der Dialog kann mit ESC beendet werden.");
+                "DialogueManager: Der aktuelle Node " +
+                "besitzt keine Antworten. Der Dialog kann " +
+                "mit ESC beendet werden.");
 
             return;
         }
 
-        for (int i = 0; i < node.choices.Count; i++)
+        for (int i = 0;
+             i < node.choices.Count;
+             i++)
         {
             int capturedIndex = i;
+
+            DialogueChoice dialogueChoice =
+                node.choices[i];
+
+            if (dialogueChoice == null)
+            {
+                Debug.LogWarning(
+                    "DialogueManager: Antwort " +
+                    i +
+                    " ist leer.");
+
+                continue;
+            }
 
             GameObject choiceObject =
                 Instantiate(
@@ -459,13 +589,14 @@ public class DialogueManager : MonoBehaviour
                     choiceContainer);
 
             DialogueChoiceUI choiceUI =
-                choiceObject.GetComponent<DialogueChoiceUI>();
+                choiceObject
+                    .GetComponent<DialogueChoiceUI>();
 
             if (choiceUI == null)
             {
                 Debug.LogError(
-                    "DialogueManager: Das Choice Prefab besitzt " +
-                    "keine DialogueChoiceUI-Komponente.",
+                    "DialogueManager: Das Choice Prefab " +
+                    "besitzt keine DialogueChoiceUI-Komponente.",
                     choiceObject);
 
                 Destroy(choiceObject);
@@ -478,10 +609,10 @@ public class DialogueManager : MonoBehaviour
             choiceUI.SetText(
                 shortcutText +
                 ". " +
-                node.choices[i].answerText);
+                dialogueChoice.answerText);
 
             /*
-             * Dadurch können die dynamisch erzeugten Antworten
+             * Die dynamisch erzeugte Antwort kann
              * zusätzlich mit der Maus angeklickt werden.
              */
             Button button =
@@ -490,7 +621,8 @@ public class DialogueManager : MonoBehaviour
             if (button == null)
             {
                 button =
-                    choiceObject.GetComponentInChildren<Button>(true);
+                    choiceObject
+                        .GetComponentInChildren<Button>(true);
             }
 
             if (button != null)
@@ -505,17 +637,18 @@ public class DialogueManager : MonoBehaviour
 
         if (containerRect != null)
         {
-            LayoutRebuilder.ForceRebuildLayoutImmediate(
-                containerRect);
+            LayoutRebuilder
+                .ForceRebuildLayoutImmediate(
+                    containerRect);
         }
 
         if (node.choices.Count > 10)
         {
             Debug.LogWarning(
-                "DialogueManager: Der aktuelle Node besitzt mehr " +
-                "als zehn Antworten. Nur die ersten zehn können " +
-                "über die Zahlentasten gewählt werden. Alle Antworten " +
-                "bleiben per Mausklick verfügbar.");
+                "DialogueManager: Der aktuelle Node besitzt " +
+                "mehr als zehn Antworten. Nur die ersten zehn " +
+                "können über Zahlentasten gewählt werden. " +
+                "Alle Antworten bleiben per Mausklick verfügbar.");
         }
     }
 
@@ -527,7 +660,8 @@ public class DialogueManager : MonoBehaviour
             return "0";
         }
 
-        return (choiceIndex + 1).ToString();
+        return
+            (choiceIndex + 1).ToString();
     }
 
     private void SelectChoice(
@@ -552,20 +686,33 @@ public class DialogueManager : MonoBehaviour
             index >= node.choices.Count)
         {
             Debug.LogWarning(
-                "DialogueManager: Ungültiger Choice-Index: " +
+                "DialogueManager: Ungültiger " +
+                "Choice-Index: " +
                 index);
+
+            return;
+        }
+
+        DialogueChoice choice =
+            node.choices[index];
+
+        if (choice == null)
+        {
+            Debug.LogError(
+                "DialogueManager: Die ausgewählte " +
+                "Antwort ist leer.");
 
             return;
         }
 
         isProcessingChoice = true;
 
-        DialogueChoice choice =
-            node.choices[index];
-
         ProcessSequenceActions(choice);
         ProcessQuestActions(choice);
 
+        /*
+         * -1 beendet den Dialog.
+         */
         if (choice.nextNode == -1)
         {
             EndDialogue();
@@ -573,18 +720,20 @@ public class DialogueManager : MonoBehaviour
         }
 
         if (choice.nextNode < 0 ||
-            choice.nextNode >= currentDialogue.nodes.Count)
+            choice.nextNode >=
+            currentDialogue.nodes.Count)
         {
             Debug.LogError(
-                "DialogueManager: Die Antwort verweist auf " +
-                "einen ungültigen nächsten Node: " +
+                "DialogueManager: Die Antwort verweist " +
+                "auf einen ungültigen nächsten Node: " +
                 choice.nextNode);
 
             EndDialogue();
             return;
         }
 
-        currentNode = choice.nextNode;
+        currentNode =
+            choice.nextNode;
 
         ShowNode();
     }
@@ -615,8 +764,9 @@ public class DialogueManager : MonoBehaviour
         if (choice.sequenceChecker == null)
         {
             Debug.LogError(
-                "DialogueManager: Checks Sequence ist aktiviert, " +
-                "aber es wurde kein Sequence Checker zugewiesen.");
+                "DialogueManager: Checks Sequence ist " +
+                "aktiviert, aber es wurde kein Sequence " +
+                "Checker zugewiesen.");
 
             return;
         }
@@ -629,15 +779,22 @@ public class DialogueManager : MonoBehaviour
     {
         if (choice.questsToStart != null)
         {
-            foreach (QuestStart quest in choice.questsToStart)
+            foreach (QuestStart quest
+                     in choice.questsToStart)
             {
+                if (quest == null)
+                {
+                    continue;
+                }
+
                 StartQuest(quest.questID);
             }
         }
 
         if (choice.skipsQuest)
         {
-            SkipQuest(choice.questIDToSkip);
+            SkipQuest(
+                choice.questIDToSkip);
         }
     }
 
@@ -676,7 +833,8 @@ public class DialogueManager : MonoBehaviour
         if (QuestManager.Instance == null)
         {
             Debug.LogError(
-                "DialogueManager: QuestManager wurde nicht gefunden.");
+                "DialogueManager: QuestManager " +
+                "wurde nicht gefunden.");
 
             return false;
         }
@@ -684,68 +842,84 @@ public class DialogueManager : MonoBehaviour
         switch (questID)
         {
             case 1:
-                QuestManager.Instance.quest1 = newStatus;
+                QuestManager.Instance.quest1 =
+                    newStatus;
                 break;
 
             case 2:
-                QuestManager.Instance.quest2 = newStatus;
+                QuestManager.Instance.quest2 =
+                    newStatus;
                 break;
 
             case 3:
-                QuestManager.Instance.quest3 = newStatus;
+                QuestManager.Instance.quest3 =
+                    newStatus;
                 break;
 
             case 4:
-                QuestManager.Instance.quest4 = newStatus;
+                QuestManager.Instance.quest4 =
+                    newStatus;
                 break;
 
             case 5:
-                QuestManager.Instance.quest5 = newStatus;
+                QuestManager.Instance.quest5 =
+                    newStatus;
                 break;
 
             case 6:
-                QuestManager.Instance.quest6 = newStatus;
+                QuestManager.Instance.quest6 =
+                    newStatus;
                 break;
 
             case 7:
-                QuestManager.Instance.quest7 = newStatus;
+                QuestManager.Instance.quest7 =
+                    newStatus;
                 break;
 
             case 8:
-                QuestManager.Instance.quest8 = newStatus;
+                QuestManager.Instance.quest8 =
+                    newStatus;
                 break;
 
             case 9:
-                QuestManager.Instance.quest9 = newStatus;
+                QuestManager.Instance.quest9 =
+                    newStatus;
                 break;
 
             case 10:
-                QuestManager.Instance.quest10 = newStatus;
+                QuestManager.Instance.quest10 =
+                    newStatus;
                 break;
 
             case 11:
-                QuestManager.Instance.quest11 = newStatus;
+                QuestManager.Instance.quest11 =
+                    newStatus;
                 break;
 
             case 12:
-                QuestManager.Instance.quest12 = newStatus;
+                QuestManager.Instance.quest12 =
+                    newStatus;
                 break;
 
             case 13:
-                QuestManager.Instance.quest13 = newStatus;
+                QuestManager.Instance.quest13 =
+                    newStatus;
                 break;
 
             case 14:
-                QuestManager.Instance.quest14 = newStatus;
+                QuestManager.Instance.quest14 =
+                    newStatus;
                 break;
 
             case 15:
-                QuestManager.Instance.quest15 = newStatus;
+                QuestManager.Instance.quest15 =
+                    newStatus;
                 break;
 
             default:
                 Debug.LogError(
-                    "DialogueManager: Ungültige Quest-ID: " +
+                    "DialogueManager: Ungültige " +
+                    "Quest-ID: " +
                     questID);
 
                 return false;
@@ -795,11 +969,25 @@ public class DialogueManager : MonoBehaviour
             playerLock.UnlockPlayer();
         }
 
-        if (currentEmotionController != null)
+        /*
+         * Alle NPCs, deren Emotion im Dialog verändert wurde,
+         * erhalten die Information, dass der Dialog beendet ist.
+         *
+         * Ob sie dabei auf Neutral zurückgesetzt werden,
+         * entscheidet die Einstellung
+         * Reset To Neutral On Dialogue End
+         * im jeweiligen NPCEmotionController.
+         */
+        foreach (NPCEmotionController controller
+                 in changedEmotionControllers)
         {
-            currentEmotionController.SetEmotion(
-                NPCEmotion.Neutral);
+            if (controller != null)
+            {
+                controller.OnDialogueEnded();
+            }
         }
+
+        changedEmotionControllers.Clear();
 
         currentDialogue = null;
         currentEmotionController = null;

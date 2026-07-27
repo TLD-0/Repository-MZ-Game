@@ -25,8 +25,31 @@ public class NPCQuestDialogue : MonoBehaviour
     [Header("Quests dieses NPCs")]
     public List<NPCQuestEntry> quests = new List<NPCQuestEntry>();
 
+    private void Awake()
+    {
+        FindEmotionController();
+    }
+
+    private void OnValidate()
+    {
+        FindEmotionController();
+    }
+
+    private void FindEmotionController()
+    {
+        if (emotionController == null)
+        {
+            emotionController =
+                GetComponentInChildren<
+                    NPCEmotionController
+                >(true);
+        }
+    }
+
     public void StartNPCDialogue()
     {
+        FindEmotionController();
+
         NPCQuestEntry entry = GetCurrentQuestEntry();
 
         if (entry == null)
