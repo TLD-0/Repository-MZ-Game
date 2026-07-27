@@ -17,26 +17,60 @@ public class DialogueChoice
     public int nextNode;
 
     [Header("Quests starten")]
-    public List<QuestStart> questsToStart = new List<QuestStart>();
+    public List<QuestStart> questsToStart =
+        new List<QuestStart>();
 
     [Header("Quest überspringen")]
     public bool skipsQuest;
+
     public int questIDToSkip;
 
     [Header("Sequenz-Auswahl")]
     public bool addsSequenceValue;
+
     public int sequenceValue;
 
     [Header("Sequenz prüfen")]
     public bool checksSequence;
+
     public SequenceQuestChecker sequenceChecker;
 }
 
 [System.Serializable]
 public class NPCEmotionChange
 {
-    public NPCEmotionController targetNPC;
-    public NPCEmotion emotion;
+    [Header("Emotion ändern")]
+    [Tooltip(
+        "Wenn deaktiviert, bleibt die bisherige Emotion erhalten."
+    )]
+    public bool changeEmotion;
+
+    [Header("Ziel")]
+    [Tooltip(
+        "Current Speaker verwendet den NPC, mit dem der Dialog gestartet wurde. " +
+        "Specific NPC verwendet die ausgewählte NPC-ID."
+    )]
+    public NPCEmotionTargetMode targetMode =
+        NPCEmotionTargetMode.CurrentSpeaker;
+
+    [Tooltip(
+        "Nur bei Target Mode = Specific NPC relevant."
+    )]
+    public NPCId targetNPCId =
+        NPCId.None;
+
+    [Header("Neue Emotion")]
+    [Tooltip(
+        "Der Kopf-Sprite, der in diesem Node angezeigt werden soll. " +
+        "Bleibt das Feld leer, bleibt die vorherige Emotion bestehen."
+    )]
+    public Sprite emotionSprite;
+
+    [Tooltip(
+        "Blendet den Emotionskopf aus und zeigt wieder " +
+        "den neutralen Kopf des normalen Körpersprites."
+    )]
+    public bool returnToNeutral;
 }
 
 [System.Serializable]
@@ -46,10 +80,6 @@ public class DialogueNode
     public string dialogueText;
 
     [Header("Spieleremotion")]
-    [Tooltip(
-        "Wenn aktiviert, wechselt das Spielerportrait " +
-        "beim Anzeigen dieses Nodes die Emotion."
-    )]
     public bool changePlayerEmotion;
 
     public PlayerEmotion playerEmotion =
@@ -63,10 +93,13 @@ public class DialogueNode
     public List<DialogueChoice> choices =
         new List<DialogueChoice>();
 }
-[CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue System/Dialogue")]
 
+[CreateAssetMenu(
+    fileName = "New Dialogue",
+    menuName = "Dialogue System/Dialogue"
+)]
 public class DialogueData : ScriptableObject
 {
-    public List<DialogueNode> nodes = new List<DialogueNode>();
+    public List<DialogueNode> nodes =
+        new List<DialogueNode>();
 }
-

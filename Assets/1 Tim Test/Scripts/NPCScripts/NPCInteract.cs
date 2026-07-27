@@ -23,49 +23,102 @@ public class NPCInteraction : MonoBehaviour
         }
 
     void CheckInteractable()
+    {
+        currentNPC = null;
+        currentQuestNPC = null;
+        currentPhoneQuest = null;
+        currentDrinkQuest = null;
+
+        if (playerCamera == null)
         {
-            currentNPC = null;
-            currentQuestNPC = null;
+            Debug.LogError(
+                "NPCInteraction: Player Camera wurde nicht zugewiesen.");
 
-            currentPhoneQuest = null;
-            currentDrinkQuest = null;
+            return;
+        }
 
-            if (playerCamera == null)
+        Ray ray = new Ray(
+            playerCamera.transform.position,
+            playerCamera.transform.forward);
+
+        RaycastHit hit;
+
+        if (!Physics.Raycast(
+                ray,
+                out hit,
+                interactDistance))
+        {
+            return;
+        }
+
+        /*
+        * Zuerst nach einem Quest-NPC suchen.
+        */
+        NPCQuestDialogue foundQuestNPC =
+            hit.collider.GetComponentInParent<
+                NPCQuestDialogue>();
+
+        if (foundQuestNPC != null)
+        {
+            NPCStoryRequirement storyRequirement =
+                foundQuestNPC.GetComponentInParent<
+                    NPCStoryRequirement>();
+
+            /*
+            * Der NPC wurde getroffen, ist aber noch
+            * nicht durch den Storyfortschritt freigeschaltet.
+            */
+            if (storyRequirement != null &&
+                !storyRequirement.IsUnlocked())
             {
-                Debug.LogError("NPCInteraction: Player Camera wurde nicht zugewiesen.");
+                currentQuestNPC = null;
                 return;
             }
 
-            Ray ray = new Ray(
-                playerCamera.transform.position,
-                playerCamera.transform.forward);
+            currentQuestNPC = foundQuestNPC;
+            return;
+        }
 
-            RaycastHit hit;
+        /*
+        * Danach nach einem normalen Dialog-NPC suchen.
+        */
+        NPCDialogue foundNPC =
+            hit.collider.GetComponentInParent<
+                NPCDialogue>();
 
-            if (!Physics.Raycast(ray, out hit, interactDistance))
+        if (foundNPC != null)
+        {
+            NPCStoryRequirement storyRequirement =
+                foundNPC.GetComponentInParent<
+                    NPCStoryRequirement>();
+
+            if (storyRequirement != null &&
+                !storyRequirement.IsUnlocked())
+            {
+                currentNPC = null;
                 return;
+            }
 
-            currentQuestNPC =
-                hit.collider.GetComponentInParent<NPCQuestDialogue>();
+            currentNPC = foundNPC;
+            return;
+        }
 
-            if (currentQuestNPC != null)
-                return;
+        /*
+        * Questobjekte werden nicht durch
+        * NPCStoryRequirement eingeschränkt.
+        */
+        currentPhoneQuest =
+            hit.collider.GetComponentInParent<
+                PhoneSequenceQuest>();
 
-            currentNPC =
-                hit.collider.GetComponentInParent<NPCDialogue>();
+        if (currentPhoneQuest != null)
+        {
+            return;
+        }
 
-            if (currentNPC != null)
-                return;
-
-            currentPhoneQuest =
-                hit.collider.GetComponentInParent<PhoneSequenceQuest>();
-
-            if (currentPhoneQuest != null)
-                return;
-
-            currentDrinkQuest =
-                hit.collider.GetComponentInParent<DrinkSequenceTest>();
-
+        currentDrinkQuest =
+            hit.collider.GetComponentInParent<
+                DrinkSequenceTest>();
     }
 
     void Interact()
