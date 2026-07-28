@@ -42,6 +42,19 @@ public class DialogueChoice
         "0 bedeutet keine Veränderung."
     )]
     public int moodValueChange;
+
+    [Header("Spieler-Teleport")]
+    [Tooltip(
+        "Aktiviert den Teleport des Spielers nach Auswahl " +
+        "dieser Antwort. Der Dialog wird dabei beendet."
+    )]
+    public bool teleportPlayer;
+
+    [Tooltip(
+        "Verbindungs-Asset zum gewünschten DialogueTeleportPoint " +
+        "in der Scene."
+    )]
+    public DialogueTeleportDestination teleportDestination;
 }
 
 [System.Serializable]

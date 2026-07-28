@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: "Maya: Leute, ich w\xFCrde so langsam-"
+    changePlayerEmotion: 1
+    playerEmotion: 6
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -25,10 +27,15 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Tina & Theo: Du willst schon gehen? Bleib doch noch ein bisschen,
       wir haben
 
       doch gerade so viel Spass!'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -40,7 +47,12 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Sophy: Ja, du willst doch jetzt nicht etwa schon los!'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -52,8 +64,13 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Nick: Komm schon. Alle bleiben doch noch hier! Wenigsten noch
       ne Stunde.'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -65,7 +82,12 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Maya: Naja...'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: "(+) Ich w\xFCrde lieber nach Hause gehen."
@@ -77,6 +99,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: "(-) Ja gut, f\xFCr euch bleibe ich noch ein bisschen."
       nextNode: 8
       questsToStart: []
@@ -86,8 +111,13 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Maya: Tut mir echt leid, aber ich bin schon m\xFCde und mir ist
       ein bisschen schwindelig.\u201D"
+    changePlayerEmotion: 1
+    playerEmotion: 7
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -99,8 +129,13 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Maya: Ich will lieber nach Hause. Aber ich hatte sehr viel Spa\xDF
       mit euch."
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -112,7 +147,12 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Alle Freunde: Okay, wenn''s dir lieber ist! Erhol dich gut.'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Dialog beenden.
@@ -124,7 +164,12 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 1
+      teleportDestination: {fileID: 11400000, guid: a08223f91cea7444a9df81ece87d14da, type: 2}
   - dialogueText: 'Maya: Na gut, wenn ihr unbedingt wollt...'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Dialog beenden.
@@ -136,3 +181,6 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 1
+      teleportDestination: {fileID: 11400000, guid: a08223f91cea7444a9df81ece87d14da, type: 2}

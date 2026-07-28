@@ -32,9 +32,12 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Maya: ...'
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 5
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -46,6 +49,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Tina: Hab dich schon l\xE4nger nicht mehr gesehen,\r\nalles gut
       bei dir?"
     changePlayerEmotion: 0
@@ -66,9 +72,12 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Maya: Ja alles super, aber ich muss jetzt...'
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 9
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -80,6 +89,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Tina: Wo wolltest du denn hin? Vielleicht kann man ja was zusammen
       machen?'
     changePlayerEmotion: 0
@@ -95,6 +107,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Maya: Also.. ja.. ehm'
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -109,6 +124,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Maya: Ich war grad auf dem Weg ins Cafe...'
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -123,6 +141,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Tina: Oh cool, kann ich mitkommen? Ich hab gerade Zeit.'
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -137,6 +158,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: (-) Ja klar, kein Problem.
       nextNode: 11
       questsToStart: []
@@ -146,21 +170,28 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Maya: Sorry Tina, ich wollte ein bisschen Zeit\r\nalleine verbringen,
       und bisschen runterkommen,\r\nwei\xDFt du?"
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 7
     emotionChanges: []
     choices:
     - answerText: Weiter
       nextNode: 9
-      questsToStart: []
+      questsToStart:
+      - questID: 11
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Tina: Hey, das versteh ich total! Dann vielleicht ein anderes
       Mal.'
     changePlayerEmotion: 0
@@ -181,6 +212,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Tina: Wir sehen uns ja eh sp\xE4ter alle zusammen\r\nim Club!"
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -195,17 +229,24 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Maya: Ja, komm gerne mit...'
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 7
     emotionChanges: []
     choices:
     - answerText: Dialog beenden.
       nextNode: -1
-      questsToStart: []
-      skipsQuest: 0
-      questIDToSkip: 0
+      questsToStart:
+      - questID: 12
+      skipsQuest: 1
+      questIDToSkip: 11
       addsSequenceValue: 0
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}

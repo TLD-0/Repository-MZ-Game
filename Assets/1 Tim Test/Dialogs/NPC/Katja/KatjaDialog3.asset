@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: "???: Hallo, Unternehmen BaPader. Was\r\nkann ich f\xFCr Sie tun?"
+    changePlayerEmotion: 1
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -25,21 +27,30 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Maya: Hallo, Katja aus meiner Abteilung hat
 
       mich gebeten
       sie anzurufen.'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
       nextNode: 2
-      questsToStart: []
+      questsToStart:
+      - questID: 10
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Unternehmen: Ah ja, ich erinnere mich, wir\r\nbrauchten nochmal
       Ihre Hilfe. Wir haben in\r\nunserem System fehlerhafte Daten von\r\nIhnen gefunden.
       Genau. Also, wir haben\r\nmehrere Unstimmigkeiten festgestellt. Zum\r\neinen
@@ -54,6 +65,8 @@ MonoBehaviour:
       Und dann noch eine Kleinigkeit: Die\r\nAnschrift, die wir im System haben,
       weicht\r\nvon der auf Ihren letzten Dokumenten ab,\r\nwas bei einer eventuellen
       Betriebspr\xFCfung\r\nproblematisch werden k\xF6nnte."
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Dialog beenden.
@@ -65,3 +78,6 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 1
+      teleportDestination: {fileID: 11400000, guid: c1ac75b18ef0f424794a984232a16b20, type: 2}

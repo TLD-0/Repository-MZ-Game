@@ -715,8 +715,17 @@ public class DialogueManager : MonoBehaviour
         ProcessMoodValueAction(choice);
 
         /*
-         * -1 beendet den Dialog.
-         */
+        * Eine Teleportantwort beendet den Dialog,
+        * entsperrt den Spieler und teleportiert ihn.
+        */
+        if (ProcessPlayerTeleportAction(choice))
+        {
+            return;
+        }
+
+        /*
+        * -1 beendet den Dialog.
+        */
         if (choice.nextNode == -1)
         {
             EndDialogue();
@@ -838,6 +847,140 @@ public class DialogueManager : MonoBehaviour
             choice.moodValueChange +
             " verändert. Neuer Wert: " +
             CloudMoodManager.Instance.CurrentMoodValue);
+    }
+
+    private bool ProcessPlayerTeleportAction(
+        DialogueChoice choice)
+    {
+        if (choice == null ||
+            !choice.teleportPlayer)
+        {
+            return false;
+        }
+
+        if (choice.teleportDestination == null)
+        {
+            Debug.LogError(
+                "DialogueManager: Teleport Player ist aktiviert, " +
+                "aber es wurde keine Teleport Destination ausgewählt.");
+
+            return false;
+        }
+
+        bool destinationFound =
+            DialogueTeleportPoint.TryGetDestination(
+                choice.teleportDestination,
+                out Transform destinationTransform);
+
+        if (!destinationFound)
+        {
+            Debug.LogError(
+                "DialogueManager: Für die Teleport Destination " +
+                choice.teleportDestination.name +
+                " wurde kein eindeutiger aktiver " +
+                "DialogueTeleportPoint in der Scene gefunden.");
+
+            return false;
+        }
+
+        /*
+        * Der Dialog muss zuerst beendet werden.
+        * Dadurch wird PlayerLock aufgehoben und zieht den
+        * Spieler nicht wieder zum Dialog-PlayerPoint zurück.
+        */
+        EndDialogue();
+
+        TeleportPlayerTo(
+            destinationTransform);
+
+        return true;
+    }
+
+    private void TeleportPlayerTo(
+        Transform destination)
+    {
+        if (destination == null)
+        {
+            Debug.LogError(
+                "DialogueManager: Das Teleportziel ist leer.");
+
+            return;
+        }
+
+        if (playerLock == null)
+        {
+            Debug.LogError(
+                "DialogueManager: Der Spieler kann nicht teleportiert " +
+                "werden, weil PlayerLock nicht zugewiesen ist.");
+
+            return;
+        }
+
+        /*
+        * PlayerLock liegt in deinem aktuellen Projekt direkt
+        * auf dem zu bewegenden Spielerobjekt.
+        */
+        Transform playerTransform =
+            playerLock.transform;
+
+        /*
+        * Nur die horizontale Rotation verwenden.
+        * Dadurch wird der Spieler nicht nach oben oder unten geneigt.
+        */
+        Quaternion destinationRotation =
+            Quaternion.Euler(
+                0f,
+                destination.eulerAngles.y,
+                0f);
+
+        Rigidbody playerRigidbody =
+            playerTransform.GetComponent<Rigidbody>();
+
+        if (playerRigidbody != null)
+        {
+            bool wasKinematic =
+                playerRigidbody.isKinematic;
+
+            /*
+            * Den Rigidbody kurz kontrolliert anhalten,
+            * damit keine alte Geschwindigkeit übernommen wird.
+            */
+            playerRigidbody.isKinematic = true;
+
+            playerRigidbody.linearVelocity =
+                Vector3.zero;
+
+            playerRigidbody.angularVelocity =
+                Vector3.zero;
+
+            playerTransform.SetPositionAndRotation(
+                destination.position,
+                destinationRotation);
+
+            playerRigidbody.position =
+                destination.position;
+
+            playerRigidbody.rotation =
+                destinationRotation;
+
+            Physics.SyncTransforms();
+
+            playerRigidbody.isKinematic =
+                wasKinematic;
+        }
+        else
+        {
+            playerTransform.SetPositionAndRotation(
+                destination.position,
+                destinationRotation);
+
+            Physics.SyncTransforms();
+        }
+
+        Debug.Log(
+            "DialogueManager: Spieler wurde zu " +
+            destination.gameObject.name +
+            " teleportiert.");
     }
 
     private void StartQuest(

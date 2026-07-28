@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: DrinkDialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
-  - dialogueText: "Welche untere Schicht m\xF6chtest du?"
+  - dialogueText: "Welchen Drink m\xF6chtest du?"
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: A
@@ -25,6 +27,9 @@ MonoBehaviour:
       sequenceValue: 1
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: B
       nextNode: 1
       questsToStart: []
@@ -34,6 +39,9 @@ MonoBehaviour:
       sequenceValue: 2
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: C
       nextNode: 1
       questsToStart: []
@@ -43,11 +51,16 @@ MonoBehaviour:
       sequenceValue: 3
       checksSequence: 0
       sequenceChecker: {fileID: 0}
-  - dialogueText: "Welche obere Schicht m\xF6chtest du?"
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
+  - dialogueText: "Welche extra Zutat m\xF6chtest du?"
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: A
-      nextNode: -1
+      nextNode: 2
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
@@ -55,8 +68,11 @@ MonoBehaviour:
       sequenceValue: 1
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: B
-      nextNode: -1
+      nextNode: 2
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
@@ -64,8 +80,11 @@ MonoBehaviour:
       sequenceValue: 2
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: C
-      nextNode: -1
+      nextNode: 2
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
@@ -73,3 +92,24 @@ MonoBehaviour:
       sequenceValue: 3
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
+  - dialogueText: Das sieht doch gut aus!
+    changePlayerEmotion: 1
+    playerEmotion: 1
+    emotionChanges: []
+    choices:
+    - answerText: Nehm dir deinen Drink.
+      nextNode: -1
+      questsToStart:
+      - questID: 14
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 0
+      sequenceValue: 0
+      checksSequence: 0
+      sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}

@@ -32,6 +32,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Katja: Heute ist so viel zu tun, ich
 
       komm gar nicht mehr
@@ -54,6 +57,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Katja: Machmal frage ich mich\r\nob mir die Arbeit hier \xFCberhaupt\r\nnoch
       Spass macht."
     changePlayerEmotion: 0
@@ -69,6 +75,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Katja: Ach keine Ahnung, ich\r\nwei\xDF nicht.."
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -83,6 +92,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Katja: Aber ich nerv dich jetzt nicht weiter, mach du ruhig deine
       Arbeit.'
     changePlayerEmotion: 0
@@ -103,6 +115,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "(in Gedanken) Maya: Ach, ich hab vergessen, Katja Bescheid zu\r\nsagen,
       dass ich heute fr\xFCher abhauen muss.\r\nHab ja noch Pl\xE4ne.\""
     changePlayerEmotion: 0
@@ -118,6 +133,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Katja: Kannst du gleich mal kommen, wenn du fertig bist?'
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -126,14 +144,17 @@ MonoBehaviour:
     - answerText: Weiter
       nextNode: 7
       questsToStart:
-      - questID: 1
-      - questID: 2
+      - questID: 7
+      - questID: 8
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "(in Gedanken) Maya: Ich sollte erst meinen Platz aufr\xE4umen,
       bevor ich mit ihr rede."
     changePlayerEmotion: 0
@@ -149,3 +170,6 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}

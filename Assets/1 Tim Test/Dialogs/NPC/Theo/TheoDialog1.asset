@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: 'Maya: Theo? Was machst du denn hier?'
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 8
     emotionChanges:
     - changeEmotion: 1
       targetMode: 0
@@ -70,8 +70,8 @@ MonoBehaviour:
       moodValueChange: 0
   - dialogueText: 'Maya: Ich bin gerade auf em Weg zu den anderen, wir wollten uns
       doch alle im Club treffen.'
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 2
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -130,8 +130,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
   - dialogueText: 'Maya: Was ist denn los?'
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 4
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -176,8 +176,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
   - dialogueText: 'Maya: Echt? Aber du bist doch schon 5 Semester drin.'
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 9
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -320,8 +320,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
   - dialogueText: 'Maya: Probier dich aus! Man lebt nur einmal!'
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 1
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -355,8 +355,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
   - dialogueText: 'Maya: Es ist wichtig, was du willst, nicht was die anderen denken.'
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 4
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -386,8 +386,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
   - dialogueText: 'Maya: Und jetzt lass uns gehen, die anderen warten schon auf uns!'
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 1
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -417,8 +417,8 @@ MonoBehaviour:
       moodValueChange: 0
   - dialogueText: "Maya: Du bist doch schon so weit, beende doch zuerst dein Studium...
       w\xE4re das nicht besser?"
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 4
     emotionChanges: []
     choices:
     - answerText: Weiter

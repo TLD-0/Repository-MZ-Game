@@ -50,6 +50,23 @@ public class NPCInteraction : MonoBehaviour
         {
             return;
         }
+        
+        /*
+        * Allgemeine Quest-Sperre.
+        *
+        * Liegt InteractionQuestGate auf dem getroffenen Objekt
+        * oder einem Parent, wird jede Art von Interaktion blockiert,
+        * bis alle eingetragenen Quests abgeschlossen sind.
+        */
+        InteractionQuestGate interactionGate =
+            hit.collider.GetComponentInParent<
+                InteractionQuestGate>();
+
+        if (interactionGate != null &&
+            !interactionGate.IsUnlocked())
+        {
+            return;
+        }
 
         /*
         * Zuerst nach einem Quest-NPC suchen.

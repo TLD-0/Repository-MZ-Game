@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: 'Maya: Das hat jetzt echt gut getan'
+    changePlayerEmotion: 1
+    playerEmotion: 1
     emotionChanges: []
     choices:
     - answerText: Dialog beenden.
@@ -25,3 +27,4 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0

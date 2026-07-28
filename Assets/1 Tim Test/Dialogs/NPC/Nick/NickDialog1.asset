@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: 'Maya (zu sich selbst): Die anderen sollten auch schon hier sein.'
-    changePlayerEmotion: 0
+    changePlayerEmotion: 1
     playerEmotion: 0
     emotionChanges: []
     choices:
@@ -27,6 +27,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Tina & Nick: Hey Maya, da bist du ja!'
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -51,9 +54,12 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Maya: Hi!'
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 2
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -65,6 +71,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Tina: Wir haben uns schon gefragt, wo du bleibst. Hol dir doch
       was zu trinken.'
     changePlayerEmotion: 0
@@ -83,13 +92,17 @@ MonoBehaviour:
     choices:
     - answerText: Weiter
       nextNode: 4
-      questsToStart: []
+      questsToStart:
+      - questID: 13
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Tina: Wir warten hier auf dich.'
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -104,3 +117,6 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}

@@ -32,6 +32,7 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
   - dialogueText: 'Maya: Ja, was ist denn? '
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -46,6 +47,7 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
   - dialogueText: 'Oma: Ich wollte dich fragen ob du mir beim Geschirr helfen
 
       kannst..
@@ -63,9 +65,10 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
   - dialogueText: 'Maya: Aber... '
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 5
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -77,6 +80,7 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
   - dialogueText: "Oma: Bitte, mein Schatz. Ich bin so m\xFCde\u201D"
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -92,6 +96,7 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
     - answerText: "Aber ich muss mich noch f\xFCr die Arbeit vorbereiten..."
       nextNode: 4
       questsToStart: []
@@ -101,6 +106,7 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
   - dialogueText: "Mutter: \u201CWenn du schon dabei bist, kannst\r\ndu auch die
       Eink\xE4ufe wegr\xE4umen? "
     changePlayerEmotion: 0
@@ -117,10 +123,11 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
   - dialogueText: "Mutter: Und au\xDFerdem liegen deine ganzen B\xFCcher auf\r\ndem
       Boden herum. R\xE4um die bitte auch noch zur\xFCck\r\nin dein B\xFCcherregal. "
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 3
     emotionChanges: []
     choices:
     - answerText: Ja, mach ich...
@@ -133,6 +140,7 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
     - answerText: "Aber du wei\xDFt doch, dass ich fr\xFCh schlafen gehen muss.."
       nextNode: 6
       questsToStart: []
@@ -142,6 +150,7 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
   - dialogueText: "Vater:  ich br\xE4uchte auch noch deine Hilfe. Ich hatte\r\ndir
       doch zuletzt meinen Schl\xFCssel gegeben. "
     changePlayerEmotion: 0
@@ -157,10 +166,11 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
   - dialogueText: "Vater: Kannst du den aus der\r\nK\xFCchenschublade einmal f\xFCr
       mich\r\nheraussuchen? Er muss da irgendwo sein.\r\nIch brauche ihn ganz dringend!"
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 5
     emotionChanges: []
     choices:
     - answerText: Wenn es sein muss..
@@ -173,6 +183,7 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
     - answerText: "Aber k\xF6nntest du das nicht auch eigentlich selber machen...?"
       nextNode: 8
       questsToStart: []
@@ -182,6 +193,7 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
   - dialogueText: 'Maya: Dann mach ich erst die Sachen fertig bevor ich mich hinlege...'
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -196,3 +208,4 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0

@@ -19,8 +19,8 @@ MonoBehaviour:
       viele Kunden, die was von einem wollen, aber naja
 
       ne, was will man machen!'
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 5
     emotionChanges:
     - changeEmotion: 1
       targetMode: 0
@@ -37,6 +37,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Maya: Mhm.'
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -51,6 +54,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Tina: Und dann kam heute morgen auch wieder\r\nmeine Nachberin
       vorbei und du glaubst ja gar nicht,\r\nwas die mir wieder erz\xE4hlt hat!"
     changePlayerEmotion: 0
@@ -66,9 +72,12 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Maya: Mhm...'
-    changePlayerEmotion: 0
-    playerEmotion: 0
+    changePlayerEmotion: 1
+    playerEmotion: 6
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -80,6 +89,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Tina: Also ich hab mir heute morgen mein Fr\xFChst\xFCck\r\ngemacht,
       und dann hat sie bei mir geklingelt. Und\r\ndann war sie ganz aufgew\xFChlt,
       weil ihr schon wieder\r\njemand den Reifen durchgebissen hat.. Also ich w\xFCrd\r\nja
@@ -89,7 +101,7 @@ MonoBehaviour:
     playerEmotion: 0
     emotionChanges: []
     choices:
-    - answerText: Dialog beenden.
+    - answerText: Gehe aus dem Cafe. Dialog beenden.
       nextNode: -1
       questsToStart: []
       skipsQuest: 0
@@ -98,3 +110,6 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 1
+      teleportDestination: {fileID: 11400000, guid: 58e612cde243bf34abe3f409904ec559, type: 2}
