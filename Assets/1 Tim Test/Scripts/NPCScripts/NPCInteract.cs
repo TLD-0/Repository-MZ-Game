@@ -107,18 +107,36 @@ public class NPCInteraction : MonoBehaviour
         * Questobjekte werden nicht durch
         * NPCStoryRequirement eingeschränkt.
         */
-        currentPhoneQuest =
+        PhoneSequenceQuest foundPhoneQuest =
             hit.collider.GetComponentInParent<
                 PhoneSequenceQuest>();
 
-        if (currentPhoneQuest != null)
+        if (foundPhoneQuest != null)
         {
+            if (foundPhoneQuest.CanInteract())
+            {
+                currentPhoneQuest =
+                    foundPhoneQuest;
+            }
+
+            /*
+            * Das getroffene Objekt ist ein Telefon.
+            * Ist seine Quest nicht aktiv, wird es nicht
+            * als anderes Questobjekt interpretiert.
+            */
             return;
         }
-
-        currentDrinkQuest =
+        
+        DrinkSequenceTest foundDrinkQuest =
             hit.collider.GetComponentInParent<
                 DrinkSequenceTest>();
+
+        if (foundDrinkQuest != null &&
+            foundDrinkQuest.CanInteract())
+        {
+            currentDrinkQuest =
+                foundDrinkQuest;
+        }
     }
 
     void Interact()

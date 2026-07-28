@@ -19,7 +19,14 @@ MonoBehaviour:
       viele Kunden, die was von einem wollen, aber naja
 
       ne, was will man machen!'
-    emotionChanges: []
+    changePlayerEmotion: 0
+    playerEmotion: 0
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 0
+      targetNPCId: 0
+      emotionSprite: {fileID: 21300000, guid: bff9c1bee3f94724bb770d89807f3250, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 1
@@ -31,6 +38,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Mhm.'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -44,6 +53,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Tina: Und dann kam heute morgen auch wieder\r\nmeine Nachberin
       vorbei und du glaubst ja gar nicht,\r\nwas die mir wieder erz\xE4hlt hat!"
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -56,6 +67,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Mhm...'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -72,6 +85,8 @@ MonoBehaviour:
       weil ihr schon wieder\r\njemand den Reifen durchgebissen hat.. Also ich w\xFCrd\r\nja
       mal tippen, dass war der Nachbarshund.. aber mir\r\nglaubt ja keiner, der ist
       ja immer so lieb zu allen a..."
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Dialog beenden.

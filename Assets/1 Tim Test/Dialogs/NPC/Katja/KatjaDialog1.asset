@@ -14,7 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: 'Katja: Ach, da bist du ja!'
-    emotionChanges: []
+    changePlayerEmotion: 1
+    playerEmotion: 0
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 0
+      targetNPCId: 0
+      emotionSprite: {fileID: 21300000, guid: d82ae41091c18464ebcd480e700970d6, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 1
@@ -29,7 +36,14 @@ MonoBehaviour:
 
       komm gar nicht mehr
       nach.'
-    emotionChanges: []
+    changePlayerEmotion: 0
+    playerEmotion: 0
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 0
+      targetNPCId: 0
+      emotionSprite: {fileID: 21300000, guid: 87f2b53a767d02a4eb040b74dfefcc56, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 2
@@ -42,6 +56,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Katja: Machmal frage ich mich\r\nob mir die Arbeit hier \xFCberhaupt\r\nnoch
       Spass macht."
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -54,6 +70,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Katja: Ach keine Ahnung, ich\r\nwei\xDF nicht.."
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -67,7 +85,14 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Katja: Aber ich nerv dich jetzt nicht weiter, mach du ruhig deine
       Arbeit.'
-    emotionChanges: []
+    changePlayerEmotion: 0
+    playerEmotion: 0
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 0
+      targetNPCId: 0
+      emotionSprite: {fileID: 21300000, guid: d82ae41091c18464ebcd480e700970d6, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 5
@@ -80,6 +105,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "(in Gedanken) Maya: Ach, ich hab vergessen, Katja Bescheid zu\r\nsagen,
       dass ich heute fr\xFCher abhauen muss.\r\nHab ja noch Pl\xE4ne.\""
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -92,6 +119,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Katja: Kannst du gleich mal kommen, wenn du fertig bist?'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -107,6 +136,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "(in Gedanken) Maya: Ich sollte erst meinen Platz aufr\xE4umen,
       bevor ich mit ihr rede."
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: "R\xE4ume die Kaffeetasse weg."

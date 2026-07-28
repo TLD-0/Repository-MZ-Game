@@ -34,6 +34,14 @@ public class DialogueChoice
     public bool checksSequence;
 
     public SequenceQuestChecker sequenceChecker;
+
+    [Header("Cloud Mood")]
+    [Tooltip(
+        "Dieser Wert wird beim Auswählen der Antwort zu MoodValue addiert. " +
+        "Beispiele: 1, 2, -1 oder -3. " +
+        "0 bedeutet keine Veränderung."
+    )]
+    public int moodValueChange;
 }
 
 [System.Serializable]

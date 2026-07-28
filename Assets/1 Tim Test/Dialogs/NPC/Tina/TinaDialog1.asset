@@ -14,7 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: 'Tina: Heeyy, Maya!'
-    emotionChanges: []
+    changePlayerEmotion: 0
+    playerEmotion: 0
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 0
+      targetNPCId: 0
+      emotionSprite: {fileID: 21300000, guid: 85ecf7b819049214b9d2dda9f58de016, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 1
@@ -26,6 +33,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: ...'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -39,7 +48,14 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Tina: Hab dich schon l\xE4nger nicht mehr gesehen,\r\nalles gut
       bei dir?"
-    emotionChanges: []
+    changePlayerEmotion: 0
+    playerEmotion: 0
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 0
+      targetNPCId: 0
+      emotionSprite: {fileID: 21300000, guid: 243460b5884eabf41b1a858bd6583a6e, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 3
@@ -51,6 +67,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Ja alles super, aber ich muss jetzt...'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -64,6 +82,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Tina: Wo wolltest du denn hin? Vielleicht kann man ja was zusammen
       machen?'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -76,6 +96,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Also.. ja.. ehm'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -88,6 +110,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Ich war grad auf dem Weg ins Cafe...'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -100,6 +124,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Tina: Oh cool, kann ich mitkommen? Ich hab gerade Zeit.'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: (+) Nein, sorry, vielleicht ein anderes Mal.
@@ -122,6 +148,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Sorry Tina, ich wollte ein bisschen Zeit\r\nalleine verbringen,
       und bisschen runterkommen,\r\nwei\xDFt du?"
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -135,7 +163,14 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Tina: Hey, das versteh ich total! Dann vielleicht ein anderes
       Mal.'
-    emotionChanges: []
+    changePlayerEmotion: 0
+    playerEmotion: 0
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 0
+      targetNPCId: 0
+      emotionSprite: {fileID: 21300000, guid: 924988f80bccdf941aac3b11a9d88e05, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 10
@@ -147,6 +182,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Tina: Wir sehen uns ja eh sp\xE4ter alle zusammen\r\nim Club!"
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Dialog beenden.
@@ -159,6 +196,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Ja, komm gerne mit...'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Dialog beenden.

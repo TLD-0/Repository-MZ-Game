@@ -42,6 +42,21 @@ public class PhoneSequenceQuest : MonoBehaviour
     [SerializeField]
     private SequenceQuestChecker questChecker;
 
+    [Header("Interaktionsfreigabe")]
+    [Tooltip(
+        "Ist diese Option aktiviert, kann das Telefon nur benutzt werden, " +
+        "wenn die eingetragene Quest aktiv ist."
+    )]
+    [SerializeField]
+    private bool requireActiveQuest = true;
+
+    [Tooltip(
+        "Diese Quest muss den Status Active besitzen."
+    )]
+    [SerializeField]
+    [Range(1, 15)]
+    private int requiredQuestID = 3;
+
     [Header("Optionale Events")]
     [SerializeField]
     private UnityEvent onCorrectNumber;
@@ -65,8 +80,40 @@ public class PhoneSequenceQuest : MonoBehaviour
         }
     }
 
+    public bool CanInteract()
+    {
+        if (!requireActiveQuest)
+        {
+            return true;
+        }
+
+        if (QuestManager.Instance == null)
+        {
+            Debug.LogError(
+                "PhoneSequenceQuest: QuestManager wurde nicht gefunden.",
+                this);
+
+            return false;
+        }
+
+        return QuestManager.Instance.IsQuestCompleted(
+            requiredQuestID);
+    }
+
     public void StartPhoneQuest()
     {
+        if (!CanInteract())
+        {
+            Debug.Log(
+                "PhoneSequenceQuest: Das Telefon kann erst benutzt werden, " +
+                "wenn Quest " +
+                requiredQuestID +
+                " aktiv ist.",
+                this);
+
+            return;
+        }
+
         if (questCompleted)
         {
             PlayDialogue(correctNumberDialogue);

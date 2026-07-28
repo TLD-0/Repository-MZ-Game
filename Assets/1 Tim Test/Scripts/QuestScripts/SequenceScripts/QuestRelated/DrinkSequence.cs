@@ -83,6 +83,21 @@ public class DrinkSequenceTest : MonoBehaviour
     [SerializeField]
     private SequenceQuestChecker questChecker;
 
+    [Header("Interaktionsfreigabe")]
+    [Tooltip(
+        "Ist diese Option aktiviert, kann die Drink-Sequenz nur gestartet werden, " +
+        "wenn die eingetragene Quest aktiv ist."
+    )]
+    [SerializeField]
+    private bool requireActiveQuest = true;
+
+    [Tooltip(
+        "Diese Quest muss den Status Active besitzen."
+    )]
+    [SerializeField]
+    [Range(1, 15)]
+    private int requiredQuestID = 3;
+
     private const int RequiredChoiceCount = 2;
 
     private bool sequenceRunning;
@@ -90,11 +105,32 @@ public class DrinkSequenceTest : MonoBehaviour
 
     private void Awake()
     {
+        
         if (questChecker == null)
         {
             questChecker =
                 GetComponent<SequenceQuestChecker>();
         }
+    }
+
+    public bool CanInteract()
+    {
+        if (!requireActiveQuest)
+        {
+            return true;
+        }
+
+        if (QuestManager.Instance == null)
+        {
+            Debug.LogError(
+                "DrinkSequenceTest: QuestManager wurde nicht gefunden.",
+                this);
+
+            return false;
+        }
+
+        return QuestManager.Instance.IsQuestCompleted(
+            requiredQuestID);
     }
 
     private void Update()
@@ -137,10 +173,23 @@ public class DrinkSequenceTest : MonoBehaviour
     /// </summary>
     public void StartDrinkTest()
     {
+        if (!CanInteract())
+        {
+            Debug.Log(
+                "DrinkSequenceTest: Die Drink-Sequenz kann erst gestartet werden, " +
+                "wenn Quest " +
+                requiredQuestID +
+                " aktiv ist.",
+                this);
+
+            return;
+        }
+
         if (sequenceRunning)
         {
             Debug.Log(
                 "DrinkSequenceTest: Die Drink-Sequenz läuft bereits.");
+
             return;
         }
 

@@ -707,8 +707,12 @@ public class DialogueManager : MonoBehaviour
 
         isProcessingChoice = true;
 
+        /*
+        * Aktionen der ausgewählten Antwort ausführen.
+        */
         ProcessSequenceActions(choice);
         ProcessQuestActions(choice);
+        ProcessMoodValueAction(choice);
 
         /*
          * -1 beendet den Dialog.
@@ -796,6 +800,44 @@ public class DialogueManager : MonoBehaviour
             SkipQuest(
                 choice.questIDToSkip);
         }
+    }
+
+    private void ProcessMoodValueAction(
+    DialogueChoice choice)
+    {
+        if (choice == null)
+        {
+            return;
+        }
+
+        /*
+        * 0 bedeutet:
+        * Diese Antwort verändert den MoodValue nicht.
+        */
+        if (choice.moodValueChange == 0)
+        {
+            return;
+        }
+
+        if (CloudMoodManager.Instance == null)
+        {
+            Debug.LogError(
+                "DialogueManager: Diese Antwort soll den MoodValue " +
+                "verändern, aber es wurde kein aktiver " +
+                "CloudMoodManager in der Scene gefunden.");
+
+            return;
+        }
+
+        CloudMoodManager.Instance.AddMoodValue(
+            choice.moodValueChange);
+
+        Debug.Log(
+            "DialogueManager: MoodValue wurde durch die " +
+            "Dialogentscheidung um " +
+            choice.moodValueChange +
+            " verändert. Neuer Wert: " +
+            CloudMoodManager.Instance.CurrentMoodValue);
     }
 
     private void StartQuest(

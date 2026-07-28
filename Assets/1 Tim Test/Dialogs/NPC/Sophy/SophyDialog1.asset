@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: 'Telefon: *Klingeln*'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -27,6 +29,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya:  Ich brauche jetzt bisschen Zeit\r\nf\xFCr mich, das war
       ein echt langer Tag."
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -39,6 +43,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya:  Sorry, Sophy.'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -51,6 +57,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Telefon: *Klingeln*'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -63,6 +71,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: ...'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -75,6 +85,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Telefon: *Klingeln*'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -87,6 +99,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Hallo?'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -99,7 +113,14 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Sophy: Hey, ich wei\xDF ich hab dich die letzten Tage schon genervt..."
-    emotionChanges: []
+    changePlayerEmotion: 0
+    playerEmotion: 0
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 0
+      targetNPCId: 0
+      emotionSprite: {fileID: 21300000, guid: 8c41d4dc857fabc4dbbe74fdcde65132, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 8
@@ -111,7 +132,14 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Sophy: Aber ich vermisse Mark einfach so.'
-    emotionChanges: []
+    changePlayerEmotion: 0
+    playerEmotion: 0
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 0
+      targetNPCId: 0
+      emotionSprite: {fileID: 21300000, guid: 0851eb3dea494ca42bb2554390990472, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 9
@@ -123,6 +151,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Schon wieder? Der hat''s doch gar nicht verdient.'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -136,6 +166,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Ihr seid jetzt schon einen Monat getrennt, oder nicht? Und
       das ist jetzt schon der.... 78. Anruf diese Woche.'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -148,7 +180,14 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Sophy: Ja, ich wei\xDF, aber..."
-    emotionChanges: []
+    changePlayerEmotion: 0
+    playerEmotion: 0
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 0
+      targetNPCId: 0
+      emotionSprite: {fileID: 21300000, guid: 8c41d4dc857fabc4dbbe74fdcde65132, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 12
@@ -161,6 +200,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Der Mistkerl hat dich nur schlecht gemacht und vor deinen
       Freunden blo\xDFgestellt - sogar vor mir."
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -174,6 +215,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Du hast ihn immer unterst\xFCtzt, obwohl er nie auf deiner
       Seite war."
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -186,7 +229,14 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Sophy: Aber wenn wir alleine waren, da war er ganz anders zu mir..'
-    emotionChanges: []
+    changePlayerEmotion: 0
+    playerEmotion: 0
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 0
+      targetNPCId: 0
+      emotionSprite: {fileID: 21300000, guid: 89daca04acb31504a9967f76a17c6ee7, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 15
@@ -198,7 +248,14 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Sophy: Ich bin mir sicher, er hat es eigentlich gar nicht so gemeint.'
-    emotionChanges: []
+    changePlayerEmotion: 0
+    playerEmotion: 0
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 0
+      targetNPCId: 0
+      emotionSprite: {fileID: 21300000, guid: 0851eb3dea494ca42bb2554390990472, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 16
@@ -210,6 +267,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Sophy: Vielleicht hat er sich inzwischen ge\xE4ndert.."
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: "(+) Ich bin f\xFCr dich da."
@@ -231,6 +290,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Ich wei\xDF, es f\xE4llt dir schwer. Es ist auch nicht fair."
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -244,6 +305,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Aber bitte vergiss nicht, wie er dich behandelt hat. Im
       Nachhinein erinnert man sich immer nur an die guten Sachen...'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -257,6 +320,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Ich muss jetzt los, aber du wei\xDFt du\r\nkannst immer
       auf mich z\xE4hlen. Ich bin da,\r\nwenn du mich brauchst."
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Dialog beenden.
@@ -270,6 +335,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Es ist jetzt schon \xFCber einen Monat her, langsam musst
       du die Hoffnung aufgeben. Er wird sich nicht \xE4ndern."
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -282,6 +349,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Maya: Ich muss jetzt los, wir reden sp\xE4ter\r\nnochmal, ja?"
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Dialog beenden.

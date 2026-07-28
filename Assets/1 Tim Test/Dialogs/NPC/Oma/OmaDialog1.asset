@@ -14,7 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: "Oma: Maya? Kann ich dich kurz st\xF6ren? "
-    emotionChanges: []
+    changePlayerEmotion: 0
+    playerEmotion: 0
+    emotionChanges:
+    - changeEmotion: 0
+      targetMode: 0
+      targetNPCId: 0
+      emotionSprite: {fileID: 0}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 1
@@ -26,6 +33,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Ja, was ist denn? '
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -41,6 +50,8 @@ MonoBehaviour:
 
       kannst..
       ich wollte mich ein bisschen hinlegen. '
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -53,6 +64,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Aber... '
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -65,6 +78,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: "Oma: Bitte, mein Schatz. Ich bin so m\xFCde\u201D"
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Na gut..
@@ -88,6 +103,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Mutter: \u201CWenn du schon dabei bist, kannst\r\ndu auch die
       Eink\xE4ufe wegr\xE4umen? "
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -102,6 +119,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Mutter: Und au\xDFerdem liegen deine ganzen B\xFCcher auf\r\ndem
       Boden herum. R\xE4um die bitte auch noch zur\xFCck\r\nin dein B\xFCcherregal. "
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Ja, mach ich...
@@ -125,6 +144,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Vater:  ich br\xE4uchte auch noch deine Hilfe. Ich hatte\r\ndir
       doch zuletzt meinen Schl\xFCssel gegeben. "
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -138,6 +159,8 @@ MonoBehaviour:
       sequenceChecker: {fileID: 0}
   - dialogueText: "Vater: Kannst du den aus der\r\nK\xFCchenschublade einmal f\xFCr
       mich\r\nheraussuchen? Er muss da irgendwo sein.\r\nIch brauche ihn ganz dringend!"
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Wenn es sein muss..
@@ -160,6 +183,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Dann mach ich erst die Sachen fertig bevor ich mich hinlege...'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Dialog beenden.

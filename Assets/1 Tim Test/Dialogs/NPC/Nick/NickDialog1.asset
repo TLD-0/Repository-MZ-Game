@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: 'Maya (zu sich selbst): Die anderen sollten auch schon hier sein.'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -26,7 +28,19 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Tina & Nick: Hey Maya, da bist du ja!'
-    emotionChanges: []
+    changePlayerEmotion: 0
+    playerEmotion: 0
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 1
+      targetNPCId: 3
+      emotionSprite: {fileID: 21300000, guid: 85ecf7b819049214b9d2dda9f58de016, type: 3}
+      returnToNeutral: 0
+    - changeEmotion: 1
+      targetMode: 1
+      targetNPCId: 2
+      emotionSprite: {fileID: 21300000, guid: 34edc74762d9deb4c9dd0c13848f8d13, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 2
@@ -38,6 +52,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
   - dialogueText: 'Maya: Hi!'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -49,9 +65,21 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
-  - dialogueText: 'Sophy: Wir haben uns schon gefragt, wo du bleibst. Hol dir doch
+  - dialogueText: 'Tina: Wir haben uns schon gefragt, wo du bleibst. Hol dir doch
       was zu trinken.'
-    emotionChanges: []
+    changePlayerEmotion: 0
+    playerEmotion: 0
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 1
+      targetNPCId: 3
+      emotionSprite: {fileID: 21300000, guid: 243460b5884eabf41b1a858bd6583a6e, type: 3}
+      returnToNeutral: 0
+    - changeEmotion: 1
+      targetMode: 1
+      targetNPCId: 2
+      emotionSprite: {fileID: 21300000, guid: 1493bea1e81def4449cb9b3a8d8c23a3, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 4
@@ -62,7 +90,9 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
-  - dialogueText: 'Sophy: Wir warten hier auf dich.'
+  - dialogueText: 'Tina: Wir warten hier auf dich.'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Dialog beenden.
