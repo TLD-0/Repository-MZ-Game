@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: 'Tina: Wenn jetzt alle da sind, dann lasst uns doch tanzen gehen!'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: Weiter
@@ -25,10 +27,15 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Nick: Auf geht''s!'
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
-    - answerText: 'Dialog beenden '
+    - answerText: Dialog beenden.
       nextNode: -1
       questsToStart: []
       skipsQuest: 0
@@ -37,3 +44,6 @@ MonoBehaviour:
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class QuestNPCSpawner : MonoBehaviour
 {
@@ -8,61 +9,149 @@ public class QuestNPCSpawner : MonoBehaviour
         InstantiatePrefab
     }
 
-    [Header("Bedingungen")]
+    public enum RequiredQuestState
+    {
+        Active,
+        Completed
+    }
+
+    [Header("Bedingungen für das Aktivieren")]
+    [Tooltip(
+        "Diese Quests müssen abgeschlossen sein, " +
+        "bevor die eingetragenen Objekte aktiviert werden."
+    )]
     [SerializeField]
     private int[] requiredCompletedQuestIDs;
 
+    [Tooltip(
+    "Legt fest, ob die eingetragenen Quests aktiv " +
+    "oder abgeschlossen sein müssen."
+    )]
+    [SerializeField]
+    private RequiredQuestState requiredQuestState =
+        RequiredQuestState.Completed;
+
+    [Tooltip(
+        "Aktiviert: Alle eingetragenen Quests müssen abgeschlossen sein. " +
+        "Deaktiviert: Eine der eingetragenen Quests reicht."
+    )]
     [SerializeField]
     private bool requireAll = true;
+
+    [Header("Bedingungen für das spätere Deaktivieren")]
+    [Tooltip(
+        "Aktiviert: Die zuvor aktivierten Objekte werden wieder " +
+        "deaktiviert, sobald die Despawn-Bedingungen erfüllt sind."
+    )]
+    [SerializeField]
+    private bool hideAfterQuestCompleted;
+
+    [Tooltip(
+        "Diese Quests werden für das spätere Deaktivieren geprüft."
+    )]
+    [SerializeField]
+    private int[] hideAfterCompletedQuestIDs;
+
+    [Tooltip(
+        "Aktiviert: Alle Despawn-Quests müssen abgeschlossen sein. " +
+        "Deaktiviert: Eine abgeschlossene Despawn-Quest reicht."
+    )]
+    [SerializeField]
+    private bool requireAllHideQuests = true;
 
     [Header("Freischaltart")]
     [SerializeField]
     private UnlockMode unlockMode =
         UnlockMode.EnableExistingNPC;
 
-    [Header("Vorhandenen NPC aktivieren")]
+    [Header("Vorhandene Objekte aktivieren")]
     [Tooltip(
-        "Wird verwendet, wenn Unlock Mode auf " +
-        "Enable Existing NPC steht."
+        "Primäres GameObject, das aktiviert und später " +
+        "gegebenenfalls wieder deaktiviert wird."
+    )]
+    [FormerlySerializedAs("existingNpcRoot")]
+    [SerializeField]
+    private GameObject primaryExistingObject;
+
+    [Tooltip(
+        "Zusätzliche NPCs, Questobjekte, Dialogbereiche oder " +
+        "andere GameObjects, die gemeinsam aktiviert werden."
     )]
     [SerializeField]
-    private GameObject existingNpcRoot;
+    private GameObject[] additionalExistingObjects;
 
-    [Header("NPC-Prefab spawnen")]
     [Tooltip(
-        "Wird verwendet, wenn Unlock Mode auf " +
-        "Instantiate Prefab steht."
+        "Deaktiviert die eingetragenen vorhandenen Objekte " +
+        "automatisch beim Start der Scene."
+    )]
+    [SerializeField]
+    private bool disableExistingObjectsAtStart = true;
+
+    [Header("Prefab erzeugen")]
+    [Tooltip(
+        "Nur bei Unlock Mode = Instantiate Prefab erforderlich."
     )]
     [SerializeField]
     private GameObject npcPrefab;
 
+    [Tooltip(
+        "Position, an der das Prefab erzeugt wird."
+    )]
     [SerializeField]
     private Transform spawnPoint;
 
     [Header("Prüfung")]
     [Tooltip(
-        "Zeit zwischen den Questprüfungen."
+        "Zeit zwischen den Queststatus-Prüfungen."
     )]
     [SerializeField]
+    [Min(0.05f)]
     private float checkInterval = 0.25f;
 
     private float nextCheckTime;
-    private bool npcUnlocked;
-    private GameObject spawnedNpc;
+
+    /*
+     * True, sobald die Objekte aktiviert
+     * oder das Prefab erzeugt wurde.
+     */
+    private bool objectsUnlocked;
+
+    /*
+     * True, sobald die Objekte aufgrund der
+     * späteren Quests endgültig deaktiviert wurden.
+     */
+    private bool objectsHiddenAfterQuest;
+
+    /*
+     * Nur bei InstantiatePrefab relevant.
+     */
+    private GameObject spawnedObject;
+
+    private bool invalidSetupWarningShown;
 
     private void Awake()
     {
+        /*
+         * Vorhandene Objekte werden zunächst deaktiviert.
+         *
+         * Das QuestNPCSpawner-Script muss auf einem separaten,
+         * dauerhaft aktiven Controller-Objekt liegen.
+         */
         if (unlockMode ==
                 UnlockMode.EnableExistingNPC &&
-            existingNpcRoot != null)
+            disableExistingObjectsAtStart)
         {
-            existingNpcRoot.SetActive(false);
+            SetExistingObjectsActive(false);
         }
     }
 
     private void Update()
     {
-        if (npcUnlocked)
+        /*
+         * Nachdem die Objekte endgültig deaktiviert wurden,
+         * sind keine weiteren Prüfungen notwendig.
+         */
+        if (objectsHiddenAfterQuest)
         {
             return;
         }
@@ -76,35 +165,197 @@ public class QuestNPCSpawner : MonoBehaviour
             Time.unscaledTime +
             checkInterval;
 
-        if (!AreRequirementsCompleted())
+        if (QuestManager.Instance == null)
         {
             return;
         }
 
-        UnlockNPC();
+        /*
+         * Die Bedingung für das Deaktivieren wird zuerst geprüft.
+         *
+         * Sind die späteren Quests bereits abgeschlossen,
+         * werden die Objekte beim Laden nicht noch einmal aktiviert.
+         */
+        if (ShouldHideObjects())
+        {
+            HideObjects();
+            return;
+        }
+
+        /*
+         * Die Objekte sind bereits aktiv.
+         * Es muss nur noch auf die späteren Despawn-Quests
+         * gewartet werden.
+         */
+        if (objectsUnlocked)
+        {
+            return;
+        }
+
+        if (!AreActivationRequirementsCompleted())
+        {
+            return;
+        }
+
+        UnlockObjects();
     }
 
-    private bool AreRequirementsCompleted()
+    private bool AreActivationRequirementsCompleted()
+    {
+        return AreQuestRequirementsCompleted(
+            requiredCompletedQuestIDs,
+            requireAll,
+            true,
+            requiredQuestState);
+    }
+
+    private bool ShouldHideObjects()
+    {
+        if (!hideAfterQuestCompleted)
+        {
+            return false;
+        }
+
+        /*
+        * Die Bedingungen für das spätere Deaktivieren
+        * prüfen weiterhin auf Completed.
+        */
+        return AreQuestRequirementsCompleted(
+            hideAfterCompletedQuestIDs,
+            requireAllHideQuests,
+            false,
+            RequiredQuestState.Completed);
+    }
+
+    private QuestStatus GetQuestStatus(
+        int questID)
+    {
+        if (QuestManager.Instance == null)
+        {
+            Debug.LogError(
+                "QuestNPCSpawner: QuestManager wurde nicht gefunden.",
+                this);
+
+            return QuestStatus.NotStarted;
+        }
+
+        switch (questID)
+        {
+            case 1:
+                return QuestManager.Instance.quest1;
+
+            case 2:
+                return QuestManager.Instance.quest2;
+
+            case 3:
+                return QuestManager.Instance.quest3;
+
+            case 4:
+                return QuestManager.Instance.quest4;
+
+            case 5:
+                return QuestManager.Instance.quest5;
+
+            case 6:
+                return QuestManager.Instance.quest6;
+
+            case 7:
+                return QuestManager.Instance.quest7;
+
+            case 8:
+                return QuestManager.Instance.quest8;
+
+            case 9:
+                return QuestManager.Instance.quest9;
+
+            case 10:
+                return QuestManager.Instance.quest10;
+
+            case 11:
+                return QuestManager.Instance.quest11;
+
+            case 12:
+                return QuestManager.Instance.quest12;
+
+            case 13:
+                return QuestManager.Instance.quest13;
+
+            case 14:
+                return QuestManager.Instance.quest14;
+
+            case 15:
+                return QuestManager.Instance.quest15;
+
+            default:
+                Debug.LogError(
+                    "QuestNPCSpawner: Ungültige Quest-ID: " +
+                    questID,
+                    this);
+
+                return QuestStatus.NotStarted;
+        }
+    }
+
+    private bool HasRequiredQuestState(
+        int questID,
+        RequiredQuestState requiredState)
+    {
+        QuestStatus currentStatus =
+            GetQuestStatus(questID);
+
+        switch (requiredState)
+        {
+            case RequiredQuestState.Active:
+                return currentStatus ==
+                    QuestStatus.Active;
+
+            case RequiredQuestState.Completed:
+                return currentStatus ==
+                    QuestStatus.Completed;
+
+            default:
+                Debug.LogError(
+                    "QuestNPCSpawner: Unbekannter benötigter " +
+                    "Queststatus.",
+                    this);
+
+                return false;
+        }
+    }
+
+    private bool AreQuestRequirementsCompleted(
+    int[] questIDs,
+    bool requireAllQuests,
+    bool emptyListResult,
+    RequiredQuestState requiredState)
     {
         if (QuestManager.Instance == null)
         {
             return false;
         }
 
-        if (requiredCompletedQuestIDs == null ||
-            requiredCompletedQuestIDs.Length == 0)
+        if (questIDs == null ||
+            questIDs.Length == 0)
         {
-            return true;
+            return emptyListResult;
         }
 
-        if (requireAll)
+        /*
+        * Alle eingetragenen Quests müssen
+        * den gewünschten Status besitzen.
+        */
+        if (requireAllQuests)
         {
             for (int i = 0;
-                 i < requiredCompletedQuestIDs.Length;
-                 i++)
+                i < questIDs.Length;
+                i++)
             {
-                if (!QuestManager.Instance.IsQuestCompleted(
-                        requiredCompletedQuestIDs[i]))
+                int questID =
+                    questIDs[i];
+
+                if (!HasRequiredQuestState(
+                        questID,
+                        requiredState))
                 {
                     return false;
                 }
@@ -113,12 +364,19 @@ public class QuestNPCSpawner : MonoBehaviour
             return true;
         }
 
+        /*
+        * Eine passende Quest reicht.
+        */
         for (int i = 0;
-             i < requiredCompletedQuestIDs.Length;
-             i++)
+            i < questIDs.Length;
+            i++)
         {
-            if (QuestManager.Instance.IsQuestCompleted(
-                    requiredCompletedQuestIDs[i]))
+            int questID =
+                questIDs[i];
+
+            if (HasRequiredQuestState(
+                    questID,
+                    requiredState))
             {
                 return true;
             }
@@ -127,47 +385,68 @@ public class QuestNPCSpawner : MonoBehaviour
         return false;
     }
 
-    private void UnlockNPC()
+    private void UnlockObjects()
     {
+        bool success = false;
+
         switch (unlockMode)
         {
             case UnlockMode.EnableExistingNPC:
-                EnableExistingNPC();
+                success =
+                    EnableExistingObjects();
                 break;
 
             case UnlockMode.InstantiatePrefab:
-                SpawnNPCPrefab();
+                success =
+                    SpawnPrefab();
+                break;
+
+            default:
+                Debug.LogError(
+                    "QuestNPCSpawner: Unbekannter Unlock Mode.",
+                    this);
                 break;
         }
-    }
 
-    private void EnableExistingNPC()
-    {
-        if (existingNpcRoot == null)
+        if (!success)
         {
-            Debug.LogError(
-                "QuestNPCSpawner: Existing NPC Root fehlt.",
-                this);
-
             return;
         }
 
-        existingNpcRoot.SetActive(true);
-        npcUnlocked = true;
+        objectsUnlocked = true;
 
         Debug.Log(
-            "QuestNPCSpawner: NPC wurde aktiviert.");
+            "QuestNPCSpawner: Objekte wurden aktiviert.",
+            this);
     }
 
-    private void SpawnNPCPrefab()
+    private bool EnableExistingObjects()
+    {
+        int validObjectCount =
+            SetExistingObjectsActive(true);
+
+        if (validObjectCount == 0)
+        {
+            Debug.LogError(
+                "QuestNPCSpawner: Es wurde kein gültiges " +
+                "vorhandenes Objekt zugewiesen.",
+                this);
+
+            return false;
+        }
+
+        return true;
+    }
+
+    private bool SpawnPrefab()
     {
         if (npcPrefab == null)
         {
             Debug.LogError(
-                "QuestNPCSpawner: NPC Prefab fehlt.",
+                "QuestNPCSpawner: Prefab fehlt.",
                 this);
 
-            return;
+            return false;
         }
 
         if (spawnPoint == null)
@@ -176,17 +455,171 @@ public class QuestNPCSpawner : MonoBehaviour
                 "QuestNPCSpawner: Spawn Point fehlt.",
                 this);
 
-            return;
+            return false;
         }
 
-        spawnedNpc = Instantiate(
+        spawnedObject = Instantiate(
             npcPrefab,
             spawnPoint.position,
             spawnPoint.rotation);
 
-        npcUnlocked = true;
+        Debug.Log(
+            "QuestNPCSpawner: Prefab " +
+            spawnedObject.name +
+            " wurde erzeugt.",
+            this);
+
+        return true;
+    }
+
+    private void HideObjects()
+    {
+        bool success = false;
+
+        switch (unlockMode)
+        {
+            case UnlockMode.EnableExistingNPC:
+                success =
+                    DisableExistingObjects();
+                break;
+
+            case UnlockMode.InstantiatePrefab:
+                success =
+                    RemoveSpawnedObject();
+                break;
+
+            default:
+                Debug.LogError(
+                    "QuestNPCSpawner: Unbekannter Unlock Mode.",
+                    this);
+                break;
+        }
+
+        if (!success)
+        {
+            return;
+        }
+
+        objectsUnlocked = false;
+        objectsHiddenAfterQuest = true;
 
         Debug.Log(
-            "QuestNPCSpawner: NPC wurde gespawnt.");
+            "QuestNPCSpawner: Objekte wurden deaktiviert, " +
+            "weil die späteren Questbedingungen erfüllt wurden.",
+            this);
+    }
+
+    private bool DisableExistingObjects()
+    {
+        int validObjectCount =
+            SetExistingObjectsActive(false);
+
+        if (validObjectCount == 0)
+        {
+            Debug.LogError(
+                "QuestNPCSpawner: Es wurde kein gültiges " +
+                "vorhandenes Objekt zum Deaktivieren gefunden.",
+                this);
+
+            return false;
+        }
+
+        return true;
+    }
+
+    private bool RemoveSpawnedObject()
+    {
+        /*
+         * Wurde die spätere Quest bereits abgeschlossen,
+         * bevor das Prefab erzeugt wurde, existiert noch
+         * keine Instanz. Der gewünschte Zustand ist trotzdem
+         * bereits erreicht.
+         */
+        if (spawnedObject == null)
+        {
+            return true;
+        }
+
+        Destroy(spawnedObject);
+        spawnedObject = null;
+
+        return true;
+    }
+
+    private int SetExistingObjectsActive(
+        bool active)
+    {
+        int validObjectCount = 0;
+
+        if (TrySetObjectActive(
+                primaryExistingObject,
+                active))
+        {
+            validObjectCount++;
+        }
+
+        if (additionalExistingObjects == null)
+        {
+            return validObjectCount;
+        }
+
+        for (int i = 0;
+             i < additionalExistingObjects.Length;
+             i++)
+        {
+            GameObject targetObject =
+                additionalExistingObjects[i];
+
+            if (TrySetObjectActive(
+                    targetObject,
+                    active))
+            {
+                validObjectCount++;
+            }
+        }
+
+        return validObjectCount;
+    }
+
+    private bool TrySetObjectActive(
+        GameObject targetObject,
+        bool active)
+    {
+        if (targetObject == null)
+        {
+            return false;
+        }
+
+        /*
+         * Der Controller darf weder sich selbst noch einen
+         * Parent von sich deaktivieren. Sonst würde Update()
+         * nicht mehr ausgeführt und die Objekte könnten
+         * später nicht wieder aktiviert werden.
+         */
+        bool controllerWouldBeDisabled =
+            targetObject == gameObject ||
+            transform.IsChildOf(
+                targetObject.transform);
+
+        if (controllerWouldBeDisabled)
+        {
+            if (!invalidSetupWarningShown)
+            {
+                Debug.LogError(
+                    "QuestNPCSpawner: Das Objekt " +
+                    targetObject.name +
+                    " enthält den QuestNPCSpawner selbst. " +
+                    "Verwende ein separates Controller-GameObject.",
+                    this);
+
+                invalidSetupWarningShown = true;
+            }
+
+            return false;
+        }
+
+        targetObject.SetActive(active);
+
+        return true;
     }
 }

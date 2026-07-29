@@ -93,7 +93,7 @@ MonoBehaviour:
     - answerText: Weiter
       nextNode: 4
       questsToStart:
-      - questID: 13
+      - questID: 14
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0

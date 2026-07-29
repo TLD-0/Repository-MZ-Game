@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NickDialog3
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
-  - dialogueText: "Maya: Leute, ich w\xFCrde so langsam-"
+  - dialogueText: "Maya: Leute, ich w\xFCrde so langsam echt m\xFCde."
     changePlayerEmotion: 1
     playerEmotion: 6
     emotionChanges: []

@@ -35,6 +35,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Katja: Meinem Opa geht''s
 
       nicht gut, sein Zustand ist
@@ -54,6 +56,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Katja: Ich muss schnell weg, aber
 
       eigentlich muss ich das
@@ -74,6 +78,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Katja: W\xFCrdest du das f\xFCr\r\nmich \xFCbernehmen?"
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -81,7 +87,8 @@ MonoBehaviour:
     choices:
     - answerText: (+) Ja klar, mach dir keinen Kopf.
       nextNode: 4
-      questsToStart: []
+      questsToStart:
+      - questID: 9
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -89,16 +96,20 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: (-) Ich bin leider schon verplant.
       nextNode: 8
       questsToStart: []
-      skipsQuest: 0
-      questIDToSkip: 0
+      skipsQuest: 1
+      questIDToSkip: 9
       addsSequenceValue: 0
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Maya: Ja sicher, dein Opa geht vor. Mach dir keinen Kopf., ich
       hoffe ihm geht's bald wieder besser.\u201D"
     changePlayerEmotion: 1
@@ -120,6 +131,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Katja: Danke, ich bin dir echt was schuldig.'
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -135,6 +148,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Katja: K\xF6nntest du noch die Abteilung\r\nanrufen? Nummer steht
       an meinem PC!"
     changePlayerEmotion: 0
@@ -151,6 +166,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Maya: Wo ist ihre Nummer?'
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -167,6 +184,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: 'Maya: Sorry, ich hab schon was vor, ich muss
 
       selber gleich
@@ -190,6 +209,8 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Katja: Okay, du hast sicher deine Gr\xFCnde."
     changePlayerEmotion: 0
     playerEmotion: 0
@@ -205,3 +226,5 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}

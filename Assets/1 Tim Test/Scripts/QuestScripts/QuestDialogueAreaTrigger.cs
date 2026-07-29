@@ -3,14 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class QuestDialogueAreaTrigger : MonoBehaviour
 {
-    [Header("Benötigte Quest")]
-    [Tooltip(
-        "Der Dialog startet nur, wenn diese Quest abgeschlossen ist."
-    )]
-    [SerializeField]
-    [Range(1, 15)]
-    private int requiredQuestID = 1;
-
     [Header("Dialog")]
     [SerializeField]
     private DialogueData dialogue;
@@ -39,17 +31,22 @@ public class QuestDialogueAreaTrigger : MonoBehaviour
 
     [Header("Trigger-Einstellungen")]
     [Tooltip(
-        "Der Dialog kann während des gesamten Spiels nur einmal ausgelöst werden."
+        "Der Dialog kann während des gesamten Spiels " +
+        "nur einmal ausgelöst werden."
     )]
     [SerializeField]
     private bool triggerOnlyOnce = true;
 
     [Tooltip(
-        "Deaktiviert den Collider nach der ersten erfolgreichen Auslösung."
+        "Deaktiviert den Collider nach der ersten " +
+        "erfolgreichen Auslösung."
     )]
     [SerializeField]
     private bool disableColliderAfterTrigger = true;
 
+    [Tooltip(
+        "Tag des Spielerobjekts."
+    )]
     [SerializeField]
     private string playerTag = "Player";
 
@@ -64,6 +61,16 @@ public class QuestDialogueAreaTrigger : MonoBehaviour
         triggerCollider =
             GetComponent<Collider>();
 
+        if (triggerCollider == null)
+        {
+            Debug.LogError(
+                "QuestDialogueAreaTrigger: " +
+                "Es wurde kein Collider gefunden.",
+                this);
+
+            return;
+        }
+
         if (!triggerCollider.isTrigger)
         {
             Debug.LogWarning(
@@ -77,12 +84,9 @@ public class QuestDialogueAreaTrigger : MonoBehaviour
     private void Update()
     {
         /*
-         * Dadurch funktioniert der Trigger auch dann,
-         * wenn die Quest abgeschlossen wird, während der
-         * Spieler bereits im Bereich steht.
-         *
-         * Außerdem wartet das Script, falls beim Betreten
-         * noch ein anderer Dialog läuft.
+         * Falls beim Betreten des Bereichs bereits ein anderer
+         * Dialog läuft, versucht das Script erneut zu starten,
+         * sobald dieser Dialog beendet wurde.
          */
         if (playerInside)
         {
@@ -90,7 +94,8 @@ public class QuestDialogueAreaTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(
+        Collider other)
     {
         if (!IsPlayer(other))
         {
@@ -102,7 +107,8 @@ public class QuestDialogueAreaTrigger : MonoBehaviour
         TryStartDialogue();
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(
+        Collider other)
     {
         if (!IsPlayer(other))
         {
@@ -136,29 +142,11 @@ public class QuestDialogueAreaTrigger : MonoBehaviour
             return;
         }
 
-        if (QuestManager.Instance == null)
-        {
-            Debug.LogError(
-                "QuestDialogueAreaTrigger: QuestManager fehlt.",
-                this);
-
-            return;
-        }
-
-        if (!QuestManager.Instance.IsQuestCompleted(
-                requiredQuestID))
-        {
-            /*
-             * Die Quest ist noch nicht abgeschlossen.
-             * Der Trigger wartet einfach weiter.
-             */
-            return;
-        }
-
         if (DialogueManager.Instance == null)
         {
             Debug.LogError(
-                "QuestDialogueAreaTrigger: DialogueManager fehlt.",
+                "QuestDialogueAreaTrigger: " +
+                "DialogueManager fehlt.",
                 this);
 
             return;
@@ -193,10 +181,9 @@ public class QuestDialogueAreaTrigger : MonoBehaviour
             currentSpeakerEmotionController);
 
         Debug.Log(
-            "QuestDialogueAreaTrigger: Dialog nach Abschluss " +
-            "von Quest " +
-            requiredQuestID +
-            " gestartet.");
+            "QuestDialogueAreaTrigger: " +
+            "Bereichsdialog wurde gestartet.",
+            this);
 
         if (triggerOnlyOnce &&
             disableColliderAfterTrigger &&
@@ -213,7 +200,8 @@ public class QuestDialogueAreaTrigger : MonoBehaviour
             dialogue.nodes.Count == 0)
         {
             Debug.LogError(
-                "QuestDialogueAreaTrigger: Kein gültiger Dialog eingetragen.",
+                "QuestDialogueAreaTrigger: " +
+                "Kein gültiger Dialog eingetragen.",
                 this);
 
             return false;
@@ -222,7 +210,8 @@ public class QuestDialogueAreaTrigger : MonoBehaviour
         if (playerPoint == null)
         {
             Debug.LogError(
-                "QuestDialogueAreaTrigger: Player Point fehlt.",
+                "QuestDialogueAreaTrigger: " +
+                "Player Point fehlt.",
                 this);
 
             return false;
@@ -231,7 +220,8 @@ public class QuestDialogueAreaTrigger : MonoBehaviour
         if (cameraPoint == null)
         {
             Debug.LogError(
-                "QuestDialogueAreaTrigger: Camera Point fehlt.",
+                "QuestDialogueAreaTrigger: " +
+                "Camera Point fehlt.",
                 this);
 
             return false;
@@ -240,7 +230,8 @@ public class QuestDialogueAreaTrigger : MonoBehaviour
         return true;
     }
 
-    private bool IsPlayer(Collider other)
+    private bool IsPlayer(
+        Collider other)
     {
         if (other.CompareTag(playerTag))
         {
@@ -255,8 +246,8 @@ public class QuestDialogueAreaTrigger : MonoBehaviour
     }
 
     /// <summary>
-    /// Kann optional von einem anderen Script verwendet werden,
-    /// um den Trigger wieder freizugeben.
+    /// Gibt den Trigger wieder frei.
+    /// Kann durch andere Scripts oder UnityEvents aufgerufen werden.
     /// </summary>
     public void ResetTrigger()
     {

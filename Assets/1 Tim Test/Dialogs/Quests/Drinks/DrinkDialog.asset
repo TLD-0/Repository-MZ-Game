@@ -103,7 +103,7 @@ MonoBehaviour:
     - answerText: Nehm dir deinen Drink.
       nextNode: -1
       questsToStart:
-      - questID: 14
+      - questID: 15
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
