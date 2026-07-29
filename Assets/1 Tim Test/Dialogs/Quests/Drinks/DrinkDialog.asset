@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1999e3f6545a4d4292f6f691740f2b0, type: 3}
   m_Name: DrinkDialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  allowEscape: 0
   nodes:
   - dialogueText: "Welchen Drink m\xF6chtest du?"
     changePlayerEmotion: 0
@@ -21,6 +22,7 @@ MonoBehaviour:
     - answerText: A
       nextNode: 1
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 1
@@ -33,6 +35,7 @@ MonoBehaviour:
     - answerText: B
       nextNode: 1
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 1
@@ -45,6 +48,7 @@ MonoBehaviour:
     - answerText: C
       nextNode: 1
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 1
@@ -62,6 +66,7 @@ MonoBehaviour:
     - answerText: A
       nextNode: 2
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 1
@@ -74,6 +79,7 @@ MonoBehaviour:
     - answerText: B
       nextNode: 2
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 1
@@ -86,6 +92,7 @@ MonoBehaviour:
     - answerText: C
       nextNode: 2
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 1
@@ -104,6 +111,7 @@ MonoBehaviour:
       nextNode: -1
       questsToStart:
       - questID: 15
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0

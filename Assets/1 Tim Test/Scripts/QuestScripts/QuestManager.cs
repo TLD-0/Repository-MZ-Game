@@ -4,11 +4,7 @@ public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;
 
-    private void Awake()
-    {
-        Instance = this;
-    }
-
+    [Header("Queststatus")]
     public QuestStatus quest1 = QuestStatus.NotStarted;
     public QuestStatus quest2 = QuestStatus.NotStarted;
     public QuestStatus quest3 = QuestStatus.NotStarted;
@@ -24,6 +20,32 @@ public class QuestManager : MonoBehaviour
     public QuestStatus quest13 = QuestStatus.NotStarted;
     public QuestStatus quest14 = QuestStatus.NotStarted;
     public QuestStatus quest15 = QuestStatus.NotStarted;
+    public QuestStatus quest16 = QuestStatus.NotStarted;
+
+    private void Awake()
+    {
+        if (Instance != null &&
+            Instance != this)
+        {
+            Debug.LogWarning(
+                "QuestManager: Es existiert bereits ein QuestManager. " +
+                "Die zusätzliche Komponente wird entfernt.",
+                this);
+
+            Destroy(this);
+            return;
+        }
+
+        Instance = this;
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
 
     public QuestStatus GetQuestStatus(
         int questID)
@@ -45,11 +67,13 @@ public class QuestManager : MonoBehaviour
             case 13: return quest13;
             case 14: return quest14;
             case 15: return quest15;
+            case 16: return quest16;
 
             default:
                 Debug.LogError(
                     "QuestManager: Ungültige Quest-ID: " +
-                    questID);
+                    questID,
+                    this);
 
                 return QuestStatus.NotStarted;
         }
@@ -59,6 +83,19 @@ public class QuestManager : MonoBehaviour
         int questID,
         QuestStatus status)
     {
+        if (!IsValidQuestID(questID))
+        {
+            Debug.LogError(
+                "QuestManager: Ungültige Quest-ID: " +
+                questID,
+                this);
+
+            return false;
+        }
+
+        QuestStatus previousStatus =
+            GetQuestStatus(questID);
+
         switch (questID)
         {
             case 1:  quest1 = status; break;
@@ -76,21 +113,18 @@ public class QuestManager : MonoBehaviour
             case 13: quest13 = status; break;
             case 14: quest14 = status; break;
             case 15: quest15 = status; break;
-
-            default:
-                Debug.LogError(
-                    "QuestManager: Ungültige Quest-ID: " +
-                    questID);
-
-                return false;
+            case 16: quest16 = status; break;
         }
 
         Debug.Log(
             "QuestManager: Quest " +
             questID +
-            " wurde auf " +
+            " wurde von " +
+            previousStatus +
+            " auf " +
             status +
-            " gesetzt.");
+            " gesetzt.",
+            this);
 
         return true;
     }
@@ -99,21 +133,21 @@ public class QuestManager : MonoBehaviour
         int questID)
     {
         return GetQuestStatus(questID) ==
-            QuestStatus.Active;
+               QuestStatus.Active;
     }
 
     public bool IsQuestCompleted(
         int questID)
     {
         return GetQuestStatus(questID) ==
-            QuestStatus.Completed;
+               QuestStatus.Completed;
     }
 
     public bool IsQuestSkipped(
         int questID)
     {
         return GetQuestStatus(questID) ==
-            QuestStatus.Skipped;
+               QuestStatus.Skipped;
     }
 
     public bool IsQuestFinished(
@@ -123,7 +157,7 @@ public class QuestManager : MonoBehaviour
             GetQuestStatus(questID);
 
         return status == QuestStatus.Completed ||
-            status == QuestStatus.Skipped;
+               status == QuestStatus.Skipped;
     }
 
     public bool StartQuest(
@@ -148,5 +182,12 @@ public class QuestManager : MonoBehaviour
         return SetQuestStatus(
             questID,
             QuestStatus.Skipped);
+    }
+
+    private static bool IsValidQuestID(
+        int questID)
+    {
+        return questID >= 1 &&
+               questID <= 16;
     }
 }

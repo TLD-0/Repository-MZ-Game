@@ -12,15 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1999e3f6545a4d4292f6f691740f2b0, type: 3}
   m_Name: MayaDialog4
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  allowEscape: 0
   nodes:
   - dialogueText: 'Maya: Das hat jetzt echt gut getan'
     changePlayerEmotion: 1
     playerEmotion: 1
     emotionChanges: []
     choices:
-    - answerText: Dialog beenden.
+    - answerText: Ich sollte weiter.
       nextNode: -1
-      questsToStart: []
+      questsToStart:
+      - questID: 13
+      questsToComplete:
+      - questID: 13
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0

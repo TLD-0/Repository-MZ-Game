@@ -2,24 +2,51 @@ using UnityEngine;
 
 public class QuestInteractObject : MonoBehaviour
 {
+    public enum QuestObjectAction
+    {
+        Teleport = 0,
+        Deactivate = 1,
+        None = 2
+    }
+
     [Header("Quest")]
     [Tooltip(
         "Alle QuestInteractObjects mit derselben Quest-ID " +
         "gehören grundsätzlich zur selben Quest."
     )]
     [SerializeField]
+    [Range(1, 16)]
     private int questID = 1;
 
     [Header("Quest-Abschluss")]
     [Tooltip(
         "Aktiviert: Dieses Objekt schließt die Quest sofort ab. " +
         "Deaktiviert: Die Quest wird erst abgeschlossen, wenn alle " +
-        "QuestInteractObjects mit derselben Quest-ID benutzt wurden."
+        "zählenden QuestInteractObjects mit derselben Quest-ID benutzt wurden."
     )]
     [SerializeField]
-    private bool completeQuestImmediately = false;
+    private bool completeQuestImmediately;
 
-    [Header("Teleport")]
+    [Tooltip(
+        "Bestimmt, ob dieses Objekt bei der Gruppenprüfung " +
+        "für dieselbe Quest-ID mitgezählt wird."
+    )]
+    [SerializeField]
+    private bool countsForQuestCompletion = true;
+
+    [Header("Aktion bei Interaktion")]
+    [Tooltip(
+        "Teleport: Objekt wird zur Destination bewegt. " +
+        "Deactivate: Objekt wird deaktiviert. " +
+        "None: Nur der Questfortschritt wird verarbeitet."
+    )]
+    [SerializeField]
+    private QuestObjectAction action =
+        QuestObjectAction.Teleport;
+
+    [Tooltip(
+        "Nur bei Action = Teleport erforderlich."
+    )]
     [SerializeField]
     private Transform destination;
 
@@ -43,6 +70,11 @@ public class QuestInteractObject : MonoBehaviour
         get { return hasInteracted; }
     }
 
+    public bool CountsForQuestCompletion
+    {
+        get { return countsForQuestCompletion; }
+    }
+
     public void Interact()
     {
         if (QuestManager.Instance == null)
@@ -54,7 +86,7 @@ public class QuestInteractObject : MonoBehaviour
             return;
         }
 
-        if (!IsQuestActive())
+        if (!QuestManager.Instance.IsQuestActive(questID))
         {
             Debug.Log(
                 "QuestInteractObject: Quest " +
@@ -77,28 +109,14 @@ public class QuestInteractObject : MonoBehaviour
             return;
         }
 
-        if (destination == null)
+        if (!ValidateAction())
         {
-            Debug.LogError(
-                "QuestInteractObject: Destination wurde nicht zugewiesen.",
-                this);
-
             return;
         }
 
-        /*
-         * Objekt an den Zielpunkt bewegen.
-         */
-        transform.position =
-            destination.position;
-
-        transform.rotation =
-            destination.rotation;
-
-        /*
-         * Dieses Objekt wurde erfolgreich benutzt.
-         */
         hasInteracted = true;
+
+        ApplyAction();
 
         Debug.Log(
             "QuestInteractObject: " +
@@ -108,32 +126,60 @@ public class QuestInteractObject : MonoBehaviour
             " erledigt.",
             this);
 
-        /*
-         * Ist diese Option aktiviert, wird die Quest sofort
-         * abgeschlossen. Andere Objekte mit derselben Quest-ID
-         * müssen dann nicht mehr benutzt werden.
-         */
         if (completeQuestImmediately)
         {
-            CompleteQuest();
-
-            Debug.Log(
-                "QuestInteractObject: Quest " +
-                questID +
-                " wurde durch " +
-                gameObject.name +
-                " sofort abgeschlossen.",
-                this);
+            QuestManager.Instance.CompleteQuest(
+                questID);
 
             return;
         }
 
-        /*
-         * Normales Verhalten:
-         * Prüfen, ob alle Objekte mit derselben Quest-ID
-         * bereits benutzt wurden.
-         */
         CheckQuestCompletion();
+    }
+
+    private bool ValidateAction()
+    {
+        if (action != QuestObjectAction.Teleport)
+        {
+            return true;
+        }
+
+        if (destination != null)
+        {
+            return true;
+        }
+
+        Debug.LogError(
+            "QuestInteractObject: Action steht auf Teleport, " +
+            "aber Destination wurde nicht zugewiesen.",
+            this);
+
+        return false;
+    }
+
+    private void ApplyAction()
+    {
+        switch (action)
+        {
+            case QuestObjectAction.Teleport:
+                transform.SetPositionAndRotation(
+                    destination.position,
+                    destination.rotation);
+                break;
+
+            case QuestObjectAction.Deactivate:
+                gameObject.SetActive(false);
+                break;
+
+            case QuestObjectAction.None:
+                break;
+
+            default:
+                Debug.LogError(
+                    "QuestInteractObject: Unbekannte Aktion.",
+                    this);
+                break;
+        }
     }
 
     private void CheckQuestCompletion()
@@ -153,20 +199,13 @@ public class QuestInteractObject : MonoBehaviour
             QuestInteractObject questObject =
                 allQuestObjects[i];
 
-            if (questObject == null)
+            if (questObject == null ||
+                questObject.questID != questID ||
+                !questObject.countsForQuestCompletion)
             {
                 continue;
             }
 
-            if (questObject.questID != questID)
-            {
-                continue;
-            }
-
-            /*
-             * Objekte, die die Quest ohnehin sofort abschließen,
-             * werden trotzdem als Teil dieser Quest gezählt.
-             */
             requiredObjectCount++;
 
             if (questObject.hasInteracted)
@@ -188,176 +227,8 @@ public class QuestInteractObject : MonoBehaviour
         if (requiredObjectCount > 0 &&
             completedObjectCount >= requiredObjectCount)
         {
-            CompleteQuest();
-        }
-    }
-
-    private void CompleteQuest()
-    {
-        switch (questID)
-        {
-            case 1:
-                QuestManager.Instance.quest1 =
-                    QuestStatus.Completed;
-                break;
-
-            case 2:
-                QuestManager.Instance.quest2 =
-                    QuestStatus.Completed;
-                break;
-
-            case 3:
-                QuestManager.Instance.quest3 =
-                    QuestStatus.Completed;
-                break;
-
-            case 4:
-                QuestManager.Instance.quest4 =
-                    QuestStatus.Completed;
-                break;
-
-            case 5:
-                QuestManager.Instance.quest5 =
-                    QuestStatus.Completed;
-                break;
-
-            case 6:
-                QuestManager.Instance.quest6 =
-                    QuestStatus.Completed;
-                break;
-
-            case 7:
-                QuestManager.Instance.quest7 =
-                    QuestStatus.Completed;
-                break;
-
-            case 8:
-                QuestManager.Instance.quest8 =
-                    QuestStatus.Completed;
-                break;
-
-            case 9:
-                QuestManager.Instance.quest9 =
-                    QuestStatus.Completed;
-                break;
-
-            case 10:
-                QuestManager.Instance.quest10 =
-                    QuestStatus.Completed;
-                break;
-
-            case 11:
-                QuestManager.Instance.quest11 =
-                    QuestStatus.Completed;
-                break;
-
-            case 12:
-                QuestManager.Instance.quest12 =
-                    QuestStatus.Completed;
-                break;
-
-            case 13:
-                QuestManager.Instance.quest13 =
-                    QuestStatus.Completed;
-                break;
-
-            case 14:
-                QuestManager.Instance.quest14 =
-                    QuestStatus.Completed;
-                break;
-
-            case 15:
-                QuestManager.Instance.quest15 =
-                    QuestStatus.Completed;
-                break;
-
-            default:
-                Debug.LogError(
-                    "QuestInteractObject: Ungültige Quest-ID: " +
-                    questID,
-                    this);
-
-                return;
-        }
-
-        Debug.Log(
-            "Quest " +
-            questID +
-            " wurde abgeschlossen.",
-            this);
-    }
-
-    private bool IsQuestActive()
-    {
-        switch (questID)
-        {
-            case 1:
-                return QuestManager.Instance.quest1 ==
-                       QuestStatus.Active;
-
-            case 2:
-                return QuestManager.Instance.quest2 ==
-                       QuestStatus.Active;
-
-            case 3:
-                return QuestManager.Instance.quest3 ==
-                       QuestStatus.Active;
-
-            case 4:
-                return QuestManager.Instance.quest4 ==
-                       QuestStatus.Active;
-
-            case 5:
-                return QuestManager.Instance.quest5 ==
-                       QuestStatus.Active;
-
-            case 6:
-                return QuestManager.Instance.quest6 ==
-                       QuestStatus.Active;
-
-            case 7:
-                return QuestManager.Instance.quest7 ==
-                       QuestStatus.Active;
-
-            case 8:
-                return QuestManager.Instance.quest8 ==
-                       QuestStatus.Active;
-
-            case 9:
-                return QuestManager.Instance.quest9 ==
-                       QuestStatus.Active;
-
-            case 10:
-                return QuestManager.Instance.quest10 ==
-                       QuestStatus.Active;
-
-            case 11:
-                return QuestManager.Instance.quest11 ==
-                       QuestStatus.Active;
-
-            case 12:
-                return QuestManager.Instance.quest12 ==
-                       QuestStatus.Active;
-
-            case 13:
-                return QuestManager.Instance.quest13 ==
-                       QuestStatus.Active;
-
-            case 14:
-                return QuestManager.Instance.quest14 ==
-                       QuestStatus.Active;
-
-            case 15:
-                return QuestManager.Instance.quest15 ==
-                       QuestStatus.Active;
-
-            default:
-                Debug.LogError(
-                    "QuestInteractObject: Ungültige Quest-ID: " +
-                    questID,
-                    this);
-
-                return false;
+            QuestManager.Instance.CompleteQuest(
+                questID);
         }
     }
 }

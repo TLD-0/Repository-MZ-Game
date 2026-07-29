@@ -4,7 +4,15 @@ using UnityEngine;
 [System.Serializable]
 public class QuestStart
 {
-    public int questID;
+    [Range(1, 16)]
+    public int questID = 1;
+}
+
+[System.Serializable]
+public class QuestComplete
+{
+    [Range(1, 16)]
+    public int questID = 1;
 }
 
 [System.Serializable]
@@ -20,10 +28,15 @@ public class DialogueChoice
     public List<QuestStart> questsToStart =
         new List<QuestStart>();
 
+    [Header("Quests abschließen")]
+    public List<QuestComplete> questsToComplete =
+        new List<QuestComplete>();
+
     [Header("Quest überspringen")]
     public bool skipsQuest;
 
-    public int questIDToSkip;
+    [Range(1, 16)]
+    public int questIDToSkip = 1;
 
     [Header("Sequenz-Auswahl")]
     public bool addsSequenceValue;
@@ -38,22 +51,13 @@ public class DialogueChoice
     [Header("Cloud Mood")]
     [Tooltip(
         "Dieser Wert wird beim Auswählen der Antwort zu MoodValue addiert. " +
-        "Beispiele: 1, 2, -1 oder -3. " +
         "0 bedeutet keine Veränderung."
     )]
     public int moodValueChange;
 
     [Header("Spieler-Teleport")]
-    [Tooltip(
-        "Aktiviert den Teleport des Spielers nach Auswahl " +
-        "dieser Antwort. Der Dialog wird dabei beendet."
-    )]
     public bool teleportPlayer;
 
-    [Tooltip(
-        "Verbindungs-Asset zum gewünschten DialogueTeleportPoint " +
-        "in der Scene."
-    )]
     public DialogueTeleportDestination teleportDestination;
 }
 
@@ -61,36 +65,18 @@ public class DialogueChoice
 public class NPCEmotionChange
 {
     [Header("Emotion ändern")]
-    [Tooltip(
-        "Wenn deaktiviert, bleibt die bisherige Emotion erhalten."
-    )]
     public bool changeEmotion;
 
     [Header("Ziel")]
-    [Tooltip(
-        "Current Speaker verwendet den NPC, mit dem der Dialog gestartet wurde. " +
-        "Specific NPC verwendet die ausgewählte NPC-ID."
-    )]
     public NPCEmotionTargetMode targetMode =
         NPCEmotionTargetMode.CurrentSpeaker;
 
-    [Tooltip(
-        "Nur bei Target Mode = Specific NPC relevant."
-    )]
     public NPCId targetNPCId =
         NPCId.None;
 
     [Header("Neue Emotion")]
-    [Tooltip(
-        "Der Kopf-Sprite, der in diesem Node angezeigt werden soll. " +
-        "Bleibt das Feld leer, bleibt die vorherige Emotion bestehen."
-    )]
     public Sprite emotionSprite;
 
-    [Tooltip(
-        "Blendet den Emotionskopf aus und zeigt wieder " +
-        "den neutralen Kopf des normalen Körpersprites."
-    )]
     public bool returnToNeutral;
 }
 
@@ -121,6 +107,14 @@ public class DialogueNode
 )]
 public class DialogueData : ScriptableObject
 {
+    [Header("Dialogsteuerung")]
+    [Tooltip(
+        "Aktiviert: Der Dialog kann mit Escape beendet werden. " +
+        "Bei einmaligen Story- oder Questdialogen sollte dies deaktiviert sein."
+    )]
+    public bool allowEscape = true;
+
+    [Header("Nodes")]
     public List<DialogueNode> nodes =
         new List<DialogueNode>();
 }

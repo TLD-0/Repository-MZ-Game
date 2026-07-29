@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 32293}
   - component: {fileID: 32292}
   - component: {fileID: 32291}
+  - component: {fileID: 32294}
   m_Layer: 0
   m_Name: "DialogTriggerAreaTanzfl\xE4cheV3"
   m_TagString: Untagged
@@ -193,6 +194,24 @@ Transform:
   - {fileID: 1470166380}
   m_Father: {fileID: 296900797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &32294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee053e3f5d682b449e2fb3be8167653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
+  questID: 16
+  completeQuestImmediately: 1
+  countsForQuestCompletion: 1
+  action: 2
+  destination: {fileID: 0}
+  allowOnlyOneInteraction: 1
 --- !u!1 &20266065
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,18 +256,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635e94dce0da0cf4aa9a2f0dfa06f857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCSpawner
-  requiredCompletedQuestIDs: 09000000
-  requiredQuestState: 1
+  requiredCompletedQuestIDs: 0a000000
+  requiredQuestState: 3
   requireAll: 1
   hideAfterQuestCompleted: 1
   hideAfterCompletedQuestIDs: 0b0000000c000000
+  hideRequiredQuestState: 1
   requireAllHideQuests: 0
   unlockMode: 0
-  primaryExistingObject: {fileID: 0}
+  primaryExistingObject: {fileID: 1595217376}
   additionalExistingObjects: []
   disableExistingObjectsAtStart: 1
-  npcPrefab: {fileID: 1595217376}
-  spawnPoint: {fileID: 799706187}
+  npcPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
   checkInterval: 0.25
 --- !u!4 &34099057 stripped
 Transform:
@@ -359,6 +379,7 @@ MonoBehaviour:
   requireAll: 0
   hideAfterQuestCompleted: 0
   hideAfterCompletedQuestIDs: 
+  hideRequiredQuestState: 1
   requireAllHideQuests: 1
   unlockMode: 0
   primaryExistingObject: {fileID: 1617005826}
@@ -875,6 +896,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 3
   completeQuestImmediately: 0
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 1143171119}
   allowOnlyOneInteraction: 1
 --- !u!114 &167687989
@@ -1059,6 +1082,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 15
   completeQuestImmediately: 1
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 1126547351}
   allowOnlyOneInteraction: 1
 --- !u!1 &192226434 stripped
@@ -1324,6 +1349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 15
   completeQuestImmediately: 1
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 1126547351}
   allowOnlyOneInteraction: 1
 --- !u!1 &231910024
@@ -1473,18 +1500,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635e94dce0da0cf4aa9a2f0dfa06f857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCSpawner
-  requiredCompletedQuestIDs: 0b0000000c000000
+  requiredCompletedQuestIDs: 0d000000
   requiredQuestState: 1
   requireAll: 0
   hideAfterQuestCompleted: 0
   hideAfterCompletedQuestIDs: 
+  hideRequiredQuestState: 1
   requireAllHideQuests: 0
   unlockMode: 0
-  primaryExistingObject: {fileID: 0}
+  primaryExistingObject: {fileID: 937065981}
   additionalExistingObjects: []
-  disableExistingObjectsAtStart: 1
-  npcPrefab: {fileID: 937065981}
-  spawnPoint: {fileID: 122245157}
+  disableExistingObjectsAtStart: 0
+  npcPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
   checkInterval: 0.25
 --- !u!1 &296900796
 GameObject:
@@ -1652,6 +1680,7 @@ MonoBehaviour:
   requireAll: 1
   hideAfterQuestCompleted: 0
   hideAfterCompletedQuestIDs: 
+  hideRequiredQuestState: 1
   requireAllHideQuests: 1
   unlockMode: 0
   primaryExistingObject: {fileID: 1768758479}
@@ -2442,6 +2471,7 @@ MonoBehaviour:
   requireAll: 0
   hideAfterQuestCompleted: 0
   hideAfterCompletedQuestIDs: 
+  hideRequiredQuestState: 1
   requireAllHideQuests: 1
   unlockMode: 0
   primaryExistingObject: {fileID: 1004691588}
@@ -2703,6 +2733,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 15
   completeQuestImmediately: 1
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 1126547351}
   allowOnlyOneInteraction: 1
 --- !u!1 &612311020
@@ -2750,7 +2782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67443c3e6d310d14fa8810610b9ded20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCEmotionController
-  npcId: 3
+  npcId: 11
   emotionRenderer: {fileID: 612311023}
   resetToNeutralOnDialogueEnd: 1
 --- !u!212 &612311023
@@ -2883,8 +2915,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
   destination: {fileID: 53705499}
-  completeQuestOnUse: 0
-  questIDToComplete: 1
+  completeQuestOnUse: 1
+  questIDToComplete: 6
 --- !u!4 &649932015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fc89ce01f02d6574d8fdc2de20544657, type: 3}
@@ -3075,6 +3107,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 15
   completeQuestImmediately: 1
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 1126547351}
   allowOnlyOneInteraction: 1
 --- !u!1001 &663617876
@@ -3440,8 +3474,11 @@ MonoBehaviour:
         m_Calls: []
   defaultOutputPoint: {fileID: 1766397452}
   resetDrinksOnStart: 1
+  completeQuestAfterValidDrink: 1
+  questIDToComplete: 14
+  useOptionalQuestChecker: 0
   questChecker: {fileID: 0}
-  requireActiveQuest: 0
+  requireActiveQuest: 1
   requiredQuestID: 14
 --- !u!114 &663617883
 MonoBehaviour:
@@ -3586,6 +3623,7 @@ MonoBehaviour:
   requireAll: 1
   hideAfterQuestCompleted: 0
   hideAfterCompletedQuestIDs: 
+  hideRequiredQuestState: 1
   requireAllHideQuests: 1
   unlockMode: 0
   primaryExistingObject: {fileID: 0}
@@ -3726,11 +3764,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635e94dce0da0cf4aa9a2f0dfa06f857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCSpawner
-  requiredCompletedQuestIDs: 0e000000
+  requiredCompletedQuestIDs: 10000000
   requiredQuestState: 1
   requireAll: 1
   hideAfterQuestCompleted: 0
   hideAfterCompletedQuestIDs: 
+  hideRequiredQuestState: 1
   requireAllHideQuests: 1
   unlockMode: 0
   primaryExistingObject: {fileID: 32290}
@@ -4156,6 +4195,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 1
   completeQuestImmediately: 0
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 335952384}
   allowOnlyOneInteraction: 1
 --- !u!114 &828802055
@@ -4465,6 +4506,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 5
   completeQuestImmediately: 0
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 416793966}
   allowOnlyOneInteraction: 1
 --- !u!114 &907857278
@@ -5202,6 +5245,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 15
   completeQuestImmediately: 1
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 1126547351}
   allowOnlyOneInteraction: 1
 --- !u!4 &1057019563 stripped
@@ -5607,6 +5652,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 8
   completeQuestImmediately: 1
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 1008911573}
   allowOnlyOneInteraction: 1
 --- !u!114 &1142098279
@@ -5876,6 +5923,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 15
   completeQuestImmediately: 1
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 1126547351}
   allowOnlyOneInteraction: 1
 --- !u!1 &1207075936
@@ -6173,9 +6222,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCSpawner
   requiredCompletedQuestIDs: 0d000000
   requiredQuestState: 1
-  requireAll: 0
+  requireAll: 1
   hideAfterQuestCompleted: 1
   hideAfterCompletedQuestIDs: 0e000000
+  hideRequiredQuestState: 1
   requireAllHideQuests: 0
   unlockMode: 0
   primaryExistingObject: {fileID: 800233847}
@@ -6278,6 +6328,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 7
   completeQuestImmediately: 1
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 155553886}
   allowOnlyOneInteraction: 1
 --- !u!114 &1258456747
@@ -6584,6 +6636,7 @@ MonoBehaviour:
   quest13: 0
   quest14: 0
   quest15: 0
+  quest16: 0
 --- !u!4 &1370354072
 Transform:
   m_ObjectHideFlags: 0
@@ -6647,14 +6700,15 @@ MonoBehaviour:
   requiredQuestState: 1
   requireAll: 1
   hideAfterQuestCompleted: 1
-  hideAfterCompletedQuestIDs: 0e000000
-  requireAllHideQuests: 0
+  hideAfterCompletedQuestIDs: 0d000000
+  hideRequiredQuestState: 1
+  requireAllHideQuests: 1
   unlockMode: 0
-  primaryExistingObject: {fileID: 0}
+  primaryExistingObject: {fileID: 1001156043}
   additionalExistingObjects: []
   disableExistingObjectsAtStart: 1
-  npcPrefab: {fileID: 1001156043}
-  spawnPoint: {fileID: 799706187}
+  npcPrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
   checkInterval: 0.25
 --- !u!1 &1382006359
 GameObject:
@@ -6700,11 +6754,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635e94dce0da0cf4aa9a2f0dfa06f857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCSpawner
-  requiredCompletedQuestIDs: 0e000000
+  requiredCompletedQuestIDs: 0f000000
   requiredQuestState: 1
   requireAll: 1
-  hideAfterQuestCompleted: 0
-  hideAfterCompletedQuestIDs: 
+  hideAfterQuestCompleted: 1
+  hideAfterCompletedQuestIDs: 10000000
+  hideRequiredQuestState: 1
   requireAllHideQuests: 1
   unlockMode: 0
   primaryExistingObject: {fileID: 1506607582}
@@ -6849,6 +6904,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 1
   completeQuestImmediately: 0
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 1270565567}
   allowOnlyOneInteraction: 1
 --- !u!114 &1413864911
@@ -6918,6 +6975,7 @@ MonoBehaviour:
   requireAll: 1
   hideAfterQuestCompleted: 0
   hideAfterCompletedQuestIDs: 
+  hideRequiredQuestState: 1
   requireAllHideQuests: 1
   unlockMode: 0
   primaryExistingObject: {fileID: 1771957042}
@@ -7097,7 +7155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67443c3e6d310d14fa8810610b9ded20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCEmotionController
-  npcId: 3
+  npcId: 10
   emotionRenderer: {fileID: 1477238938}
   resetToNeutralOnDialogueEnd: 1
 --- !u!212 &1477238938
@@ -8025,6 +8083,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 15
   completeQuestImmediately: 1
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 1126547351}
   allowOnlyOneInteraction: 1
 --- !u!1001 &1581085140
@@ -8211,6 +8271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 15
   completeQuestImmediately: 1
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 1126547351}
   allowOnlyOneInteraction: 1
 --- !u!1 &1595217376 stripped
@@ -8383,6 +8445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 15
   completeQuestImmediately: 1
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 1126547351}
   allowOnlyOneInteraction: 1
 --- !u!1001 &1617005824
@@ -8515,6 +8579,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 12
   completeQuestImmediately: 0
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 2013035598}
   allowOnlyOneInteraction: 1
 --- !u!1 &1620678047
@@ -9498,6 +9564,7 @@ MonoBehaviour:
   playerPoint: {fileID: 492125191}
   cameraPoint: {fileID: 817249928}
   emotionController: {fileID: 0}
+  completeRequiredQuestOnCorrectNumber: 1
   questChecker: {fileID: 0}
   requireActiveQuest: 1
   requiredQuestID: 9
@@ -9653,6 +9720,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 11
   completeQuestImmediately: 0
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 1994713064}
   allowOnlyOneInteraction: 1
 --- !u!114 &1882846569
@@ -9879,6 +9948,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 1
   completeQuestImmediately: 0
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 264398643}
   allowOnlyOneInteraction: 1
 --- !u!114 &1942489652
@@ -10471,6 +10542,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 12
   completeQuestImmediately: 0
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 1658515741}
   allowOnlyOneInteraction: 1
 --- !u!4 &2030003172 stripped
@@ -10522,11 +10595,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635e94dce0da0cf4aa9a2f0dfa06f857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCSpawner
-  requiredCompletedQuestIDs: 09000000
+  requiredCompletedQuestIDs: 0a000000
   requiredQuestState: 3
   requireAll: 1
   hideAfterQuestCompleted: 0
   hideAfterCompletedQuestIDs: 
+  hideRequiredQuestState: 1
   requireAllHideQuests: 1
   unlockMode: 0
   primaryExistingObject: {fileID: 1839598679}
@@ -10554,6 +10628,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 2
   completeQuestImmediately: 0
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 1004452102}
   allowOnlyOneInteraction: 1
 --- !u!114 &2066516574
@@ -10724,11 +10800,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635e94dce0da0cf4aa9a2f0dfa06f857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCSpawner
-  requiredCompletedQuestIDs: 09000000
-  requiredQuestState: 3
+  requiredCompletedQuestIDs: 0a000000
+  requiredQuestState: 0
   requireAll: 1
   hideAfterQuestCompleted: 0
   hideAfterCompletedQuestIDs: 
+  hideRequiredQuestState: 1
   requireAllHideQuests: 1
   unlockMode: 0
   primaryExistingObject: {fileID: 1117833447}
@@ -10868,6 +10945,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 3
   completeQuestImmediately: 0
+  countsForQuestCompletion: 1
+  action: 0
   destination: {fileID: 127243312}
   allowOnlyOneInteraction: 1
 --- !u!114 &2139326545
@@ -15997,7 +16076,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1333792201599968536, guid: ced388dd24f5c0b4a9730e806556b0fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.847599
+      value: 21.101
       objectReference: {fileID: 0}
     - target: {fileID: 1333792201599968536, guid: ced388dd24f5c0b4a9730e806556b0fd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16005,7 +16084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1333792201599968536, guid: ced388dd24f5c0b4a9730e806556b0fd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.575779
+      value: -1.866
       objectReference: {fileID: 0}
     - target: {fileID: 1333792201599968536, guid: ced388dd24f5c0b4a9730e806556b0fd, type: 3}
       propertyPath: m_LocalRotation.w

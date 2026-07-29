@@ -16,8 +16,7 @@ public class DrinkSequenceTest : MonoBehaviour
 
         [Header("3D-Objekt")]
         [Tooltip(
-            "Das Objekt, das bei dieser Kombination ausgegeben wird. " +
-            "Das Objekt kann beispielsweise AA, AB oder BC heißen."
+            "Das Objekt, das bei dieser Kombination ausgegeben wird."
         )]
         public Transform drinkObject;
 
@@ -33,15 +32,12 @@ public class DrinkSequenceTest : MonoBehaviour
         public Transform pointB;
 
         [Header("Optionales Event")]
-        [Tooltip(
-            "Wird ausgeführt, nachdem das Getränk ausgegeben wurde."
-        )]
         public UnityEvent onDrinkCreated;
     }
 
     [Header("Dialog")]
     [Tooltip(
-        "Dialog mit zwei Nodes. Jeder Node enthält die Antworten A, B und C."
+        "Dialog mit zwei Auswahl-Nodes. Jeder Auswahl-Node enthält A, B und C."
     )]
     [SerializeField]
     private DialogueData drinkDialogue;
@@ -61,57 +57,46 @@ public class DrinkSequenceTest : MonoBehaviour
     private DrinkRecipe[] drinkRecipes;
 
     [Header("Ausgabe")]
-    [Tooltip(
-        "Allgemeiner Zielpunkt für alle Getränke. " +
-        "Kann pro Rezept durch Point B überschrieben werden."
-    )]
     [SerializeField]
     private Transform defaultOutputPoint;
 
     [Header("Einstellungen")]
-    [Tooltip(
-        "Setzt alle Getränke beim Start der Interaktion zurück zu Point A."
-    )]
     [SerializeField]
     private bool resetDrinksOnStart = true;
 
-    [Header("Optionaler Quest-Checker")]
+    [Header("Questabschluss")]
     [Tooltip(
-        "Nur notwendig, wenn eine bestimmte Kombination " +
-        "eine Quest abschließen soll."
+        "Aktiviert: Jede gültige Drinkkombination schließt die eingetragene Quest ab."
     )]
+    [SerializeField]
+    private bool completeQuestAfterValidDrink = true;
+
+    [SerializeField]
+    [Range(1, 16)]
+    private int questIDToComplete = 14;
+
+    [Tooltip(
+        "Optionaler alter Sequenz-Checker. Für dein System mit neun gültigen " +
+        "Drinks sollte diese Option deaktiviert bleiben."
+    )]
+    [SerializeField]
+    private bool useOptionalQuestChecker;
+
     [SerializeField]
     private SequenceQuestChecker questChecker;
 
     [Header("Interaktionsfreigabe")]
-    [Tooltip(
-        "Ist diese Option aktiviert, kann die Drink-Sequenz nur gestartet werden, " +
-        "wenn die eingetragene Quest aktiv ist."
-    )]
     [SerializeField]
     private bool requireActiveQuest = true;
 
-    [Tooltip(
-        "Diese Quest muss den Status Active besitzen."
-    )]
     [SerializeField]
-    [Range(1, 15)]
-    private int requiredQuestID = 3;
+    [Range(1, 16)]
+    private int requiredQuestID = 14;
 
     private const int RequiredChoiceCount = 2;
 
     private bool sequenceRunning;
     private bool inputLocked;
-
-    private void Awake()
-    {
-        
-        if (questChecker == null)
-        {
-            questChecker =
-                GetComponent<SequenceQuestChecker>();
-        }
-    }
 
     public bool CanInteract()
     {
@@ -129,13 +114,14 @@ public class DrinkSequenceTest : MonoBehaviour
             return false;
         }
 
-        return QuestManager.Instance.IsQuestCompleted(
+        return QuestManager.Instance.IsQuestActive(
             requiredQuestID);
     }
 
     private void Update()
     {
-        if (!sequenceRunning || inputLocked)
+        if (!sequenceRunning ||
+            inputLocked)
         {
             return;
         }
@@ -148,29 +134,32 @@ public class DrinkSequenceTest : MonoBehaviour
         int choiceCount =
             SequenceChoiceManager.Instance.GetCount();
 
-        if (choiceCount == RequiredChoiceCount)
+        if (choiceCount >= RequiredChoiceCount)
         {
+            if (choiceCount > RequiredChoiceCount)
+            {
+                Debug.LogError(
+                    "DrinkSequenceTest: Es wurden mehr als zwei Werte gespeichert. " +
+                    "Prüfe die Adds Sequence Value-Einstellungen im Dialog.",
+                    this);
+            }
+
             inputLocked = true;
             ResolveDrinkSequence();
             return;
         }
 
-        if (choiceCount > RequiredChoiceCount)
+        /*
+         * Wird der Dialog mit Escape oder durch ein anderes Script beendet,
+         * wird die Bar wieder freigegeben.
+         */
+        if (DialogueManager.Instance != null &&
+            !DialogueManager.Instance.IsDialogueActive)
         {
-            inputLocked = true;
-            sequenceRunning = false;
-
-            Debug.LogError(
-                "DrinkSequenceTest: Es wurden mehr als zwei Werte gespeichert. " +
-                "Prüfe, ob die Dialogantworten einen Wert doppelt hinzufügen."
-            );
+            CancelDrinkSequence();
         }
     }
 
-    /// <summary>
-    /// Wird durch NPCInteraction aufgerufen,
-    /// wenn der Spieler das Questobjekt ansieht und E drückt.
-    /// </summary>
     public void StartDrinkTest()
     {
         if (!CanInteract())
@@ -188,29 +177,14 @@ public class DrinkSequenceTest : MonoBehaviour
         if (sequenceRunning)
         {
             Debug.Log(
-                "DrinkSequenceTest: Die Drink-Sequenz läuft bereits.");
+                "DrinkSequenceTest: Die Drink-Sequenz läuft bereits.",
+                this);
 
             return;
         }
 
-        if (SequenceChoiceManager.Instance == null)
+        if (!ValidateStart())
         {
-            Debug.LogError(
-                "DrinkSequenceTest: SequenceChoiceManager fehlt.");
-            return;
-        }
-
-        if (DialogueManager.Instance == null)
-        {
-            Debug.LogError(
-                "DrinkSequenceTest: DialogueManager fehlt.");
-            return;
-        }
-
-        if (drinkDialogue == null)
-        {
-            Debug.LogError(
-                "DrinkSequenceTest: Drink Dialogue fehlt.");
             return;
         }
 
@@ -229,11 +203,11 @@ public class DrinkSequenceTest : MonoBehaviour
             drinkDialogue,
             playerPoint,
             cameraPoint,
-            emotionController
-        );
+            emotionController);
 
         Debug.Log(
-            "DrinkSequenceTest: Drink-Dialog gestartet.");
+            "DrinkSequenceTest: Drink-Dialog gestartet.",
+            this);
     }
 
     private void ResolveDrinkSequence()
@@ -243,10 +217,6 @@ public class DrinkSequenceTest : MonoBehaviour
 
         sequenceRunning = false;
 
-        Debug.Log(
-            "DrinkSequenceTest: Fertige Kombination: " +
-            selectedSequence);
-
         DrinkRecipe matchingRecipe =
             FindRecipe(selectedSequence);
 
@@ -255,45 +225,139 @@ public class DrinkSequenceTest : MonoBehaviour
             Debug.LogWarning(
                 "DrinkSequenceTest: Für die Kombination " +
                 selectedSequence +
-                " wurde kein passendes Getränk gefunden.");
+                " wurde kein passendes Getränk gefunden.",
+                this);
 
+            inputLocked = false;
             return;
         }
 
-        bool wasTeleported =
-            TeleportDrink(matchingRecipe);
-
-        if (!wasTeleported)
+        if (!TeleportDrink(matchingRecipe))
         {
+            inputLocked = false;
             return;
         }
 
         matchingRecipe.onDrinkCreated?.Invoke();
 
-        /*
-         * Optional:
-         * Der Checker prüft beispielsweise, ob AA die richtige
-         * Questkombination ist.
-         */
-        if (questChecker != null)
+        if (completeQuestAfterValidDrink)
         {
-            questChecker.CheckSequence();
+            if (QuestManager.Instance == null)
+            {
+                Debug.LogError(
+                    "DrinkSequenceTest: QuestManager fehlt.",
+                    this);
+            }
+            else
+            {
+                QuestManager.Instance.CompleteQuest(
+                    questIDToComplete);
+            }
         }
+
+        if (useOptionalQuestChecker)
+        {
+            if (questChecker == null)
+            {
+                Debug.LogError(
+                    "DrinkSequenceTest: Optionaler Quest Checker ist aktiviert, " +
+                    "aber nicht zugewiesen.",
+                    this);
+            }
+            else
+            {
+                questChecker.CheckSequence();
+            }
+        }
+
+        inputLocked = false;
+
+        Debug.Log(
+            "DrinkSequenceTest: Kombination " +
+            selectedSequence +
+            " wurde erfolgreich erzeugt.",
+            this);
+    }
+
+    public void CancelDrinkSequence()
+    {
+        sequenceRunning = false;
+        inputLocked = false;
+
+        if (SequenceChoiceManager.Instance != null)
+        {
+            SequenceChoiceManager.Instance.StartSequence(
+                "Drink");
+        }
+
+        Debug.Log(
+            "DrinkSequenceTest: Drink-Sequenz wurde zurückgesetzt.",
+            this);
+    }
+
+    private bool ValidateStart()
+    {
+        if (SequenceChoiceManager.Instance == null)
+        {
+            Debug.LogError(
+                "DrinkSequenceTest: SequenceChoiceManager fehlt.",
+                this);
+
+            return false;
+        }
+
+        if (DialogueManager.Instance == null)
+        {
+            Debug.LogError(
+                "DrinkSequenceTest: DialogueManager fehlt.",
+                this);
+
+            return false;
+        }
+
+        if (drinkDialogue == null)
+        {
+            Debug.LogError(
+                "DrinkSequenceTest: Drink Dialogue fehlt.",
+                this);
+
+            return false;
+        }
+
+        if (playerPoint == null ||
+            cameraPoint == null)
+        {
+            Debug.LogError(
+                "DrinkSequenceTest: Player Point oder Camera Point fehlt.",
+                this);
+
+            return false;
+        }
+
+        if (drinkRecipes == null ||
+            drinkRecipes.Length == 0)
+        {
+            Debug.LogError(
+                "DrinkSequenceTest: Keine Drink Recipes eingetragen.",
+                this);
+
+            return false;
+        }
+
+        return true;
     }
 
     private DrinkRecipe FindRecipe(
         string selectedSequence)
     {
-        if (drinkRecipes == null ||
-            drinkRecipes.Length == 0)
+        if (drinkRecipes == null)
         {
-            Debug.LogError(
-                "DrinkSequenceTest: Keine Drink Recipes eingetragen.");
-
             return null;
         }
 
-        for (int i = 0; i < drinkRecipes.Length; i++)
+        for (int i = 0;
+             i < drinkRecipes.Length;
+             i++)
         {
             DrinkRecipe recipe =
                 drinkRecipes[i];
@@ -303,10 +367,8 @@ public class DrinkSequenceTest : MonoBehaviour
                 continue;
             }
 
-            string recipeSequence =
-                GetRecipeSequence(recipe);
-
-            if (recipeSequence == selectedSequence)
+            if (GetRecipeSequence(recipe) ==
+                selectedSequence)
             {
                 return recipe;
             }
@@ -318,13 +380,6 @@ public class DrinkSequenceTest : MonoBehaviour
     private string GetRecipeSequence(
         DrinkRecipe recipe)
     {
-        /*
-         * Falls Sequence leer ist, wird automatisch
-         * der Name des 3D-Objekts verwendet.
-         *
-         * Beispiel:
-         * Objektname "AB" ergibt Kombination AB.
-         */
         if (string.IsNullOrWhiteSpace(recipe.sequence))
         {
             if (recipe.drinkObject == null)
@@ -348,7 +403,8 @@ public class DrinkSequenceTest : MonoBehaviour
             Debug.LogError(
                 "DrinkSequenceTest: Bei Kombination " +
                 GetRecipeSequence(recipe) +
-                " fehlt das Drink Object.");
+                " fehlt das Drink Object.",
+                this);
 
             return false;
         }
@@ -363,22 +419,15 @@ public class DrinkSequenceTest : MonoBehaviour
             Debug.LogError(
                 "DrinkSequenceTest: Bei Kombination " +
                 GetRecipeSequence(recipe) +
-                " fehlt ein Zielpunkt.");
+                " fehlt ein Zielpunkt.",
+                this);
 
             return false;
         }
 
         recipe.drinkObject.SetPositionAndRotation(
             targetPoint.position,
-            targetPoint.rotation
-        );
-
-        Debug.Log(
-            "DrinkSequenceTest: Getränk " +
-            recipe.drinkObject.name +
-            " für Kombination " +
-            GetRecipeSequence(recipe) +
-            " wurde ausgegeben.");
+            targetPoint.rotation);
 
         return true;
     }
@@ -390,7 +439,9 @@ public class DrinkSequenceTest : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < drinkRecipes.Length; i++)
+        for (int i = 0;
+             i < drinkRecipes.Length;
+             i++)
         {
             DrinkRecipe recipe =
                 drinkRecipes[i];
@@ -404,8 +455,7 @@ public class DrinkSequenceTest : MonoBehaviour
 
             recipe.drinkObject.SetPositionAndRotation(
                 recipe.pointA.position,
-                recipe.pointA.rotation
-            );
+                recipe.pointA.rotation);
         }
     }
 
@@ -423,7 +473,9 @@ public class DrinkSequenceTest : MonoBehaviour
                 SequenceChoiceManager.Instance.GetCount(),
                 RequiredChoiceCount);
 
-        for (int i = 0; i < count; i++)
+        for (int i = 0;
+             i < count;
+             i++)
         {
             int value =
                 SequenceChoiceManager.Instance.GetValue(i);

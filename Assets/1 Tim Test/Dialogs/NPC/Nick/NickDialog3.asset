@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1999e3f6545a4d4292f6f691740f2b0, type: 3}
   m_Name: NickDialog3
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  allowEscape: 0
   nodes:
   - dialogueText: "Maya: Leute, ich w\xFCrde so langsam echt m\xFCde."
     changePlayerEmotion: 1
@@ -21,6 +22,7 @@ MonoBehaviour:
     - answerText: Weiter
       nextNode: 1
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -41,6 +43,7 @@ MonoBehaviour:
     - answerText: Weiter
       nextNode: 2
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -58,6 +61,7 @@ MonoBehaviour:
     - answerText: Weiter
       nextNode: 3
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -76,6 +80,7 @@ MonoBehaviour:
     - answerText: Weiter
       nextNode: 4
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -93,6 +98,7 @@ MonoBehaviour:
     - answerText: "(+) Ich w\xFCrde lieber nach Hause gehen."
       nextNode: 5
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -105,6 +111,7 @@ MonoBehaviour:
     - answerText: "(-) Ja gut, f\xFCr euch bleibe ich noch ein bisschen."
       nextNode: 8
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -123,6 +130,7 @@ MonoBehaviour:
     - answerText: Weiter
       nextNode: 6
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -141,6 +149,7 @@ MonoBehaviour:
     - answerText: Weiter
       nextNode: 7
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -158,6 +167,7 @@ MonoBehaviour:
     - answerText: Dialog beenden.
       nextNode: -1
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
@@ -175,6 +185,7 @@ MonoBehaviour:
     - answerText: Dialog beenden.
       nextNode: -1
       questsToStart: []
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0

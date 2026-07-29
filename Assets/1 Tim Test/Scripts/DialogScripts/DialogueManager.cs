@@ -118,7 +118,9 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) &&
+            currentDialogue != null &&
+            currentDialogue.allowEscape)
         {
             EndDialogue();
             return;
@@ -790,6 +792,11 @@ public class DialogueManager : MonoBehaviour
     private void ProcessQuestActions(
         DialogueChoice choice)
     {
+        if (choice == null)
+        {
+            return;
+        }
+
         if (choice.questsToStart != null)
         {
             foreach (QuestStart quest
@@ -801,6 +808,20 @@ public class DialogueManager : MonoBehaviour
                 }
 
                 StartQuest(quest.questID);
+            }
+        }
+
+        if (choice.questsToComplete != null)
+        {
+            foreach (QuestComplete quest
+                     in choice.questsToComplete)
+            {
+                if (quest == null)
+                {
+                    continue;
+                }
+
+                CompleteQuest(quest.questID);
             }
         }
 
@@ -986,131 +1007,49 @@ public class DialogueManager : MonoBehaviour
     private void StartQuest(
         int questID)
     {
-        if (SetQuestStatus(
-                questID,
-                QuestStatus.Active))
+        if (QuestManager.Instance == null)
         {
-            Debug.Log(
-                "Quest " +
-                questID +
-                " wurde aktiviert.");
+            Debug.LogError(
+                "DialogueManager: QuestManager wurde nicht gefunden.",
+                this);
+
+            return;
         }
+
+        QuestManager.Instance.StartQuest(
+            questID);
+    }
+
+    private void CompleteQuest(
+        int questID)
+    {
+        if (QuestManager.Instance == null)
+        {
+            Debug.LogError(
+                "DialogueManager: QuestManager wurde nicht gefunden.",
+                this);
+
+            return;
+        }
+
+        QuestManager.Instance.CompleteQuest(
+            questID);
     }
 
     private void SkipQuest(
         int questID)
     {
-        if (SetQuestStatus(
-                questID,
-                QuestStatus.Skipped))
-        {
-            Debug.Log(
-                "Quest " +
-                questID +
-                " wurde übersprungen.");
-        }
-    }
-
-    private bool SetQuestStatus(
-        int questID,
-        QuestStatus newStatus)
-    {
         if (QuestManager.Instance == null)
         {
             Debug.LogError(
-                "DialogueManager: QuestManager " +
-                "wurde nicht gefunden.");
+                "DialogueManager: QuestManager wurde nicht gefunden.",
+                this);
 
-            return false;
+            return;
         }
 
-        switch (questID)
-        {
-            case 1:
-                QuestManager.Instance.quest1 =
-                    newStatus;
-                break;
-
-            case 2:
-                QuestManager.Instance.quest2 =
-                    newStatus;
-                break;
-
-            case 3:
-                QuestManager.Instance.quest3 =
-                    newStatus;
-                break;
-
-            case 4:
-                QuestManager.Instance.quest4 =
-                    newStatus;
-                break;
-
-            case 5:
-                QuestManager.Instance.quest5 =
-                    newStatus;
-                break;
-
-            case 6:
-                QuestManager.Instance.quest6 =
-                    newStatus;
-                break;
-
-            case 7:
-                QuestManager.Instance.quest7 =
-                    newStatus;
-                break;
-
-            case 8:
-                QuestManager.Instance.quest8 =
-                    newStatus;
-                break;
-
-            case 9:
-                QuestManager.Instance.quest9 =
-                    newStatus;
-                break;
-
-            case 10:
-                QuestManager.Instance.quest10 =
-                    newStatus;
-                break;
-
-            case 11:
-                QuestManager.Instance.quest11 =
-                    newStatus;
-                break;
-
-            case 12:
-                QuestManager.Instance.quest12 =
-                    newStatus;
-                break;
-
-            case 13:
-                QuestManager.Instance.quest13 =
-                    newStatus;
-                break;
-
-            case 14:
-                QuestManager.Instance.quest14 =
-                    newStatus;
-                break;
-
-            case 15:
-                QuestManager.Instance.quest15 =
-                    newStatus;
-                break;
-
-            default:
-                Debug.LogError(
-                    "DialogueManager: Ungültige " +
-                    "Quest-ID: " +
-                    questID);
-
-                return false;
-        }
-
-        return true;
+        QuestManager.Instance.SkipQuest(
+            questID);
     }
 
     public void EndDialogue()

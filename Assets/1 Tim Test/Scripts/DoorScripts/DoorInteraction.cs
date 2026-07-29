@@ -2,16 +2,21 @@ using UnityEngine;
 
 public class DoorInteraction : MonoBehaviour
 {
-    [Header("References")]
-    public Camera playerCamera;
-    public GameObject interactText;
+    [Header("Referenzen")]
+    [SerializeField]
+    private Camera playerCamera;
 
-    [Header("Settings")]
-    public float interactDistance = 3f;
+    [SerializeField]
+    private GameObject interactText;
+
+    [Header("Einstellungen")]
+    [SerializeField]
+    [Min(0.1f)]
+    private float interactDistance = 3f;
 
     private Door currentDoor;
 
-    void Update()
+    private void Update()
     {
         CheckDoor();
 
@@ -21,13 +26,17 @@ public class DoorInteraction : MonoBehaviour
         }
     }
 
-    void CheckDoor()
+    private void CheckDoor()
     {
         currentDoor = null;
+        SetInteractTextActive(false);
 
         if (playerCamera == null)
         {
-            Debug.LogError("DoorInteraction: Player Camera wurde nicht zugewiesen.");
+            Debug.LogError(
+                "DoorInteraction: Player Camera wurde nicht zugewiesen.",
+                this);
+
             return;
         }
 
@@ -35,66 +44,55 @@ public class DoorInteraction : MonoBehaviour
             playerCamera.transform.position,
             playerCamera.transform.forward);
 
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, interactDistance))
+        if (!Physics.Raycast(
+                ray,
+                out RaycastHit hit,
+                interactDistance))
         {
-            Door door =
-            hit.collider.GetComponentInParent<Door>();
-
-            if (door == null)
-            {
-                return;
-            }
-
-            InteractionQuestGate questGate =
-                hit.collider.GetComponentInParent<InteractionQuestGate>();
-
-            if (questGate != null &&
-                !questGate.IsUnlocked())
-            {
-                return;
-            }
-
-            currentDoor = door;
-
-            if (interactText != null)
-            {
-                interactText.SetActive(true);
-            }
-
             return;
-
-            if (door != null)
-            {
-                currentDoor = door;
-
-                if (interactText != null)
-                    interactText.SetActive(true);
-
-                return;
-            }
         }
 
-        if (interactText != null)
-            interactText.SetActive(false);
+        Door door =
+            hit.collider.GetComponentInParent<Door>();
+
+        if (door == null)
+        {
+            return;
+        }
+
+        InteractionQuestGate questGate =
+            hit.collider.GetComponentInParent<InteractionQuestGate>();
+
+        if (questGate != null &&
+            !questGate.IsUnlocked())
+        {
+            return;
+        }
+
+        currentDoor = door;
+        SetInteractTextActive(true);
     }
 
-    void Interact()
+    private void Interact()
     {
         if (currentDoor == null)
+        {
             return;
+        }
 
         if (currentDoor.destination == null)
         {
             Debug.LogError(
-                "Diese Tür hat kein Destination-Objekt: " +
-                currentDoor.name);
+                "DoorInteraction: Das Objekt " +
+                currentDoor.name +
+                " besitzt kein Destination-Objekt.",
+                currentDoor);
+
             return;
         }
 
-        transform.position = currentDoor.destination.position;
-        transform.rotation = currentDoor.destination.rotation;
+        TeleportPlayer(
+            currentDoor.destination);
 
         if (currentDoor.completeQuestOnUse)
         {
@@ -107,11 +105,60 @@ public class DoorInteraction : MonoBehaviour
                 return;
             }
 
-            QuestManager.Instance.IsQuestCompleted(
+            QuestManager.Instance.CompleteQuest(
                 currentDoor.questIDToComplete);
         }
 
-        if (interactText != null)
-            interactText.SetActive(false);
+        SetInteractTextActive(false);
+        currentDoor = null;
+    }
+
+    private void TeleportPlayer(
+        Transform destination)
+    {
+        Rigidbody playerRigidbody =
+            GetComponent<Rigidbody>();
+
+        if (playerRigidbody == null)
+        {
+            transform.SetPositionAndRotation(
+                destination.position,
+                destination.rotation);
+
+            Physics.SyncTransforms();
+            return;
+        }
+
+        bool wasKinematic =
+            playerRigidbody.isKinematic;
+
+        playerRigidbody.isKinematic = true;
+        playerRigidbody.linearVelocity = Vector3.zero;
+        playerRigidbody.angularVelocity = Vector3.zero;
+
+        transform.SetPositionAndRotation(
+            destination.position,
+            destination.rotation);
+
+        playerRigidbody.position =
+            destination.position;
+
+        playerRigidbody.rotation =
+            destination.rotation;
+
+        Physics.SyncTransforms();
+
+        playerRigidbody.isKinematic =
+            wasKinematic;
+    }
+
+    private void SetInteractTextActive(
+        bool active)
+    {
+        if (interactText != null &&
+            interactText.activeSelf != active)
+        {
+            interactText.SetActive(active);
+        }
     }
 }

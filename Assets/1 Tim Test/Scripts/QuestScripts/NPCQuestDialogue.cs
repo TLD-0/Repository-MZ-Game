@@ -5,9 +5,10 @@ using UnityEngine;
 public class NPCQuestEntry
 {
     [Header("Quest")]
-    public int questID;
+    [Range(1, 16)]
+    public int questID = 1;
 
-    [Header("Dialogues")]
+    [Header("Dialoge")]
     public DialogueData startDialogue;
     public DialogueData activeDialogue;
     public DialogueData completedDialogue;
@@ -15,15 +16,16 @@ public class NPCQuestEntry
 
 public class NPCQuestDialogue : MonoBehaviour
 {
-    [Header("Dialog Positionen")]
+    [Header("Dialogpositionen")]
     public Transform playerPoint;
     public Transform cameraPoint;
 
-    [Header("Emotionen")] 
+    [Header("Emotionen")]
     public NPCEmotionController emotionController;
 
     [Header("Quests dieses NPCs")]
-    public List<NPCQuestEntry> quests = new List<NPCQuestEntry>();
+    public List<NPCQuestEntry> quests =
+        new List<NPCQuestEntry>();
 
     private void Awake()
     {
@@ -35,64 +37,93 @@ public class NPCQuestDialogue : MonoBehaviour
         FindEmotionController();
     }
 
-    private void FindEmotionController()
-    {
-        if (emotionController == null)
-        {
-            emotionController =
-                GetComponentInChildren<
-                    NPCEmotionController
-                >(true);
-        }
-    }
-
     public void StartNPCDialogue()
     {
-        FindEmotionController();
-
-        NPCQuestEntry entry = GetCurrentQuestEntry();
-
-        if (entry == null)
+        if (DialogueManager.Instance == null)
         {
-            Debug.Log("Dieser NPC hat keine offenen Quests mehr.");
+            Debug.LogError(
+                "NPCQuestDialogue: DialogueManager wurde nicht gefunden.",
+                this);
+
             return;
         }
 
-        QuestStatus status = GetQuestStatus(entry.questID);
+        if (QuestManager.Instance == null)
+        {
+            Debug.LogError(
+                "NPCQuestDialogue: QuestManager wurde nicht gefunden.",
+                this);
 
-        if (status == QuestStatus.NotStarted)
-        {
-            DialogueManager.Instance.StartDialogue(
-                entry.startDialogue,
-                playerPoint,
-                cameraPoint,
-                emotionController);
+            return;
         }
-        else if (status == QuestStatus.Active)
+
+        FindEmotionController();
+
+        NPCQuestEntry entry =
+            GetCurrentQuestEntry();
+
+        if (entry == null)
         {
-            DialogueManager.Instance.StartDialogue(
-                entry.activeDialogue,
-                playerPoint,
-                cameraPoint,
-                emotionController);
+            Debug.Log(
+                "NPCQuestDialogue: Dieser NPC besitzt keinen passenden Questdialog.",
+                this);
+
+            return;
         }
-        else if (status == QuestStatus.Completed)
+
+        QuestStatus status =
+            QuestManager.Instance.GetQuestStatus(
+                entry.questID);
+
+        DialogueData dialogue =
+            GetDialogueForStatus(
+                entry,
+                status);
+
+        if (dialogue == null)
         {
-            DialogueManager.Instance.StartDialogue(
-                entry.completedDialogue,
-                playerPoint,
-                cameraPoint,
-                emotionController);
+            Debug.LogWarning(
+                "NPCQuestDialogue: Für Quest " +
+                entry.questID +
+                " und Status " +
+                status +
+                " ist kein Dialog eingetragen.",
+                this);
+
+            return;
         }
+
+        DialogueManager.Instance.StartDialogue(
+            dialogue,
+            playerPoint,
+            cameraPoint,
+            emotionController);
     }
 
     private NPCQuestEntry GetCurrentQuestEntry()
     {
-        foreach (NPCQuestEntry entry in quests)
+        if (quests == null ||
+            quests.Count == 0)
         {
-            QuestStatus status = GetQuestStatus(entry.questID);
+            return null;
+        }
 
-            // Abgeschlossene und ausgeschlossene Quests werden übersprungen.
+        for (int i = 0;
+             i < quests.Count;
+             i++)
+        {
+            NPCQuestEntry entry =
+                quests[i];
+
+            if (entry == null)
+            {
+                continue;
+            }
+
+            QuestStatus status =
+                QuestManager.Instance.GetQuestStatus(
+                    entry.questID);
+
             if (status != QuestStatus.Completed &&
                 status != QuestStatus.Skipped)
             {
@@ -100,78 +131,51 @@ public class NPCQuestDialogue : MonoBehaviour
             }
         }
 
-        // Alle Quests sind abgeschlossen oder übersprungen:
-        // letzter Quest-Eintrag wird für einen Abschlussdialog benutzt.
-        if (quests.Count > 0)
+        /*
+         * Alle Quests sind abgeschlossen oder übersprungen.
+         * Der letzte Eintrag darf dann seinen Completed Dialogue zeigen.
+         */
+        for (int i = quests.Count - 1;
+             i >= 0;
+             i--)
         {
-            return quests[quests.Count - 1];
+            if (quests[i] != null)
+            {
+                return quests[i];
+            }
         }
 
         return null;
     }
 
-    private QuestStatus GetQuestStatus(int questID)
+    private static DialogueData GetDialogueForStatus(
+        NPCQuestEntry entry,
+        QuestStatus status)
     {
-        if (QuestManager.Instance == null)
+        switch (status)
         {
-            Debug.LogError(
-                "NPCQuestDialogue: QuestManager wurde nicht gefunden.");
-            return QuestStatus.NotStarted;
-        }
+            case QuestStatus.NotStarted:
+                return entry.startDialogue;
 
-        switch (questID)
-        {
-            case 1:
-                return QuestManager.Instance.quest1;
+            case QuestStatus.Active:
+                return entry.activeDialogue;
 
-            case 2:
-                return QuestManager.Instance.quest2;
+            case QuestStatus.Completed:
+            case QuestStatus.Skipped:
+                return entry.completedDialogue;
 
-            case 3:
-                return QuestManager.Instance.quest3;
-
-            case 4:
-                return QuestManager.Instance.quest4;
-
-            case 5:
-                return QuestManager.Instance.quest5;
-
-            case 6:
-                return QuestManager.Instance.quest6;
-
-            case 7:
-                return QuestManager.Instance.quest7;
-
-            case 8:
-                return QuestManager.Instance.quest8;
-
-            case 9:
-                return QuestManager.Instance.quest9;
-
-            case 10:
-                return QuestManager.Instance.quest10;
-
-            case 11:
-                return QuestManager.Instance.quest11;
-
-            case 12:
-                return QuestManager.Instance.quest12;
-
-            case 13:
-                return QuestManager.Instance.quest13;
-
-            case 14:
-                return QuestManager.Instance.quest14;
-
-            case 15:
-                return QuestManager.Instance.quest15;
-                
             default:
-                Debug.LogError(
-                    "NPCQuestDialogue: Ungültige Quest-ID: " +
-                    questID);
-                return QuestStatus.NotStarted;
+                return null;
+        }
+    }
+
+    private void FindEmotionController()
+    {
+        if (emotionController == null)
+        {
+            emotionController =
+                GetComponentInChildren<NPCEmotionController>(
+                    true);
         }
     }
 }
-

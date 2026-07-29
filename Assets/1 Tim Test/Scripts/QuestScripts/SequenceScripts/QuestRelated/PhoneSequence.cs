@@ -16,7 +16,6 @@ public class PhoneSequenceQuest : MonoBehaviour
     private bool resetAfterWrongNumber = true;
 
     [Header("Dialog zur Zahleneingabe")]
-    [Tooltip("Dieser Dialog wird beim Interagieren mit dem Telefon gestartet.")]
     [SerializeField]
     private DialogueData phoneInputDialogue;
 
@@ -38,24 +37,35 @@ public class PhoneSequenceQuest : MonoBehaviour
     [SerializeField]
     private NPCEmotionController emotionController;
 
-    [Header("Quest")]
+    [Header("Questabschluss")]
+    [Tooltip(
+        "Aktiviert: Bei richtiger Telefonnummer wird die Required Quest ID " +
+        "direkt abgeschlossen. Das ist für die Telefonquest empfohlen."
+    )]
+    [SerializeField]
+    private bool completeRequiredQuestOnCorrectNumber = true;
+
+    [Tooltip(
+        "Optionaler alter Sequenz-Checker. Er wird nur verwendet, wenn " +
+        "Complete Required Quest On Correct Number deaktiviert ist."
+    )]
     [SerializeField]
     private SequenceQuestChecker questChecker;
 
     [Header("Interaktionsfreigabe")]
     [Tooltip(
         "Ist diese Option aktiviert, kann das Telefon nur benutzt werden, " +
-        "wenn die eingetragene Quest aktiv ist."
+        "wenn die eingetragene Quest Active ist."
     )]
     [SerializeField]
     private bool requireActiveQuest = true;
 
     [Tooltip(
-        "Diese Quest muss den Status Active besitzen."
+        "Diese Quest muss den Status Active besitzen und wird bei Erfolg abgeschlossen."
     )]
     [SerializeField]
-    [Range(1, 15)]
-    private int requiredQuestID = 3;
+    [Range(1, 16)]
+    private int requiredQuestID = 9;
 
     [Header("Optionale Events")]
     [SerializeField]
@@ -71,14 +81,6 @@ public class PhoneSequenceQuest : MonoBehaviour
     private bool inputLocked;
     private bool questCompleted;
     private Coroutine resultDialogueRoutine;
-
-    private void Awake()
-    {
-        if (questChecker == null)
-        {
-            questChecker = GetComponent<SequenceQuestChecker>();
-        }
-    }
 
     public bool CanInteract()
     {
@@ -116,47 +118,27 @@ public class PhoneSequenceQuest : MonoBehaviour
 
         if (questCompleted)
         {
-            PlayDialogue(correctNumberDialogue);
+            PlayDialogue(
+                correctNumberDialogue);
+
             return;
         }
 
         if (phoneInputActive)
         {
             Debug.Log(
-                "PhoneSequenceQuest: Die Telefoneingabe läuft bereits.");
+                "PhoneSequenceQuest: Die Telefoneingabe läuft bereits.",
+                this);
+
             return;
         }
 
-        if (SequenceChoiceManager.Instance == null)
+        if (!ValidateStart())
         {
-            Debug.LogError(
-                "PhoneSequenceQuest: SequenceChoiceManager fehlt.");
-            return;
-        }
-
-        if (DialogueManager.Instance == null)
-        {
-            Debug.LogError(
-                "PhoneSequenceQuest: DialogueManager fehlt.");
-            return;
-        }
-
-        if (phoneInputDialogue == null)
-        {
-            Debug.LogError(
-                "PhoneSequenceQuest: Phone Input Dialogue fehlt.");
-            return;
-        }
-
-        if (!IsPhoneNumberValid(correctPhoneNumber))
-        {
-            Debug.LogError(
-                "PhoneSequenceQuest: Telefonnummer ist ungültig.");
             return;
         }
 
         enteredDigits.Clear();
-
         phoneInputActive = true;
         inputLocked = false;
 
@@ -169,87 +151,99 @@ public class PhoneSequenceQuest : MonoBehaviour
             cameraPoint,
             emotionController);
 
-        Debug.Log("Telefon-Dialog gestartet.");
+        Debug.Log(
+            "PhoneSequenceQuest: Telefon-Dialog gestartet.",
+            this);
     }
 
     private void Update()
     {
-        if (!phoneInputActive)
+        if (!phoneInputActive ||
+            inputLocked)
+        {
             return;
-
-        if (inputLocked)
-            return;
-
-        if (!checkAutomatically)
-            return;
+        }
 
         if (SequenceChoiceManager.Instance == null)
+        {
             return;
+        }
+
+        SyncEnteredDigitsFromManager();
+
+        int enteredCount =
+            SequenceChoiceManager.Instance.GetCount();
+
+        if (checkAutomatically &&
+            enteredCount >= correctPhoneNumber.Length)
+        {
+            CheckPhoneNumber();
+            return;
+        }
+
+        /*
+         * Wurde der Eingabedialog mit Escape oder durch ein anderes Script
+         * beendet, wird die Telefonquest wieder freigegeben.
+         */
+        if (DialogueManager.Instance != null &&
+            !DialogueManager.Instance.IsDialogueActive)
+        {
+            CancelPhoneInput();
+        }
+    }
+
+    public void EnterDigit(
+        int digit)
+    {
+        if (!phoneInputActive ||
+            inputLocked)
+        {
+            return;
+        }
+
+        if (digit < 0 ||
+            digit > 9)
+        {
+            Debug.LogError(
+                "PhoneSequenceQuest: Ungültige Ziffer: " +
+                digit,
+                this);
+
+            return;
+        }
+
+        if (SequenceChoiceManager.Instance == null)
+        {
+            Debug.LogError(
+                "PhoneSequenceQuest: SequenceChoiceManager fehlt.",
+                this);
+
+            return;
+        }
 
         if (SequenceChoiceManager.Instance.GetCount() >=
+            correctPhoneNumber.Length)
+        {
+            return;
+        }
+
+        SequenceChoiceManager.Instance.AddValue(
+            digit);
+
+        SyncEnteredDigitsFromManager();
+
+        if (checkAutomatically &&
+            SequenceChoiceManager.Instance.GetCount() ==
             correctPhoneNumber.Length)
         {
             CheckPhoneNumber();
         }
     }
 
-    /// <summary>
-    /// Wird von den Zahlenbuttons aufgerufen.
-    /// </summary>
-    public void EnterDigit(int digit)
-    {
-        if (!phoneInputActive)
-        {
-            Debug.LogWarning(
-                "PhoneSequenceQuest: Die Telefoneingabe wurde noch nicht gestartet.");
-            return;
-        }
-
-        if (inputLocked)
-        {
-            Debug.LogWarning(
-                "PhoneSequenceQuest: Die Eingabe ist momentan gesperrt.");
-            return;
-        }
-
-        if (digit < 0 || digit > 9)
-        {
-            Debug.LogError(
-                "PhoneSequenceQuest: Ungültige Ziffer: " + digit);
-            return;
-        }
-
-        if (enteredDigits.Count >= correctPhoneNumber.Length)
-        {
-            Debug.LogWarning(
-                "PhoneSequenceQuest: Die maximale Anzahl an Ziffern wurde erreicht.");
-            return;
-        }
-
-        enteredDigits.Add(digit);
-        SequenceChoiceManager.Instance.AddValue(digit);
-
-        Debug.Log(
-            "Telefonnummer: " +
-            GetEnteredNumber() +
-            " | " +
-            enteredDigits.Count +
-            "/" +
-            correctPhoneNumber.Length);
-
-        if (checkAutomatically &&
-            enteredDigits.Count == correctPhoneNumber.Length)
-        {
-            CheckPhoneNumber();
-        }
-    }
-
-    /// <summary>
-    /// Kann mit einem Anrufen- oder Bestätigen-Button verbunden werden.
-    /// </summary>
     public void CheckPhoneNumber()
     {
-        if (!phoneInputActive || inputLocked)
+        if (!phoneInputActive ||
+            inputLocked)
         {
             return;
         }
@@ -257,7 +251,9 @@ public class PhoneSequenceQuest : MonoBehaviour
         if (SequenceChoiceManager.Instance == null)
         {
             Debug.LogError(
-                "PhoneSequenceQuest: SequenceChoiceManager fehlt.");
+                "PhoneSequenceQuest: SequenceChoiceManager fehlt.",
+                this);
+
             return;
         }
 
@@ -268,16 +264,17 @@ public class PhoneSequenceQuest : MonoBehaviour
         {
             Debug.LogWarning(
                 "PhoneSequenceQuest: Telefonnummer ist noch nicht vollständig. " +
-                "Aktuell: " +
                 enteredCount +
                 "/" +
-                correctPhoneNumber.Length);
+                correctPhoneNumber.Length,
+                this);
 
             return;
         }
 
         int[] correctSequence =
-            ConvertNumberToSequence(correctPhoneNumber);
+            ConvertNumberToSequence(
+                correctPhoneNumber);
 
         bool isCorrect =
             SequenceChoiceManager.Instance.MatchesSequence(
@@ -300,23 +297,45 @@ public class PhoneSequenceQuest : MonoBehaviour
         phoneInputActive = false;
         questCompleted = true;
 
-        Debug.Log(
-            "Richtige Telefonnummer eingegeben: " +
-            SequenceChoiceManager.Instance.GetSequenceText());
+        bool questWasCompleted = false;
 
-        if (questChecker == null)
+        if (completeRequiredQuestOnCorrectNumber)
         {
-            Debug.LogError(
-                "PhoneSequenceQuest: Quest Checker wurde nicht zugewiesen.");
+            if (QuestManager.Instance == null)
+            {
+                Debug.LogError(
+                    "PhoneSequenceQuest: QuestManager fehlt.",
+                    this);
+            }
+            else
+            {
+                questWasCompleted =
+                    QuestManager.Instance.CompleteQuest(
+                        requiredQuestID);
+            }
+        }
+        else if (questChecker != null)
+        {
+            questWasCompleted =
+                questChecker.CheckSequence();
         }
         else
         {
-            questChecker.CheckSequence();
+            Debug.LogError(
+                "PhoneSequenceQuest: Es ist weder direkter Questabschluss " +
+                "aktiviert noch ein Quest Checker eingetragen.",
+                this);
         }
+
+        Debug.Log(
+            "PhoneSequenceQuest: Richtige Telefonnummer. Questabschluss: " +
+            questWasCompleted,
+            this);
 
         onCorrectNumber?.Invoke();
 
-        StartResultDialogue(correctNumberDialogue);
+        StartResultDialogue(
+            correctNumberDialogue);
     }
 
     private void HandleWrongNumber()
@@ -324,8 +343,9 @@ public class PhoneSequenceQuest : MonoBehaviour
         phoneInputActive = false;
 
         Debug.Log(
-            "Falsche Telefonnummer eingegeben: " +
-            SequenceChoiceManager.Instance.GetSequenceText());
+            "PhoneSequenceQuest: Falsche Telefonnummer: " +
+            SequenceChoiceManager.Instance.GetSequenceText(),
+            this);
 
         onWrongNumber?.Invoke();
 
@@ -334,61 +354,58 @@ public class PhoneSequenceQuest : MonoBehaviour
             enteredDigits.Clear();
         }
 
-        StartResultDialogue(wrongNumberDialogue);
+        StartResultDialogue(
+            wrongNumberDialogue);
     }
 
-    private void StartResultDialogue(DialogueData dialogue)
+    private void StartResultDialogue(
+        DialogueData dialogue)
     {
         if (resultDialogueRoutine != null)
         {
-            StopCoroutine(resultDialogueRoutine);
+            StopCoroutine(
+                resultDialogueRoutine);
         }
 
         resultDialogueRoutine =
-            StartCoroutine(PlayResultDialogueNextFrame(dialogue));
+            StartCoroutine(
+                PlayResultDialogueNextFrame(
+                    dialogue));
     }
 
     private IEnumerator PlayResultDialogueNextFrame(
         DialogueData dialogue)
     {
-        // Der Eingabedialog beendet sich in DialogueManager.SelectChoice()
-        // erst nach dem Speichern der letzten Zahl. Einen Frame warten, damit
-        // der Ergebnisdialog nicht sofort wieder geschlossen wird.
         yield return null;
 
-        PlayDialogue(dialogue);
+        PlayDialogue(
+            dialogue);
 
         inputLocked = false;
         resultDialogueRoutine = null;
     }
 
-    /// <summary>
-    /// Entfernt die zuletzt eingegebene Ziffer.
-    /// </summary>
     public void DeleteLastDigit()
     {
-        if (!phoneInputActive || inputLocked)
+        if (!phoneInputActive ||
+            inputLocked)
         {
             return;
         }
+
+        SyncEnteredDigitsFromManager();
 
         if (enteredDigits.Count == 0)
         {
             return;
         }
 
-        enteredDigits.RemoveAt(enteredDigits.Count - 1);
+        enteredDigits.RemoveAt(
+            enteredDigits.Count - 1);
 
         RebuildManagerSequence();
-
-        Debug.Log(
-            "Letzte Ziffer gelöscht. Telefonnummer: " +
-            GetEnteredNumber());
     }
 
-    /// <summary>
-    /// Löscht die gesamte aktuelle Telefonnummer.
-    /// </summary>
     public void ClearPhoneNumber()
     {
         if (!phoneInputActive)
@@ -399,39 +416,127 @@ public class PhoneSequenceQuest : MonoBehaviour
         enteredDigits.Clear();
         inputLocked = false;
 
-        SequenceChoiceManager.Instance.StartSequence("Telefon");
-
-        Debug.Log("Telefonnummer gelöscht.");
+        if (SequenceChoiceManager.Instance != null)
+        {
+            SequenceChoiceManager.Instance.StartSequence(
+                "Telefon");
+        }
     }
 
-    /// <summary>
-    /// Startet nach einer falschen Eingabe eine neue Eingabe.
-    /// </summary>
     public void ResetPhoneInput()
     {
-        enteredDigits.Clear();
+        CancelPhoneInput();
+    }
 
-        // Wichtig: Nach einem Fehlversuch muss die Eingabe inaktiv sein,
-        // damit StartPhoneQuest() beim nächsten Drücken von E wieder startet.
+    public void CancelPhoneInput()
+    {
+        enteredDigits.Clear();
         phoneInputActive = false;
         inputLocked = false;
 
-        if (SequenceChoiceManager.Instance != null)
+        if (resultDialogueRoutine != null)
         {
-            SequenceChoiceManager.Instance.StartSequence("Telefon");
+            StopCoroutine(
+                resultDialogueRoutine);
+
+            resultDialogueRoutine = null;
         }
 
-        Debug.Log("Telefoneingabe wurde für einen neuen Versuch zurückgesetzt.");
+        if (SequenceChoiceManager.Instance != null)
+        {
+            SequenceChoiceManager.Instance.StartSequence(
+                "Telefon");
+        }
+
+        Debug.Log(
+            "PhoneSequenceQuest: Telefoneingabe wurde zurückgesetzt.",
+            this);
     }
 
     public string GetEnteredNumber()
     {
+        SyncEnteredDigitsFromManager();
+
         if (enteredDigits.Count == 0)
         {
             return "";
         }
 
-        return string.Join("", enteredDigits);
+        return string.Join(
+            "",
+            enteredDigits);
+    }
+
+    private bool ValidateStart()
+    {
+        if (SequenceChoiceManager.Instance == null)
+        {
+            Debug.LogError(
+                "PhoneSequenceQuest: SequenceChoiceManager fehlt.",
+                this);
+
+            return false;
+        }
+
+        if (DialogueManager.Instance == null)
+        {
+            Debug.LogError(
+                "PhoneSequenceQuest: DialogueManager fehlt.",
+                this);
+
+            return false;
+        }
+
+        if (phoneInputDialogue == null)
+        {
+            Debug.LogError(
+                "PhoneSequenceQuest: Phone Input Dialogue fehlt.",
+                this);
+
+            return false;
+        }
+
+        if (playerPoint == null ||
+            cameraPoint == null)
+        {
+            Debug.LogError(
+                "PhoneSequenceQuest: Player Point oder Camera Point fehlt.",
+                this);
+
+            return false;
+        }
+
+        if (!IsPhoneNumberValid(correctPhoneNumber))
+        {
+            Debug.LogError(
+                "PhoneSequenceQuest: Telefonnummer ist ungültig.",
+                this);
+
+            return false;
+        }
+
+        return true;
+    }
+
+    private void SyncEnteredDigitsFromManager()
+    {
+        if (SequenceChoiceManager.Instance == null)
+        {
+            return;
+        }
+
+        enteredDigits.Clear();
+
+        int count =
+            SequenceChoiceManager.Instance.GetCount();
+
+        for (int i = 0;
+             i < count;
+             i++)
+        {
+            enteredDigits.Add(
+                SequenceChoiceManager.Instance.GetValue(i));
+        }
     }
 
     private void RebuildManagerSequence()
@@ -441,28 +546,36 @@ public class PhoneSequenceQuest : MonoBehaviour
             return;
         }
 
-        SequenceChoiceManager.Instance.StartSequence("Telefon");
+        SequenceChoiceManager.Instance.StartSequence(
+            "Telefon");
 
-        for (int i = 0; i < enteredDigits.Count; i++)
+        for (int i = 0;
+             i < enteredDigits.Count;
+             i++)
         {
             SequenceChoiceManager.Instance.AddValue(
                 enteredDigits[i]);
         }
     }
 
-    private void PlayDialogue(DialogueData dialogue)
+    private void PlayDialogue(
+        DialogueData dialogue)
     {
         if (dialogue == null)
         {
             Debug.LogWarning(
-                "PhoneSequenceQuest: Für dieses Ergebnis wurde kein Dialog eingetragen.");
+                "PhoneSequenceQuest: Für dieses Ergebnis wurde kein Dialog eingetragen.",
+                this);
+
             return;
         }
 
         if (DialogueManager.Instance == null)
         {
             Debug.LogError(
-                "PhoneSequenceQuest: DialogueManager fehlt.");
+                "PhoneSequenceQuest: DialogueManager fehlt.",
+                this);
+
             return;
         }
 
@@ -476,11 +589,15 @@ public class PhoneSequenceQuest : MonoBehaviour
     private static int[] ConvertNumberToSequence(
         string phoneNumber)
     {
-        int[] sequence = new int[phoneNumber.Length];
+        int[] sequence =
+            new int[phoneNumber.Length];
 
-        for (int i = 0; i < phoneNumber.Length; i++)
+        for (int i = 0;
+             i < phoneNumber.Length;
+             i++)
         {
-            sequence[i] = phoneNumber[i] - '0';
+            sequence[i] =
+                phoneNumber[i] - '0';
         }
 
         return sequence;
@@ -494,7 +611,9 @@ public class PhoneSequenceQuest : MonoBehaviour
             return false;
         }
 
-        for (int i = 0; i < phoneNumber.Length; i++)
+        for (int i = 0;
+             i < phoneNumber.Length;
+             i++)
         {
             if (!char.IsDigit(phoneNumber[i]))
             {
@@ -504,9 +623,6 @@ public class PhoneSequenceQuest : MonoBehaviour
 
         return true;
     }
-
-    // Komfortmethoden, falls dein Button-System keine Integer
-    // als Parameter übergeben kann.
 
     public void Press0() => EnterDigit(0);
     public void Press1() => EnterDigit(1);

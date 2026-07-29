@@ -9,7 +9,9 @@ public enum NPCId
     Mum = 6,
     Dad = 7,
     Oma = 8,
-    TestNPC = 9
+    TestNPC = 9,
+    TinaVC = 10,
+    TinaIC = 11
 }
 
 public enum NPCEmotionTargetMode

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1999e3f6545a4d4292f6f691740f2b0, type: 3}
   m_Name: MayaDialog1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  allowEscape: 0
   nodes:
   - dialogueText: "Ich bin so m\xFCde... ich sollte jetzt mal langsam schlafen gehen."
     changePlayerEmotion: 0
@@ -22,6 +23,7 @@ MonoBehaviour:
       nextNode: -1
       questsToStart:
       - questID: 6
+      questsToComplete: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
