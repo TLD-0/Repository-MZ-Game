@@ -101,6 +101,7 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      decisionScoreChange: 1
       teleportPlayer: 0
       teleportDestination: {fileID: 0}
     - answerText: (-) Ich bin leider schon verplant.
@@ -114,6 +115,7 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      decisionScoreChange: -1
       teleportPlayer: 0
       teleportDestination: {fileID: 0}
   - dialogueText: "Maya: Ja sicher, dein Opa geht vor. Mach dir keinen Kopf., ich

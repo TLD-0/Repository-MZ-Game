@@ -17,7 +17,12 @@ MonoBehaviour:
   - dialogueText: 'Tina: Wenn jetzt alle da sind, dann lasst uns doch tanzen gehen!'
     changePlayerEmotion: 0
     playerEmotion: 0
-    emotionChanges: []
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 1
+      targetNPCId: 3
+      emotionSprite: {fileID: 21300000, guid: 243460b5884eabf41b1a858bd6583a6e, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Weiter
       nextNode: 1
@@ -35,7 +40,12 @@ MonoBehaviour:
   - dialogueText: 'Nick: Auf geht''s!'
     changePlayerEmotion: 0
     playerEmotion: 0
-    emotionChanges: []
+    emotionChanges:
+    - changeEmotion: 1
+      targetMode: 1
+      targetNPCId: 2
+      emotionSprite: {fileID: 21300000, guid: 1493bea1e81def4449cb9b3a8d8c23a3, type: 3}
+      returnToNeutral: 0
     choices:
     - answerText: Dialog beenden.
       nextNode: -1

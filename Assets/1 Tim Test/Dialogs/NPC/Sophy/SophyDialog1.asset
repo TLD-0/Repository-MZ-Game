@@ -347,6 +347,7 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      decisionScoreChange: 1
       teleportPlayer: 0
       teleportDestination: {fileID: 0}
     - answerText: "(-) Du musst \xFCber ihn hinwegkommen."
@@ -360,6 +361,7 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      decisionScoreChange: -1
       teleportPlayer: 0
       teleportDestination: {fileID: 0}
   - dialogueText: "Maya: Ich wei\xDF, es f\xE4llt dir schwer. Es ist auch nicht fair."

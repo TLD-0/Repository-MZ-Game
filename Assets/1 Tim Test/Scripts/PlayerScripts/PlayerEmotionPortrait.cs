@@ -78,7 +78,19 @@ public class PlayerEmotionPortrait : MonoBehaviour
             return;
         }
 
+        /*
+         * Jeder neue Dialog beginnt mit einer definierten
+         * Spieleremotion. Dadurch kann kein Portrait aus dem
+         * vorherigen Dialog übernommen werden.
+         */
+        ResetToStartEmotion();
+
         portraitRoot.SetActive(true);
+    }
+
+    public void ResetToStartEmotion()
+    {
+        SetEmotion(startEmotion);
     }
 
     public void HidePortrait()

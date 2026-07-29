@@ -22,6 +22,19 @@ public class QuestManager : MonoBehaviour
     public QuestStatus quest15 = QuestStatus.NotStarted;
     public QuestStatus quest16 = QuestStatus.NotStarted;
 
+    [Header("Entscheidungswert")]
+    [Tooltip(
+        "Gespeicherte Summe aller (+)- und (-)-Dialogentscheidungen. " +
+        "Positive Antworten addieren, negative Antworten subtrahieren."
+    )]
+    [SerializeField]
+    private int decisionScore;
+
+    public int CurrentDecisionScore
+    {
+        get { return decisionScore; }
+    }
+
     private void Awake()
     {
         if (Instance != null &&
@@ -182,6 +195,34 @@ public class QuestManager : MonoBehaviour
         return SetQuestStatus(
             questID,
             QuestStatus.Skipped);
+    }
+
+
+    public void AddDecisionScore(
+        int amount)
+    {
+        if (amount == 0)
+        {
+            return;
+        }
+
+        decisionScore += amount;
+
+        Debug.Log(
+            "QuestManager: Entscheidungswert wurde um " +
+            amount +
+            " verändert. Neuer Wert: " +
+            decisionScore,
+            this);
+    }
+
+    public void ResetDecisionScore()
+    {
+        decisionScore = 0;
+
+        Debug.Log(
+            "QuestManager: Entscheidungswert wurde zurückgesetzt.",
+            this);
     }
 
     private static bool IsValidQuestID(

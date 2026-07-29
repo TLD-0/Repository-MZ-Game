@@ -55,10 +55,30 @@ public class DialogueChoice
     )]
     public int moodValueChange;
 
+    [Header("Entscheidungswert")]
+    [Tooltip(
+        "Wert, der beim Auswählen dieser Antwort zum globalen " +
+        "Entscheidungswert addiert wird. (+) normalerweise 1, (-) normalerweise -1."
+    )]
+    public int decisionScoreChange;
+
     [Header("Spieler-Teleport")]
     public bool teleportPlayer;
 
     public DialogueTeleportDestination teleportDestination;
+
+    [Header("Teleport nach Entscheidungswert")]
+    [Tooltip(
+        "Aktiviert: Das Teleportziel wird anhand des gespeicherten " +
+        "Entscheidungswerts gewählt. Wert <= 0 nutzt Ziel A, Wert > 0 Ziel B."
+    )]
+    public bool teleportByDecisionScore;
+
+    [Tooltip("Punkt A: Wird bei einem Entscheidungswert kleiner oder gleich 0 verwendet.")]
+    public DialogueTeleportDestination nonPositiveScoreDestination;
+
+    [Tooltip("Punkt B: Wird bei einem Entscheidungswert größer als 0 verwendet.")]
+    public DialogueTeleportDestination positiveScoreDestination;
 }
 
 [System.Serializable]

@@ -1,0 +1,21 @@
+ÄNDERUNGEN IN DIESER VERSION
+
+1. Entscheidungswert
+- Jede Dialogantwort mit (+) besitzt decisionScoreChange = +1.
+- Jede Dialogantwort mit (-) besitzt decisionScoreChange = -1.
+- QuestManager speichert die Summe in Decision Score.
+- Wert <= 0 führt nach NickDialog3 zu Punkt A.
+- Wert > 0 führt nach NickDialog3 zu Punkt B.
+
+2. Teleportpunkte
+- Punkt A: PlayerTPAfterGoingHomeClub / AfterGoingHomeClub
+- Punkt B: PlayerTPAfterGoingHomeClubPositive / AfterGoingHomeClubPositive
+- Punkt B wurde an derselben sicheren Ausgangsposition wie Punkt A angelegt.
+  Verschiebe PlayerTPAfterGoingHomeClubPositive in der Scene an das gewünschte positive Ende.
+
+3. Zusätzlich korrigierte sichere Logikfehler
+- SCTheo aktiviert nun NPCTheoObject nach Quest 13 Completed und deaktiviert ihn bei Quest 14 Active.
+- SCTinaClub deaktiviert seine Tina-Version beim Scene-Start.
+- Sophy-Area besitzt Sophys Current Speaker Emotion Controller.
+- Quest 16 ist nicht mehr zirkulär auf der finalen Dialog-Area.
+  SCQuest16DanceFloor aktiviert ein eigenes Quest16DanceFloorInteractable, sobald Quest 16 Active ist.

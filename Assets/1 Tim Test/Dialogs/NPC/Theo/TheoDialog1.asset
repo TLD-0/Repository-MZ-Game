@@ -293,6 +293,7 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 5
+      decisionScoreChange: 1
     - answerText: (-) Du bist doch schon fast fertig!
       nextNode: 24
       questsToStart: []
@@ -303,6 +304,7 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: -5
+      decisionScoreChange: -1
   - dialogueText: "Maya: Mach das, was dich erf\xFCllt- es bringt nichts den Rest
       deines Lebens etwas zu machen, wo du ungl\xFCcklich bei bist."
     changePlayerEmotion: 0

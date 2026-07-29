@@ -159,6 +159,7 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      decisionScoreChange: 1
       teleportPlayer: 0
       teleportDestination: {fileID: 0}
     - answerText: (-) Ja klar, kein Problem.
@@ -171,6 +172,7 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      decisionScoreChange: -1
       teleportPlayer: 0
       teleportDestination: {fileID: 0}
   - dialogueText: "Maya: Sorry Tina, ich wollte ein bisschen Zeit\r\nalleine verbringen,

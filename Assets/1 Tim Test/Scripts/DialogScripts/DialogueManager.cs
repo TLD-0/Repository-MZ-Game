@@ -715,6 +715,7 @@ public class DialogueManager : MonoBehaviour
         ProcessSequenceActions(choice);
         ProcessQuestActions(choice);
         ProcessMoodValueAction(choice);
+        ProcessDecisionScoreAction(choice);
 
         /*
         * Eine Teleportantwort beendet den Dialog,
@@ -870,45 +871,115 @@ public class DialogueManager : MonoBehaviour
             CloudMoodManager.Instance.CurrentMoodValue);
     }
 
-    private bool ProcessPlayerTeleportAction(
+    private void ProcessDecisionScoreAction(
         DialogueChoice choice)
     {
         if (choice == null ||
-            !choice.teleportPlayer)
+            choice.decisionScoreChange == 0)
+        {
+            return;
+        }
+
+        if (QuestManager.Instance == null)
+        {
+            Debug.LogError(
+                "DialogueManager: Diese Antwort soll den Entscheidungswert " +
+                "verändern, aber der QuestManager wurde nicht gefunden.",
+                this);
+
+            return;
+        }
+
+        QuestManager.Instance.AddDecisionScore(
+            choice.decisionScoreChange);
+    }
+
+    private bool ProcessPlayerTeleportAction(
+        DialogueChoice choice)
+    {
+        if (choice == null)
         {
             return false;
         }
 
-        if (choice.teleportDestination == null)
-        {
-            Debug.LogError(
-                "DialogueManager: Teleport Player ist aktiviert, " +
-                "aber es wurde keine Teleport Destination ausgewählt.");
+        DialogueTeleportDestination selectedDestination = null;
 
-            return false;
+        if (choice.teleportByDecisionScore)
+        {
+            if (QuestManager.Instance == null)
+            {
+                Debug.LogError(
+                    "DialogueManager: Score-basierter Teleport ist aktiviert, " +
+                    "aber der QuestManager wurde nicht gefunden.",
+                    this);
+
+                return false;
+            }
+
+            int decisionScore =
+                QuestManager.Instance.CurrentDecisionScore;
+
+            selectedDestination =
+                decisionScore > 0
+                    ? choice.positiveScoreDestination
+                    : choice.nonPositiveScoreDestination;
+
+            if (selectedDestination == null)
+            {
+                Debug.LogError(
+                    "DialogueManager: Für den Score-basierten Teleport fehlt " +
+                    "das passende Ziel. Entscheidungswert: " +
+                    decisionScore,
+                    this);
+
+                return false;
+            }
+
+            Debug.Log(
+                "DialogueManager: Score-basierter Teleport. Wert: " +
+                decisionScore +
+                " | Ziel: " +
+                selectedDestination.name,
+                this);
+        }
+        else
+        {
+            if (!choice.teleportPlayer)
+            {
+                return false;
+            }
+
+            selectedDestination =
+                choice.teleportDestination;
+
+            if (selectedDestination == null)
+            {
+                Debug.LogError(
+                    "DialogueManager: Teleport Player ist aktiviert, " +
+                    "aber es wurde keine Teleport Destination ausgewählt.",
+                    this);
+
+                return false;
+            }
         }
 
         bool destinationFound =
             DialogueTeleportPoint.TryGetDestination(
-                choice.teleportDestination,
+                selectedDestination,
                 out Transform destinationTransform);
 
         if (!destinationFound)
         {
             Debug.LogError(
                 "DialogueManager: Für die Teleport Destination " +
-                choice.teleportDestination.name +
+                selectedDestination.name +
                 " wurde kein eindeutiger aktiver " +
-                "DialogueTeleportPoint in der Scene gefunden.");
+                "DialogueTeleportPoint in der Scene gefunden.",
+                this);
 
             return false;
         }
 
-        /*
-        * Der Dialog muss zuerst beendet werden.
-        * Dadurch wird PlayerLock aufgehoben und zieht den
-        * Spieler nicht wieder zum Dialog-PlayerPoint zurück.
-        */
         EndDialogue();
 
         TeleportPlayerTo(
