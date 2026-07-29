@@ -12,7 +12,9 @@ public class QuestNPCSpawner : MonoBehaviour
     public enum RequiredQuestState
     {
         Active,
-        Completed
+        Completed,
+        Skipped,
+        CompletedOrSkipped
     }
 
     [Header("Bedingungen für das Aktivieren")]
@@ -313,12 +315,17 @@ public class QuestNPCSpawner : MonoBehaviour
                 return currentStatus ==
                     QuestStatus.Completed;
 
-            default:
-                Debug.LogError(
-                    "QuestNPCSpawner: Unbekannter benötigter " +
-                    "Queststatus.",
-                    this);
+            case RequiredQuestState.Skipped:
+                return currentStatus ==
+                    QuestStatus.Skipped;
 
+            case RequiredQuestState.CompletedOrSkipped:
+                return currentStatus ==
+                        QuestStatus.Completed ||
+                    currentStatus ==
+                        QuestStatus.Skipped;
+
+            default:
                 return false;
         }
     }

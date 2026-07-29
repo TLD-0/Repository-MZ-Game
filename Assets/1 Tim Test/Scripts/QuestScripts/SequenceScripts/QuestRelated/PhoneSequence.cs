@@ -96,7 +96,7 @@ public class PhoneSequenceQuest : MonoBehaviour
             return false;
         }
 
-        return QuestManager.Instance.IsQuestCompleted(
+        return QuestManager.Instance.IsQuestActive(
             requiredQuestID);
     }
 

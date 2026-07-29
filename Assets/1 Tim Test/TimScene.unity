@@ -2883,6 +2883,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
   destination: {fileID: 53705499}
+  completeQuestOnUse: 0
+  questIDToComplete: 1
 --- !u!4 &649932015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fc89ce01f02d6574d8fdc2de20544657, type: 3}
@@ -4712,7 +4714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2722836866544171681, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.18421936
+      value: 2.23
       objectReference: {fileID: 0}
     - target: {fileID: 2722836866544171681, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4940,6 +4942,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
   destination: {fileID: 443360952}
+  completeQuestOnUse: 0
+  questIDToComplete: 1
 --- !u!65 &1032672202
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10181,6 +10185,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 296900797}
     m_Modifications:
+    - target: {fileID: 4219313134878657950, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
+      propertyPath: m_Name
+      value: NPCTestObject
+      objectReference: {fileID: 0}
     - target: {fileID: 8465129632944068185, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.34
@@ -10220,10 +10228,6 @@ PrefabInstance:
     - target: {fileID: 8465129632944068185, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219313134878657950, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
-      propertyPath: m_Name
-      value: NPCTestObject
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10519,7 +10523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCSpawner
   requiredCompletedQuestIDs: 09000000
-  requiredQuestState: 1
+  requiredQuestState: 3
   requireAll: 1
   hideAfterQuestCompleted: 0
   hideAfterCompletedQuestIDs: 
@@ -10721,7 +10725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCSpawner
   requiredCompletedQuestIDs: 09000000
-  requiredQuestState: 1
+  requiredQuestState: 3
   requireAll: 1
   hideAfterQuestCompleted: 0
   hideAfterCompletedQuestIDs: 
@@ -12989,7 +12993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2722836866544171681, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.18421936
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 2722836866544171681, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13209,7 +13213,7 @@ PrefabInstance:
       objectReference: {fileID: 3359559372231027817}
     - target: {fileID: 6195015819172814443, guid: 63a03d6aedcb95f48b76f688d553094c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.747599
+      value: 24.95
       objectReference: {fileID: 0}
     - target: {fileID: 6195015819172814443, guid: 63a03d6aedcb95f48b76f688d553094c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13217,7 +13221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6195015819172814443, guid: 63a03d6aedcb95f48b76f688d553094c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.46421814
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6195015819172814443, guid: 63a03d6aedcb95f48b76f688d553094c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14074,7 +14078,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 542480093008461807, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.337599
+      value: 16.39
       objectReference: {fileID: 0}
     - target: {fileID: 542480093008461807, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15260,7 +15264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2747408493612411902, guid: ae7f41440d3a20e449b2e55be9d36287, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.0176
+      value: 28.46
       objectReference: {fileID: 0}
     - target: {fileID: 2747408493612411902, guid: ae7f41440d3a20e449b2e55be9d36287, type: 3}
       propertyPath: m_LocalPosition.y

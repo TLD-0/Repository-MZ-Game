@@ -39,7 +39,31 @@ public class DoorInteraction : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactDistance))
         {
-            Door door = hit.collider.GetComponent<Door>();
+            Door door =
+            hit.collider.GetComponentInParent<Door>();
+
+            if (door == null)
+            {
+                return;
+            }
+
+            InteractionQuestGate questGate =
+                hit.collider.GetComponentInParent<InteractionQuestGate>();
+
+            if (questGate != null &&
+                !questGate.IsUnlocked())
+            {
+                return;
+            }
+
+            currentDoor = door;
+
+            if (interactText != null)
+            {
+                interactText.SetActive(true);
+            }
+
+            return;
 
             if (door != null)
             {
@@ -71,6 +95,21 @@ public class DoorInteraction : MonoBehaviour
 
         transform.position = currentDoor.destination.position;
         transform.rotation = currentDoor.destination.rotation;
+
+        if (currentDoor.completeQuestOnUse)
+        {
+            if (QuestManager.Instance == null)
+            {
+                Debug.LogError(
+                    "DoorInteraction: QuestManager fehlt.",
+                    currentDoor);
+
+                return;
+            }
+
+            QuestManager.Instance.IsQuestCompleted(
+                currentDoor.questIDToComplete);
+        }
 
         if (interactText != null)
             interactText.SetActive(false);
