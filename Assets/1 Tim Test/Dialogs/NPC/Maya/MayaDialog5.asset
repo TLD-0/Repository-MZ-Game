@@ -23,8 +23,8 @@ MonoBehaviour:
     playerEmotion: 5
     emotionChanges:
     - changeEmotion: 1
-      targetMode: 0
-      targetNPCId: 0
+      targetMode: 1
+      targetNPCId: 3
       emotionSprite: {fileID: 21300000, guid: bff9c1bee3f94724bb770d89807f3250, type: 3}
       returnToNeutral: 0
     choices:

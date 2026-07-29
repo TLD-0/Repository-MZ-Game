@@ -14,34 +14,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: Welchen Kaffee sollte ich nehmen?
+    changePlayerEmotion: 0
+    playerEmotion: 0
+    emotionChanges: []
     choices:
     - answerText: Schwarz
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: -1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: Cappuccino
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: -1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: Eiskaffee
-      nextNode: 0
-      startsQuest: 0
-      questIDToStart: 0
+      nextNode: -1
+      questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0
       sequenceValue: 0
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}

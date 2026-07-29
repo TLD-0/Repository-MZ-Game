@@ -176,7 +176,7 @@ MonoBehaviour:
     - answerText: Dialog beenden.
       nextNode: -1
       questsToStart:
-      - questID: 0
+      - questID: 9
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 0

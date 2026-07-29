@@ -28,3 +28,5 @@ MonoBehaviour:
       checksSequence: 0
       sequenceChecker: {fileID: 0}
       moodValueChange: 0
+      teleportPlayer: 1
+      teleportDestination: {fileID: 11400000, guid: 58e612cde243bf34abe3f409904ec559, type: 2}

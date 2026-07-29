@@ -244,10 +244,10 @@ MonoBehaviour:
   hideAfterCompletedQuestIDs: 0b0000000c000000
   requireAllHideQuests: 0
   unlockMode: 0
-  primaryExistingObject: {fileID: 1885831307}
+  primaryExistingObject: {fileID: 0}
   additionalExistingObjects: []
   disableExistingObjectsAtStart: 1
-  npcPrefab: {fileID: 0}
+  npcPrefab: {fileID: 1595217376}
   spawnPoint: {fileID: 799706187}
   checkInterval: 0.25
 --- !u!4 &34099057 stripped
@@ -449,7 +449,7 @@ PrefabInstance:
       objectReference: {fileID: 1567552582}
     - target: {fileID: 484345896600440912, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
       propertyPath: quests.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 484345896600440912, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
       propertyPath: quests.Array.data[0].questID
@@ -462,11 +462,11 @@ PrefabInstance:
     - target: {fileID: 484345896600440912, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
       propertyPath: quests.Array.data[0].startDialogue
       value: 
-      objectReference: {fileID: 11400000, guid: d777f7115768767468a3fae4898534c0, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 484345896600440912, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
       propertyPath: quests.Array.data[1].startDialogue
       value: 
-      objectReference: {fileID: 11400000, guid: d777f7115768767468a3fae4898534c0, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1915143234156728492, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
       propertyPath: emotionController
       value: 
@@ -570,6 +570,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 937065982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &127243311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 127243312}
+  m_Layer: 0
+  m_Name: TPDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &127243312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127243311}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2086930578}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &135822784
 GameObject:
@@ -740,7 +771,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f5636cc87400ad5418d06c16964ad71d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 98146d27a9c780c48a4d1052ffae8ea1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1143171119}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98146d27a9c780c48a4d1052ffae8ea1, type: 3}
       insertIndex: -1
@@ -754,6 +788,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 98146d27a9c780c48a4d1052ffae8ea1, type: 3}
   m_PrefabInstance: {fileID: 141678852}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &155553885
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 155553886}
+  m_Layer: 0
+  m_Name: TPDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &155553886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155553885}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1258456742}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &161571625
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,6 +851,11 @@ Transform:
   - {fileID: 1078084110}
   m_Father: {fileID: 1768758480}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &162895344 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 759918993419835517, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
+  m_PrefabInstance: {fileID: 3504746466500853579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &167687985 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 98146d27a9c780c48a4d1052ffae8ea1, type: 3}
@@ -805,7 +875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 3
   completeQuestImmediately: 0
-  destination: {fileID: 0}
+  destination: {fileID: 1143171119}
   allowOnlyOneInteraction: 1
 --- !u!114 &167687989
 MonoBehaviour:
@@ -1073,7 +1143,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 790aba16fce8a9f4c8bb6bf0128d6aa5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1004452102}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 790aba16fce8a9f4c8bb6bf0128d6aa5, type: 3}
       insertIndex: -1
@@ -1320,6 +1393,37 @@ Transform:
   - {fileID: 970299399}
   m_Father: {fileID: 663617877}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!1 &264398642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 264398643}
+  m_Layer: 0
+  m_Name: TPDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &264398643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264398642}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 993425943}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &267613120 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dfcd70e6d6b4ee84fb3e2287d268e2e1, type: 3}
@@ -1376,10 +1480,10 @@ MonoBehaviour:
   hideAfterCompletedQuestIDs: 
   requireAllHideQuests: 0
   unlockMode: 0
-  primaryExistingObject: {fileID: 192226434}
+  primaryExistingObject: {fileID: 0}
   additionalExistingObjects: []
   disableExistingObjectsAtStart: 1
-  npcPrefab: {fileID: 0}
+  npcPrefab: {fileID: 937065981}
   spawnPoint: {fileID: 122245157}
   checkInterval: 0.25
 --- !u!1 &296900796
@@ -1543,9 +1647,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635e94dce0da0cf4aa9a2f0dfa06f857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCSpawner
-  requiredCompletedQuestIDs: 06000000
-  requiredQuestState: 0
-  requireAll: 0
+  requiredCompletedQuestIDs: 01000000020000000300000005000000
+  requiredQuestState: 1
+  requireAll: 1
   hideAfterQuestCompleted: 0
   hideAfterCompletedQuestIDs: 
   requireAllHideQuests: 1
@@ -1556,6 +1660,37 @@ MonoBehaviour:
   npcPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
   checkInterval: 0.25
+--- !u!1 &335952383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 335952384}
+  m_Layer: 0
+  m_Name: TPDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &335952384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335952383}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 828802051}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &356561690 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 542480093008461807, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
@@ -1879,9 +2014,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a10bb6dc23f72594089e56e6ded3f543, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 452943274}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a10bb6dc23f72594089e56e6ded3f543, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 452943273}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a10bb6dc23f72594089e56e6ded3f543, type: 3}
       insertIndex: -1
@@ -1933,7 +2065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69065e01b95233428608c8f907bd84c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionQuestGate
-  requiredCompletedQuestIDs: 
+  requiredCompletedQuestIDs: 0c000000
 --- !u!114 &452943273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1949,21 +2081,7 @@ MonoBehaviour:
   dialogue: {fileID: 11400000, guid: 9cf77721aa750b144b226e5f4a0f849b, type: 2}
   playerPoint: {fileID: 543510287}
   cameraPoint: {fileID: 1175101650}
-  emotionController: {fileID: 0}
---- !u!114 &452943274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 452943270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 397a1b02974b8ea4eae5e96429a7117f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
-  playerCamera: {fileID: 1423829931}
-  interactDistance: 3
+  emotionController: {fileID: 612311022}
 --- !u!1 &454280016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,113 +2450,6 @@ MonoBehaviour:
   npcPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
   checkInterval: 0.25
---- !u!1 &564019566
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 564019567}
-  - component: {fileID: 564019569}
-  - component: {fileID: 564019568}
-  m_Layer: 0
-  m_Name: HeadSprite
-  m_TagString: Untagged
-  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &564019567
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564019566}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2007966475}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &564019568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564019566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67443c3e6d310d14fa8810610b9ded20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCEmotionController
-  npcId: 8
-  emotionRenderer: {fileID: 564019569}
-  resetToNeutralOnDialogueEnd: 1
---- !u!212 &564019569
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564019566}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &567589207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2889,7 +2900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69065e01b95233428608c8f907bd84c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionQuestGate
-  requiredCompletedQuestIDs: 0100000002000000030000000400000005000000
+  requiredCompletedQuestIDs: 01000000020000000300000005000000
 --- !u!1001 &657123099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3306,12 +3317,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98aaea950ddfe9d449133cb72b3d2f6e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 663617882}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98aaea950ddfe9d449133cb72b3d2f6e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 663617881}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98aaea950ddfe9d449133cb72b3d2f6e, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 663617880}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 98aaea950ddfe9d449133cb72b3d2f6e, type: 3}
       insertIndex: -1
@@ -3434,36 +3439,8 @@ MonoBehaviour:
   defaultOutputPoint: {fileID: 1766397452}
   resetDrinksOnStart: 1
   questChecker: {fileID: 0}
-  requireActiveQuest: 1
+  requireActiveQuest: 0
   requiredQuestID: 14
---- !u!114 &663617881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 663617878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ecbc91c934bafc49b4ba36265529fdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SequenceQuestChecker
-  questID: 14
-  correctSequence: 00000000
---- !u!114 &663617882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 663617878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 397a1b02974b8ea4eae5e96429a7117f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
-  playerCamera: {fileID: 1423829931}
-  interactDistance: 3
 --- !u!114 &663617883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3477,6 +3454,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionQuestGate
   requiredCompletedQuestIDs: 
+--- !u!4 &671716421 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5716499888346545838, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
+  m_PrefabInstance: {fileID: 3504746466500853579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &686435325
 GameObject:
   m_ObjectHideFlags: 0
@@ -3604,10 +3586,10 @@ MonoBehaviour:
   hideAfterCompletedQuestIDs: 
   requireAllHideQuests: 1
   unlockMode: 0
-  primaryExistingObject: {fileID: 447523465}
+  primaryExistingObject: {fileID: 0}
   additionalExistingObjects: []
   disableExistingObjectsAtStart: 1
-  npcPrefab: {fileID: 0}
+  npcPrefab: {fileID: 447523465}
   spawnPoint: {fileID: 471334053}
   checkInterval: 0.25
 --- !u!1 &727405899 stripped
@@ -3742,7 +3724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635e94dce0da0cf4aa9a2f0dfa06f857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCSpawner
-  requiredCompletedQuestIDs: 
+  requiredCompletedQuestIDs: 0e000000
   requiredQuestState: 1
   requireAll: 1
   hideAfterQuestCompleted: 0
@@ -3887,9 +3869,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a775d72966efc849bbd506d4f33971b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1880457906}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a775d72966efc849bbd506d4f33971b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1880457902}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a775d72966efc849bbd506d4f33971b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1880457903}
@@ -4144,7 +4123,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: dfcd70e6d6b4ee84fb3e2287d268e2e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 335952384}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dfcd70e6d6b4ee84fb3e2287d268e2e1, type: 3}
       insertIndex: -1
@@ -4172,7 +4154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 1
   completeQuestImmediately: 0
-  destination: {fileID: 0}
+  destination: {fileID: 335952384}
   allowOnlyOneInteraction: 1
 --- !u!114 &828802055
 MonoBehaviour:
@@ -4667,7 +4649,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7a31b9d044a20e34782900bfaf6f5a28, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 264398643}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a31b9d044a20e34782900bfaf6f5a28, type: 3}
       insertIndex: -1
@@ -4695,7 +4680,7 @@ PrefabInstance:
       objectReference: {fileID: 612311022}
     - target: {fileID: 484345896600440912, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
       propertyPath: quests.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 484345896600440912, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
       propertyPath: quests.Array.data[0].questID
@@ -4708,7 +4693,7 @@ PrefabInstance:
     - target: {fileID: 484345896600440912, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
       propertyPath: quests.Array.data[0].startDialogue
       value: 
-      objectReference: {fileID: 11400000, guid: d777f7115768767468a3fae4898534c0, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 484345896600440912, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
       propertyPath: quests.Array.data[1].startDialogue
       value: 
@@ -4769,8 +4754,13 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 3359559372231027817}
+    - target: {fileID: 8709759162523565294, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
+      propertyPath: m_Name
+      value: NPC Tina IC
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1915143234156728492, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
+    - {fileID: 484345896600440912, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2722836866544171681, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
@@ -4834,11 +4824,73 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionQuestGate
   requiredCompletedQuestIDs: 
+--- !u!1 &1004452101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1004452102}
+  m_Layer: 0
+  m_Name: TPDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1004452102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004452101}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 223466424}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1004691588 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 130bafe26aaf72945864fb90d52c9bd0, type: 3}
   m_PrefabInstance: {fileID: 1882846564}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1008911572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1008911573}
+  m_Layer: 0
+  m_Name: TPDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1008911573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008911572}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1142098277}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1032672199
 GameObject:
   m_ObjectHideFlags: 0
@@ -5184,29 +5236,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 161571626}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1104100529 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1967222664453455542, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
-  m_PrefabInstance: {fileID: 1990243160}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1104100530 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 542480093008461807, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8465129632944068185, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
   m_PrefabInstance: {fileID: 1990243160}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1104100531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104100529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b69065e01b95233428608c8f907bd84c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractionQuestGate
-  requiredCompletedQuestIDs: 
 --- !u!1 &1111557235
 GameObject:
   m_ObjectHideFlags: 0
@@ -5320,9 +5354,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a10bb6dc23f72594089e56e6ded3f543, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1112600419}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a10bb6dc23f72594089e56e6ded3f543, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1112600418}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a10bb6dc23f72594089e56e6ded3f543, type: 3}
       insertIndex: -1
@@ -5374,7 +5405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69065e01b95233428608c8f907bd84c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionQuestGate
-  requiredCompletedQuestIDs: 
+  requiredCompletedQuestIDs: 0b000000
 --- !u!114 &1112600418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5391,20 +5422,6 @@ MonoBehaviour:
   playerPoint: {fileID: 770073844}
   cameraPoint: {fileID: 686435326}
   emotionController: {fileID: 0}
---- !u!114 &1112600419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112600415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 397a1b02974b8ea4eae5e96429a7117f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
-  playerCamera: {fileID: 1423829931}
-  interactDistance: 3
 --- !u!1 &1117833447
 GameObject:
   m_ObjectHideFlags: 0
@@ -5585,8 +5602,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 8
-  completeQuestImmediately: 0
-  destination: {fileID: 0}
+  completeQuestImmediately: 1
+  destination: {fileID: 1008911573}
   allowOnlyOneInteraction: 1
 --- !u!114 &1142098279
 MonoBehaviour:
@@ -5601,6 +5618,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionQuestGate
   requiredCompletedQuestIDs: 
+--- !u!1 &1143171118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1143171119}
+  m_Layer: 0
+  m_Name: TPDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1143171119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143171118}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 141678853}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1151367356 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4076246495769525715, guid: 63a03d6aedcb95f48b76f688d553094c, type: 3}
@@ -6119,12 +6167,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635e94dce0da0cf4aa9a2f0dfa06f857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCSpawner
-  requiredCompletedQuestIDs: 0b0000000c000000
+  requiredCompletedQuestIDs: 0d000000
   requiredQuestState: 1
   requireAll: 0
-  hideAfterQuestCompleted: 0
-  hideAfterCompletedQuestIDs: 
-  requireAllHideQuests: 1
+  hideAfterQuestCompleted: 1
+  hideAfterCompletedQuestIDs: 0e000000
+  requireAllHideQuests: 0
   unlockMode: 0
   primaryExistingObject: {fileID: 800233847}
   additionalExistingObjects: []
@@ -6190,7 +6238,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 61a917a42a9d46f47a2e7cb31cbba961, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 155553886}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 61a917a42a9d46f47a2e7cb31cbba961, type: 3}
       insertIndex: -1
@@ -6222,8 +6273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 7
-  completeQuestImmediately: 0
-  destination: {fileID: 0}
+  completeQuestImmediately: 1
+  destination: {fileID: 155553886}
   allowOnlyOneInteraction: 1
 --- !u!114 &1258456747
 MonoBehaviour:
@@ -6238,6 +6289,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionQuestGate
   requiredCompletedQuestIDs: 
+--- !u!1 &1270565566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1270565567}
+  m_Layer: 0
+  m_Name: TPDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1270565567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270565566}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1413864907}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1282698138
 GameObject:
   m_ObjectHideFlags: 0
@@ -6564,10 +6646,10 @@ MonoBehaviour:
   hideAfterCompletedQuestIDs: 0e000000
   requireAllHideQuests: 0
   unlockMode: 0
-  primaryExistingObject: {fileID: 1885831307}
+  primaryExistingObject: {fileID: 0}
   additionalExistingObjects: []
   disableExistingObjectsAtStart: 1
-  npcPrefab: {fileID: 0}
+  npcPrefab: {fileID: 1001156043}
   spawnPoint: {fileID: 799706187}
   checkInterval: 0.25
 --- !u!1 &1382006359
@@ -6614,7 +6696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635e94dce0da0cf4aa9a2f0dfa06f857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCSpawner
-  requiredCompletedQuestIDs: 0d000000
+  requiredCompletedQuestIDs: 0e000000
   requiredQuestState: 1
   requireAll: 1
   hideAfterQuestCompleted: 0
@@ -6732,7 +6814,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: dabe766d3c280a34d99899c2ef0d8b9e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1270565567}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dabe766d3c280a34d99899c2ef0d8b9e, type: 3}
       insertIndex: -1
@@ -6760,7 +6845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 1
   completeQuestImmediately: 0
-  destination: {fileID: 0}
+  destination: {fileID: 1270565567}
   allowOnlyOneInteraction: 1
 --- !u!114 &1413864911
 MonoBehaviour:
@@ -6824,7 +6909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635e94dce0da0cf4aa9a2f0dfa06f857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestNPCSpawner
-  requiredCompletedQuestIDs: 04000000
+  requiredCompletedQuestIDs: 06000000
   requiredQuestState: 1
   requireAll: 1
   hideAfterQuestCompleted: 0
@@ -6911,7 +6996,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3411d58c2be5b694dbedac927143dc36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1008911573}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3411d58c2be5b694dbedac927143dc36, type: 3}
       insertIndex: -1
@@ -8375,6 +8463,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 130bafe26aaf72945864fb90d52c9bd0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 468796025}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 130bafe26aaf72945864fb90d52c9bd0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2013035598}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 130bafe26aaf72945864fb90d52c9bd0, type: 3}
       insertIndex: -1
@@ -8420,7 +8511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 12
   completeQuestImmediately: 0
-  destination: {fileID: 0}
+  destination: {fileID: 2013035598}
   allowOnlyOneInteraction: 1
 --- !u!1 &1620678047
 GameObject:
@@ -8591,6 +8682,37 @@ Transform:
   m_Children:
   - {fileID: 1032672200}
   m_Father: {fileID: 302417654}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1658515740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1658515741}
+  m_Layer: 0
+  m_Name: TPDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1658515741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658515740}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2030003172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1686624762 stripped
 GameObject:
@@ -9299,7 +9421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: affcf49f7928aac40a3b54fe95687b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuestDialogueAreaTrigger
-  dialogue: {fileID: 11400000, guid: 368686458bff77c4faa8fc24d49af3bc, type: 2}
+  dialogue: {fileID: 11400000, guid: 9436084cdfabf3645b30cff9047f595b, type: 2}
   playerPoint: {fileID: 1636841018}
   cameraPoint: {fileID: 1111557236}
   currentSpeakerEmotionController: {fileID: 0}
@@ -9349,22 +9471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecbc91c934bafc49b4ba36265529fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SequenceQuestChecker
-  questID: 11
+  questID: 9
   correctSequence: 0100000002000000030000000400000005000000
---- !u!114 &1880457902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1880457899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 397a1b02974b8ea4eae5e96429a7117f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCInteraction
-  playerCamera: {fileID: 1423829931}
-  interactDistance: 3
 --- !u!114 &1880457903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9511,6 +9619,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 130bafe26aaf72945864fb90d52c9bd0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1820225595}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 130bafe26aaf72945864fb90d52c9bd0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1994713064}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 130bafe26aaf72945864fb90d52c9bd0, type: 3}
       insertIndex: -1
@@ -9538,7 +9649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 11
   completeQuestImmediately: 0
-  destination: {fileID: 0}
+  destination: {fileID: 1994713064}
   allowOnlyOneInteraction: 1
 --- !u!114 &1882846569
 MonoBehaviour:
@@ -9660,31 +9771,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractionQuestGate
   requiredCompletedQuestIDs: 
---- !u!114 &1917928609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917928607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 635e94dce0da0cf4aa9a2f0dfa06f857, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QuestNPCSpawner
-  requiredCompletedQuestIDs: 0b0000000c000000
-  requiredQuestState: 1
-  requireAll: 0
-  hideAfterQuestCompleted: 0
-  hideAfterCompletedQuestIDs: 
-  requireAllHideQuests: 1
-  unlockMode: 0
-  primaryExistingObject: {fileID: 0}
-  additionalExistingObjects: []
-  disableExistingObjectsAtStart: 1
-  npcPrefab: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  checkInterval: 0.25
 --- !u!1001 &1928864808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9789,7 +9875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 1
   completeQuestImmediately: 0
-  destination: {fileID: 0}
+  destination: {fileID: 264398643}
   allowOnlyOneInteraction: 1
 --- !u!114 &1942489652
 MonoBehaviour:
@@ -9898,10 +9984,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fc89ce01f02d6574d8fdc2de20544657, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 649932014}
+      addedObject: {fileID: 649932013}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fc89ce01f02d6574d8fdc2de20544657, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 649932013}
+      addedObject: {fileID: 649932014}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fc89ce01f02d6574d8fdc2de20544657, type: 3}
       insertIndex: -1
       addedObject: {fileID: 649932016}
@@ -10007,6 +10093,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 130bafe26aaf72945864fb90d52c9bd0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1795104090}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 130bafe26aaf72945864fb90d52c9bd0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1658515741}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 130bafe26aaf72945864fb90d52c9bd0, type: 3}
       insertIndex: -1
@@ -10092,105 +10181,86 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 296900797}
     m_Modifications:
-    - target: {fileID: 542480093008461807, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
+    - target: {fileID: 8465129632944068185, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.58
+      value: 9.34
       objectReference: {fileID: 0}
-    - target: {fileID: 542480093008461807, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
+    - target: {fileID: 8465129632944068185, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.00002
       objectReference: {fileID: 0}
-    - target: {fileID: 542480093008461807, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
+    - target: {fileID: 8465129632944068185, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.18421936
+      value: 0.14
       objectReference: {fileID: 0}
-    - target: {fileID: 542480093008461807, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
+    - target: {fileID: 8465129632944068185, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 542480093008461807, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
+    - target: {fileID: 8465129632944068185, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 542480093008461807, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
+    - target: {fileID: 8465129632944068185, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 542480093008461807, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
+    - target: {fileID: 8465129632944068185, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 542480093008461807, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
+    - target: {fileID: 8465129632944068185, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 542480093008461807, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
+    - target: {fileID: 8465129632944068185, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 542480093008461807, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
+    - target: {fileID: 8465129632944068185, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1184064705823720971, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 3359559372231027817}
-    - target: {fileID: 1377240732483719024, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
+    - target: {fileID: 4219313134878657950, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: m_Name
-      value: CameraPointDH
-      objectReference: {fileID: 0}
-    - target: {fileID: 1623125684792443069, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
-      propertyPath: emotionController
-      value: 
-      objectReference: {fileID: 564019568}
-    - target: {fileID: 1623125684792443069, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
-      propertyPath: quests.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1623125684792443069, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
-      propertyPath: quests.Array.data[0].questID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1623125684792443069, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
-      propertyPath: quests.Array.data[0].startDialogue
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1646804819929402823, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 3359559372231027817}
-    - target: {fileID: 1967222664453455542, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
-      propertyPath: m_Name
-      value: NPCDialogHelpObject
-      objectReference: {fileID: 0}
-    - target: {fileID: 3975054684000894262, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
-      propertyPath: m_Name
-      value: PlayerPointDH
-      objectReference: {fileID: 0}
-    - target: {fileID: 4690857127425113881, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4690857127425113881, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4979189074831825358, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
-      propertyPath: m_Name
-      value: NPC DH
+      value: NPCTestObject
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1717986086342825004, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 564019567}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1967222664453455542, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1104100531}
-  m_SourcePrefab: {fileID: 100100000, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
+--- !u!1 &1994713063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1994713064}
+  m_Layer: 0
+  m_Name: TPDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1994713064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994713063}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1882846565}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2007764398
 GameObject:
   m_ObjectHideFlags: 0
@@ -10230,11 +10300,6 @@ Transform:
   - {fileID: 1057019563}
   m_Father: {fileID: 1185974135}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2007966475 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1717986086342825004, guid: a10b62ce4699f67429fe2ab259ef086a, type: 3}
-  m_PrefabInstance: {fileID: 1990243160}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2011844656
 GameObject:
   m_ObjectHideFlags: 0
@@ -10265,6 +10330,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1470166380}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2013035597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2013035598}
+  m_Layer: 0
+  m_Name: TPDestination
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2013035598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013035597}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1617005825}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2015777770
 GameObject:
@@ -10371,7 +10467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 12
   completeQuestImmediately: 0
-  destination: {fileID: 0}
+  destination: {fileID: 1658515741}
   allowOnlyOneInteraction: 1
 --- !u!4 &2030003172 stripped
 Transform:
@@ -10454,7 +10550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 2
   completeQuestImmediately: 0
-  destination: {fileID: 0}
+  destination: {fileID: 1004452102}
   allowOnlyOneInteraction: 1
 --- !u!114 &2066516574
 MonoBehaviour:
@@ -10563,7 +10659,10 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3e80599ffa4ba8541a9c6185bc3adc69, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 674520ced0317f14e988df89f8749cec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 127243312}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 674520ced0317f14e988df89f8749cec, type: 3}
       insertIndex: -1
@@ -10765,7 +10864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuestInteractObject
   questID: 3
   completeQuestImmediately: 0
-  destination: {fileID: 0}
+  destination: {fileID: 127243312}
   allowOnlyOneInteraction: 1
 --- !u!114 &2139326545
 MonoBehaviour:
@@ -11023,7 +11122,7 @@ PrefabInstance:
       objectReference: {fileID: 3359559372231027817}
     - target: {fileID: 8465129632944068185, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.50778
+      value: -27.78
       objectReference: {fileID: 0}
     - target: {fileID: 8465129632944068185, guid: 823edbd4fe24d7441a576880168b8bc2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11959,9 +12058,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6204510906655589236, guid: 9c9ca0aaab3597c47b697c849f4e836b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1917928608}
-    - targetCorrespondingSourceObject: {fileID: 6204510906655589236, guid: 9c9ca0aaab3597c47b697c849f4e836b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1917928609}
     - targetCorrespondingSourceObject: {fileID: 7058095073381105339, guid: 9c9ca0aaab3597c47b697c849f4e836b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1947618183}
@@ -12848,6 +12944,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 2007764399}
     m_Modifications:
     - target: {fileID: 484345896600440912, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
+      propertyPath: cameraPoint
+      value: 
+      objectReference: {fileID: 671716421}
+    - target: {fileID: 484345896600440912, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
+      propertyPath: playerPoint
+      value: 
+      objectReference: {fileID: 162895344}
+    - target: {fileID: 484345896600440912, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
       propertyPath: emotionController
       value: 
       objectReference: {fileID: 1477238937}
@@ -12927,6 +13031,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 3359559372231027817}
+    - target: {fileID: 8709759162523565294, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
+      propertyPath: m_Name
+      value: NPC Tina VC
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1915143234156728492, guid: 6db778598fc323a4bae50c2e8a64e4b9, type: 3}
     m_RemovedGameObjects: []

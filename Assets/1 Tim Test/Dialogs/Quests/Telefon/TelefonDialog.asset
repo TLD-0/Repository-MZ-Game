@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
   - dialogueText: "Welche Nummer m\xF6chtest du als erstes eingeben?"
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: 1
@@ -25,6 +27,9 @@ MonoBehaviour:
       sequenceValue: 1
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 2
       nextNode: 1
       questsToStart: []
@@ -34,6 +39,9 @@ MonoBehaviour:
       sequenceValue: 2
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 3
       nextNode: 1
       questsToStart: []
@@ -43,6 +51,9 @@ MonoBehaviour:
       sequenceValue: 3
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 4
       nextNode: 1
       questsToStart: []
@@ -52,6 +63,9 @@ MonoBehaviour:
       sequenceValue: 4
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 5
       nextNode: 1
       questsToStart: []
@@ -61,6 +75,9 @@ MonoBehaviour:
       sequenceValue: 5
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 6
       nextNode: 1
       questsToStart: []
@@ -70,6 +87,9 @@ MonoBehaviour:
       sequenceValue: 6
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 7
       nextNode: 1
       questsToStart: []
@@ -79,6 +99,9 @@ MonoBehaviour:
       sequenceValue: 7
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 8
       nextNode: 1
       questsToStart: []
@@ -88,6 +111,9 @@ MonoBehaviour:
       sequenceValue: 8
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 9
       nextNode: 1
       questsToStart: []
@@ -97,7 +123,12 @@ MonoBehaviour:
       sequenceValue: 9
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Welche Nummer m\xF6chtest du als zweites eingeben?"
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: 1
@@ -109,6 +140,9 @@ MonoBehaviour:
       sequenceValue: 1
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 2
       nextNode: 2
       questsToStart: []
@@ -118,6 +152,9 @@ MonoBehaviour:
       sequenceValue: 2
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 3
       nextNode: 2
       questsToStart: []
@@ -127,6 +164,9 @@ MonoBehaviour:
       sequenceValue: 3
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 4
       nextNode: 2
       questsToStart: []
@@ -136,6 +176,9 @@ MonoBehaviour:
       sequenceValue: 4
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 5
       nextNode: 2
       questsToStart: []
@@ -145,6 +188,9 @@ MonoBehaviour:
       sequenceValue: 5
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 6
       nextNode: 2
       questsToStart: []
@@ -154,6 +200,9 @@ MonoBehaviour:
       sequenceValue: 6
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 7
       nextNode: 2
       questsToStart: []
@@ -163,6 +212,9 @@ MonoBehaviour:
       sequenceValue: 7
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 8
       nextNode: 2
       questsToStart: []
@@ -172,6 +224,9 @@ MonoBehaviour:
       sequenceValue: 8
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 9
       nextNode: 2
       questsToStart: []
@@ -181,7 +236,12 @@ MonoBehaviour:
       sequenceValue: 9
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Welche Nummer m\xF6chtest du als drittes eingeben?"
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: 1
@@ -193,6 +253,9 @@ MonoBehaviour:
       sequenceValue: 1
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 2
       nextNode: 3
       questsToStart: []
@@ -202,6 +265,9 @@ MonoBehaviour:
       sequenceValue: 2
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 3
       nextNode: 3
       questsToStart: []
@@ -211,6 +277,9 @@ MonoBehaviour:
       sequenceValue: 3
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 4
       nextNode: 3
       questsToStart: []
@@ -220,6 +289,9 @@ MonoBehaviour:
       sequenceValue: 4
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 5
       nextNode: 3
       questsToStart: []
@@ -229,6 +301,9 @@ MonoBehaviour:
       sequenceValue: 5
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 6
       nextNode: 3
       questsToStart: []
@@ -238,6 +313,9 @@ MonoBehaviour:
       sequenceValue: 6
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 7
       nextNode: 3
       questsToStart: []
@@ -247,6 +325,9 @@ MonoBehaviour:
       sequenceValue: 7
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 8
       nextNode: 3
       questsToStart: []
@@ -256,6 +337,9 @@ MonoBehaviour:
       sequenceValue: 8
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 9
       nextNode: 3
       questsToStart: []
@@ -265,7 +349,12 @@ MonoBehaviour:
       sequenceValue: 9
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Welche Nummer m\xF6chtest du als viertes eingeben?"
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: 1
@@ -277,6 +366,9 @@ MonoBehaviour:
       sequenceValue: 1
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 2
       nextNode: 4
       questsToStart: []
@@ -286,6 +378,9 @@ MonoBehaviour:
       sequenceValue: 2
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 3
       nextNode: 4
       questsToStart: []
@@ -295,6 +390,9 @@ MonoBehaviour:
       sequenceValue: 3
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 4
       nextNode: 4
       questsToStart: []
@@ -304,6 +402,9 @@ MonoBehaviour:
       sequenceValue: 4
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 5
       nextNode: 4
       questsToStart: []
@@ -313,24 +414,33 @@ MonoBehaviour:
       sequenceValue: 5
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 6
       nextNode: 4
       questsToStart: []
-      skipsQuest: 1
-      questIDToSkip: 6
-      addsSequenceValue: 0
-      sequenceValue: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 1
+      sequenceValue: 6
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 7
       nextNode: 4
       questsToStart: []
-      skipsQuest: 1
-      questIDToSkip: 7
-      addsSequenceValue: 0
-      sequenceValue: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 1
+      sequenceValue: 7
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 8
       nextNode: 4
       questsToStart: []
@@ -340,6 +450,9 @@ MonoBehaviour:
       sequenceValue: 8
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 9
       nextNode: 4
       questsToStart: []
@@ -349,7 +462,12 @@ MonoBehaviour:
       sequenceValue: 9
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
   - dialogueText: "Welche Nummer m\xF6chtest du als f\xFCnftes eingeben?"
+    changePlayerEmotion: 0
+    playerEmotion: 0
     emotionChanges: []
     choices:
     - answerText: 1
@@ -361,6 +479,9 @@ MonoBehaviour:
       sequenceValue: 1
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 2
       nextNode: -1
       questsToStart: []
@@ -370,15 +491,21 @@ MonoBehaviour:
       sequenceValue: 2
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 3
       nextNode: -1
       questsToStart: []
-      skipsQuest: 1
-      questIDToSkip: 3
-      addsSequenceValue: 0
-      sequenceValue: 0
+      skipsQuest: 0
+      questIDToSkip: 0
+      addsSequenceValue: 1
+      sequenceValue: 3
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 4
       nextNode: -1
       questsToStart: []
@@ -388,6 +515,9 @@ MonoBehaviour:
       sequenceValue: 4
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 5
       nextNode: -1
       questsToStart: []
@@ -397,24 +527,33 @@ MonoBehaviour:
       sequenceValue: 5
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 6
       nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 1
-      sequenceValue: 5
+      sequenceValue: 6
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 7
       nextNode: -1
       questsToStart: []
       skipsQuest: 0
       questIDToSkip: 0
       addsSequenceValue: 1
-      sequenceValue: 5
+      sequenceValue: 7
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 8
       nextNode: -1
       questsToStart: []
@@ -424,6 +563,9 @@ MonoBehaviour:
       sequenceValue: 8
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
     - answerText: 9
       nextNode: -1
       questsToStart: []
@@ -433,3 +575,6 @@ MonoBehaviour:
       sequenceValue: 9
       checksSequence: 0
       sequenceChecker: {fileID: 0}
+      moodValueChange: 0
+      teleportPlayer: 0
+      teleportDestination: {fileID: 0}
